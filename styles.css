@@ -1,67 +1,98 @@
-/* Custom animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+/* ============================================== */
+/* ==      THÈME TECHNOLOGIQUE & PROFESSIONNEL     == */
+/* ============================================== */
+
+/* -- Définition des variables de couleur et de la police -- */
+:root {
+  --bg-color: #0a192f; /* Bleu nuit très sombre */
+  --surface-color: #172a45; /* Bleu un peu plus clair pour les cartes */
+  --accent-color: #64ffda; /* Cyan/menthe vif pour l'accentuation */
+  --accent-color-hover: rgba(100, 255, 218, 0.1); /* Aura pour le survol */
+  --text-color: #ccd6f6; /* Gris clair pour le texte principal */
+  --text-color-darker: #8892b0; /* Gris plus sombre pour les sous-textes */
 }
 
-@keyframes slideIn {
-  from { transform: translateX(-100%); }
-  to { transform: translateX(0); }
-}
-
-.animate-fade-in {
-  animation: fadeIn 1s ease-out;
-}
-
-.animate-slide-in {
-  animation: slideIn 1s ease-out;
-}
-
-/* Smooth scrolling */
+/* -- Styles globaux et typographie -- */
 html {
   scroll-behavior: smooth;
 }
 
-/* Set Times New Roman as default font */
 body {
-  font-family: "Times New Roman", Times, serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: "Times New Roman", Times, serif; /* Police demandée */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Project card hover effect */
-.project-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-}
-
-/* Filter buttons */
-.filter-btn {
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.filter-btn.active {
-  background-color: #1e40af;
-  color: white;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    space-y-4;
+/* -- Animations personnalisées -- */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
 
-/* Profile photo styles */
-.profile-photo {
-  border-radius: 50%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
+.animate-slide-in {
+  animation: slideInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
-.profile-photo:hover {
-  transform: scale(1.05);
+/* -- Effet de survol pour les cartes de projet -- */
+.project-card {
+  background-color: var(--surface-color);
+  border-radius: 4px; /* Bords légèrement arrondis pour un look net */
+  border: 1px solid transparent; /* Bordure transparente par défaut */
+  padding: 1.5rem;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px); /* Déplacement plus prononcé */
+  border-color: var(--accent-color); /* La bordure apparaît au survol */
+  box-shadow: 0 0 20px var(--accent-color-hover); /* Effet de "lueur" (glow) */
+}
+
+/* -- Boutons de filtre -- */
+.filter-btn {
+  background-color: transparent;
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: "Courier New", Courier, monospace; /* Police mono pour les boutons, look plus "code" */
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.filter-btn:hover {
+  background-color: var(--accent-color-hover);
+}
+
+.filter-btn.active {
+  background-color: var(--accent-color);
+  color: var(
+    --bg-color
+  ); /* Texte sombre sur fond clair pour un contraste fort */
+  font-weight: bold;
+}
+
+/* -- Ajustements pour les écrans plus petits (Responsive) -- */
+@media (max-width: 768px) {
+  nav ul {
+    display: flex; /* S'assurer que flex est activé */
+    flex-direction: column;
+    align-items: center; /* Centrer les éléments de navigation */
+    width: 100%;
+    gap: 1.5rem; /* Espacement moderne entre les liens */
+  }
+
+  /* Pour éviter la confusion avec la classe "space-y-4" de Tailwind */
+  nav ul > * + * {
+    margin-top: 0;
+  }
 }
