@@ -20,17 +20,17 @@ html {
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
-  font-family: 'Times New Roman', Times, serif; /* Police principale appliquée ici */
+  font-family: 'Times New Roman', Times, serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: white; /* Titres plus clairs */
+  color: white;
 }
 
 p {
-  color: var(--text-color); /* Couleur standard pour les paragraphes */
+  color: var(--text-color);
 }
 
 a {
@@ -40,12 +40,16 @@ a {
 }
 
 a:hover {
-  filter: brightness(1.2); /* Éclaircit légèrement le lien au survol */
+  filter: brightness(1.2);
+}
+
+main {
+    padding-top: 80px; /* Empêche le contenu d'être caché sous la nav fixe */
 }
 
 /* -- 3. Sections et Navigation -- */
 nav {
-  background-color: rgba(10, 25, 47, 0.85); /* Fond de la navigation semi-transparent */
+  background-color: rgba(10, 25, 47, 0.85);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--surface-color);
 }
@@ -54,6 +58,12 @@ nav a {
 }
 nav a:hover {
   color: var(--accent-color);
+}
+
+/* NOUVEAU : Style pour le lien actif dans la navigation */
+nav a.active-link {
+  color: var(--accent-color);
+  font-weight: bold;
 }
 
 /* Couleurs de fond pour chaque section */
@@ -65,7 +75,6 @@ footer {
   color: var(--text-color-darker);
 }
 
-/* Photo de profil */
 #home img {
   border: 4px solid var(--accent-color);
   box-shadow: 0 0 20px var(--accent-color-hover);
@@ -82,8 +91,6 @@ footer {
 }
 
 /* -- 5. Boutons -- */
-
-/* Bouton principal (Call To Action) */
 .cta-btn {
   display: inline-block;
   background-color: var(--accent-color);
@@ -100,7 +107,6 @@ footer {
   filter: brightness(1.1);
 }
 
-/* Boutons de filtre de projets */
 .filter-btn {
   background-color: transparent;
   border: 1px solid var(--accent-color);
@@ -148,6 +154,6 @@ footer {
 /* -- 7. Responsive -- */
 @media (max-width: 768px) {
   nav ul {
-    display: none; /* Cache le menu sur mobile (à remplacer par un menu burger si besoin) */
+    display: none;
   }
 }
