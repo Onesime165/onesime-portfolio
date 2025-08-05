@@ -10,331 +10,144 @@
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body class="bg-gray-900 font-sans text-white">
-    <!-- Navigation -->
-    <nav class="bg-gray-800 shadow-lg fixed w-full z-10">
-      <div
-        class="container mx-auto px-4 py-4 flex justify-between items-center"
-      >
-        <h1 class="text-2xl font-bold text-blue-400">
-          Portfolio Data Analyst - Onesime N'Dri
+  
+  <body>
+    <nav class="fixed w-full z-10">
+      <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <h1 class="text-xl md:text-2xl font-bold">
+          Onesime N'Dri
         </h1>
-        <ul class="flex space-x-6">
-          <li>
-            <a href="#home" class="text-gray-300 hover:text-blue-400"
-              >Accueil</a
-            >
-          </li>
-          <li>
-            <a href="#projects" class="text-gray-300 hover:text-blue-400"
-              >Projets</a
-            >
-          </li>
-          <li>
-            <a href="#about" class="text-gray-300 hover:text-blue-400"
-              >À propos</a
-            >
-          </li>
-          <li>
-            <a href="#contact" class="text-gray-300 hover:text-blue-400"
-              >Contact</a
-            >
-          </li>
+        <ul class="hidden md:flex space-x-6">
+          <li><a href="#home">Accueil</a></li>
+          <li><a href="#projects">Projets</a></li>
+          <li><a href="#about">À propos</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section
-      id="home"
-      class="min-h-screen flex items-center justify-center bg-gradient-to-r from-gray-900 to-blue-900 text-white"
-    >
+    <section id="home" class="min-h-screen flex items-center justify-center">
       <div class="container mx-auto px-4 text-center">
         <img
           src="assets/profile-photo.jpg"
           alt="Onesime N'Dri"
-          class="w-48 h-48 rounded-full mx-auto mb-4 border-4 border-blue-400 shadow-lg"
+          class="w-48 h-48 rounded-full mx-auto mb-4"
         />
-        <h1 class="text-5xl font-bold mb-4 animate-fade-in">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 animate-slide-in">
           N'Dri Abo Onesime Ablatie
         </h1>
         <p class="text-xl mb-6">
           Data Analyst | Spécialiste en Visualisation et Analyse de Données
         </p>
-        <a
-          href="#projects"
-          class="bg-blue-700 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-600 transition"
-          >Voir mes projets</a
-        >
+        <a href="#projects" class="cta-btn">Voir mes projets</a>
       </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-16 bg-gray-800">
+    <section id="projects" class="py-16">
       <div class="container mx-auto px-4">
-        <h2 class="text-3xl font-bold text-center mb-8 text-white">
-          Mes Projets
-        </h2>
-        <div class="flex justify-center mb-6">
-          <button
-            class="filter-btn bg-blue-700 text-white px-4 py-2 rounded mx-2"
-            data-type="all"
-          >
-            Tous
-          </button>
-          <button
-            class="filter-btn bg-gray-600 text-gray-200 px-4 py-2 rounded mx-2"
-            data-type="pdf"
-          >
-            PDF
-          </button>
-          <button
-            class="filter-btn bg-gray-600 text-gray-200 px-4 py-2 rounded mx-2"
-            data-type="streamlit"
-          >
-            Streamlit
-          </button>
-          <button
-            class="filter-btn bg-gray-600 text-gray-200 px-4 py-2 rounded mx-2"
-            data-type="other"
-          >
-            Autres
-          </button>
+        <h2 class="text-3xl font-bold text-center mb-8">Mes Projets</h2>
+        <div class="flex justify-center flex-wrap gap-2 mb-6">
+          <button class="filter-btn active" data-type="all">Tous</button>
+          <button class="filter-btn" data-type="pdf">PDF</button>
+          <button class="filter-btn" data-type="streamlit">Streamlit</button>
+          <button class="filter-btn" data-type="other">Autres</button>
         </div>
-        <div
-          id="projects-container"
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          <!-- Projet PDF -->
-          <div
-            class="project-card bg-gray-700 p-6 rounded-lg shadow-lg"
-            data-type="pdf"
-          >
-            <h3 class="text-xl font-semibold mb-2 text-white">
-              📚 Projet Économétrie Quantitative
-            </h3>
-            <p class="text-gray-300 mb-4">
-              Analyse des variables influençant le délai de livraison avec
-              régression multiple et ANOVA (2024-2025).
-            </p>
-            <a
-              href="projects/pdfs/ECONOMETRIE-Quanti.pdf"
-              target="_blank"
-              class="text-blue-400 hover:underline"
-              >Voir le PDF</a
-            >
+        <div id="projects-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <div class="project-card" data-type="pdf">
+            <h3 class="text-xl font-semibold mb-2">📚 Projet Économétrie Quantitative</h3>
+            <p class="mb-4">Analyse des variables influençant le délai de livraison avec régression multiple et ANOVA (2024-2025).</p>
+            <a href="projects/pdfs/ECONOMETRIE-Quanti.pdf" target="_blank">Voir le PDF</a>
           </div>
-          <div
-            class="project-card bg-gray-700 p-6 rounded-lg shadow-lg"
-            data-type="pdf"
-          >
-            <h3 class="text-xl font-semibold mb-2 text-white">
-              🌍 Projet Économétrie Qualitative
-            </h3>
-            <p class="text-gray-300 mb-4">
-              ETUDE DES VARIABLES INFLUENCANT LE RISQUE D’ACCIDENT A L’AIDE DE
-              METHODES ECONOMETRIQUE.
-            </p>
-            <a
-              href="projects/pdfs/Econometrie-Quali.pdf"
-              target="_blank"
-              class="text-blue-400 hover:underline"
-              >Voir le PDF</a
-            >
+
+          <div class="project-card" data-type="pdf">
+            <h3 class="text-xl font-semibold mb-2">🌍 Projet Économétrie Qualitative</h3>
+            <p class="mb-4">ETUDE DES VARIABLES INFLUENCANT LE RISQUE D’ACCIDENT A L’AIDE DE METHODES ECONOMETRIQUE.</p>
+            <a href="projects/pdfs/Econometrie-Quali.pdf" target="_blank">Voir le PDF</a>
           </div>
-          <div
-            class="project-card bg-gray-700 p-6 rounded-lg shadow-lg"
-            data-type="pdf"
-          >
-            <h3 class="text-xl font-semibold mb-2 text-white">
-              🚁 Projet Économétrie Serie Temporelle
-            </h3>
-            <p class="text-gray-300 mb-4">
-              PREVISION DES INDICES DE POLLUTION DE L’AIR POUR LES 30 PREMIERS
-              JOURS DE L’ANNEE 2015.
-            </p>
-            <a
-              href="projects/pdfs/Econometrie-serie_temp.pdf"
-              target="_blank"
-              class="text-blue-400 hover:underline"
-              >Voir le PDF</a
-            >
+          
+          <div class="project-card" data-type="pdf">
+            <h3 class="text-xl font-semibold mb-2">🚁 Projet Économétrie Serie Temporelle</h3>
+            <p class="mb-4">PREVISION DES INDICES DE POLLUTION DE L’AIR POUR LES 30 PREMIERS JOURS DE L’ANNEE 2015.</p>
+            <a href="projects/pdfs/Econometrie-serie_temp.pdf" target="_blank">Voir le PDF</a>
           </div>
-          <div
-            class="project-card bg-gray-700 p-6 rounded-lg shadow-lg"
-            data-type="pdf"
-          >
-            <h3 class="text-xl font-semibold mb-2 text-white">
-              📊 Statistique descriptive
-            </h3>
-            <p class="text-gray-300 mb-4">
-              ANALYSE DES FACTEURS SOCIO-ECONOMIQUES ET SANITAIRES POUR LA
-              CATEGORISATION DES PAYS AYANT BESOINS D’AIDE.
-            </p>
-            <a
-              href="projects/pdfs/mini-projet-HELP_international_n'dri_onesime.pdf"
-              target="_blank"
-              class="text-blue-400 hover:underline"
-              >Voir le PDF</a
-            >
+
+          <div class="project-card" data-type="pdf">
+            <h3 class="text-xl font-semibold mb-2">📊 Statistique descriptive</h3>
+            <p class="mb-4">ANALYSE DES FACTEURS SOCIO-ECONOMIQUES ET SANITAIRES POUR LA CATEGORISATION DES PAYS AYANT BESOINS D’AIDE.</p>
+            <a href="projects/pdfs/mini-projet-HELP_international_n'dri_onesime.pdf" target="_blank">Voir le PDF</a>
           </div>
-          <div
-            class="project-card bg-gray-700 p-6 rounded-lg shadow-lg"
-            data-type="pdf"
-          >
-            <h3 class="text-xl font-semibold mb-2 text-white">
-              🚀 Statistique inferentiel
-            </h3>
-            <p class="text-gray-300 mb-4">
-              ETUDE DES FACTEURS INFLUENCANT LA DEPRESSION CHEZ LES ETUDANTS A
-              L’AIDE DE METHODES STATISTIQUES.
-            </p>
-            <a
-              href="projects/pdfs/statistique inferentiel.pdf"
-              target="_blank"
-              class="text-blue-400 hover:underline"
-              >Voir le PDF</a
-            >
+
+          <div class="project-card" data-type="pdf">
+            <h3 class="text-xl font-semibold mb-2">🚀 Statistique inferentiel</h3>
+            <p class="mb-4">ETUDE DES FACTEURS INFLUENCANT LA DEPRESSION CHEZ LES ETUDANTS A L’AIDE DE METHODES STATISTIQUES.</p>
+            <a href="projects/pdfs/statistique inferentiel.pdf" target="_blank">Voir le PDF</a>
           </div>
-          <div
-            class="project-card bg-gray-700 p-6 rounded-lg shadow-lg"
-            data-type="pdf"
-          >
-            <h3 class="text-xl font-semibold mb-2 text-white">
-              ⚓ mini-projet-serie-temporelle hot winter
-            </h3>
-            <p class="text-gray-300 mb-4">
-              RAPPORT STATISTIQUES POUR COPORACION FAVORITA.
-            </p>
-            <a
-              href="projects/pdfs/mini-projet-serie-temporelle.pdf"
-              target="_blank"
-              class="text-blue-400 hover:underline"
-              >Voir le PDF</a
-            >
+          
+          <div class="project-card" data-type="pdf">
+            <h3 class="text-xl font-semibold mb-2">⚓ mini-projet-serie-temporelle hot winter</h3>
+            <p class="mb-4">RAPPORT STATISTIQUES POUR COPORACION FAVORITA.</p>
+            <a href="projects/pdfs/mini-projet-serie-temporelle.pdf" target="_blank">Voir le PDF</a>
           </div>
-          <div
-            class="project-card bg-gray-700 p-6 rounded-lg shadow-lg"
-            data-type="pdf"
-          >
-            <h3 class="text-xl font-semibold mb-2 text-white">
-              ⭐ Projet-ACP-ACM
-            </h3>
-            <p class="text-gray-300 mb-4">
-              ANALYSE DES COMPORTEMENTS ET PRÉFÉRENCES POUR L'OPTIMISATION DES
-              RESSOURCES.
-            </p>
-            <a
-              href="projects/pdfs/Projet-ACP-ACM.pdf"
-              target="_blank"
-              class="text-blue-400 hover:underline"
-              >Voir le PDF</a
-            >
+
+          <div class="project-card" data-type="pdf">
+            <h3 class="text-xl font-semibold mb-2">⭐ Projet-ACP-ACM</h3>
+            <p class="mb-4">ANALYSE DES COMPORTEMENTS ET PRÉFÉRENCES POUR L'OPTIMISATION DES RESSOURCES.</p>
+            <a href="projects/pdfs/Projet-ACP-ACM.pdf" target="_blank">Voir le PDF</a>
           </div>
-          <!-- Exemple de projet Streamlit -->
-          <div
-            class="project-card bg-gray-700 p-6 rounded-lg shadow-lg"
-            data-type="streamlit"
-          >
-            <h3 class="text-xl font-semibold mb-2 text-white">
-              🤖 Streamlit logistique
-            </h3>
-            <p class="text-gray-300 mb-4">
-              Application Streamlit pour la régression logistique.
-            </p>
-            <a
-              href="https://regressionlogistique-app.streamlit.app/"
-              target="_blank"
-              class="text-blue-400 hover:underline"
-              >Ouvrir l'App</a
-            >
+
+          <div class="project-card" data-type="streamlit">
+            <h3 class="text-xl font-semibold mb-2">🤖 Streamlit logistique</h3>
+            <p class="mb-4">Application Streamlit pour la régression logistique.</p>
+            <a href="https://regressionlogistique-app.streamlit.app/" target="_blank">Ouvrir l'App</a>
           </div>
-          <div
-            class="project-card bg-gray-700 p-6 rounded-lg shadow-lg"
-            data-type="streamlit"
-          >
-            <h3 class="text-xl font-semibold mb-2 text-white">
-              🔭 Streamlit univariee
-            </h3>
-            <p class="text-gray-300 mb-4">
-              Application Streamlit pour la statistique univariée.
-            </p>
-            <a
-              href="https://analyseunivariee-onesime.streamlit.app/"
-              target="_blank"
-              class="text-blue-400 hover:underline"
-              >Ouvrir l'App</a
-            >
+          
+          <div class="project-card" data-type="streamlit">
+            <h3 class="text-xl font-semibold mb-2">🔭 Streamlit univariee</h3>
+            <p class="mb-4">Application Streamlit pour la statistique univariée.</p>
+            <a href="https://analyseunivariee-onesime.streamlit.app/" target="_blank">Ouvrir l'App</a>
           </div>
-          <div
-            class="project-card bg-gray-700 p-6 rounded-lg shadow-lg"
-            data-type="streamlit"
-          >
-            <h3 class="text-xl font-semibold mb-2 text-white">
-              👽 Streamlit test de liaison statistique
-            </h3>
-            <p class="text-gray-300 mb-4">
-              Application Streamlit pour les tests de liaison statistique.
-            </p>
-            <a
-              href="https://appliaison-onesime.streamlit.app/"
-              target="_blank"
-              class="text-blue-400 hover:underline"
-              >Ouvrir l'App</a
-            >
+          
+          <div class="project-card" data-type="streamlit">
+            <h3 class="text-xl font-semibold mb-2">👽 Streamlit test de liaison statistique</h3>
+            <p class="mb-4">Application Streamlit pour les tests de liaison statistique.</p>
+            <a href="https://appliaison-onesime.streamlit.app/" target="_blank">Ouvrir l'App</a>
           </div>
+
         </div>
       </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-16 bg-gray-900">
+    <section id="about" class="py-16">
       <div class="container mx-auto px-4 text-center">
-        <h2 class="text-3xl font-bold mb-8 text-white">À propos de moi</h2>
-        <p class="text-lg max-w-2xl mx-auto text-gray-300">
-          Je suis un data analyst passionné avec une expertise en Python, SQL,
-          et visualisation de données. J'ai réalisé de nombreux projets, allant
-          de rapports PDF détaillés à des applications interactives avec
-          Streamlit. Mon objectif est de transformer les données en insights
-          exploitables.
+        <h2 class="text-3xl font-bold mb-8">À propos de moi</h2>
+        <p class="text-lg max-w-2xl mx-auto">
+          Je suis un data analyst passionné avec une expertise en Python, SQL, et visualisation de données. J'ai réalisé de nombreux projets, allant de rapports PDF détaillés à des applications interactives avec Streamlit. Mon objectif est de transformer les données en insights exploitables.
         </p>
       </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-gray-800">
+    <section id="contact" class="py-16">
       <div class="container mx-auto px-4 text-center">
-        <h2 class="text-3xl font-bold mb-8 text-white">Contactez-moi</h2>
-        <p class="text-lg mb-4 text-gray-300">
-          Envoyez-moi un email à
-          <a
-            href="mailto:votre-email@exemple.com"
-            class="text-blue-400 hover:underline"
-            >ndriablatie123@gmail.com</a
-          >
+        <h2 class="text-3xl font-bold mb-8">Contactez-moi</h2>
+        <p class="text-lg mb-4">
+          Envoyez-moi un email à <a href="mailto:ndriablatie123@gmail.com">ndriablatie123@gmail.com</a>
         </p>
-        <p class="text-lg text-gray-300">
-          Ou connectez-vous avec moi sur
-          <a
-            href="https://www.linkedin.com/in/onesime-ndri-881b92323/"
-            target="_blank"
-            class="text-blue-400 hover:underline"
-            >LinkedIn</a
-          >
-          ou contacter par téléphone au +225 07-68-05-98-87 / +225
-          01-01-75-11-81
+        <p class="text-lg">
+          Ou connectez-vous avec moi sur <a href="https://www.linkedin.com/in/onesime-ndri-881b92323/" target="_blank">LinkedIn</a>
+        </p>
+         <p class="text-lg mt-4">
+          Téléphone : +225 07-68-05-98-87 / 01-01-75-11-81
         </p>
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-gray-300 py-6">
+    <footer class="py-6">
       <div class="container mx-auto px-4 text-center">
         <p>&copy; 2025 Onesime N'Dri. Tous droits réservés.</p>
       </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
