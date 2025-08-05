@@ -20,7 +20,7 @@ html {
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
-  font-family: "Times New Roman", Times, serif; /* Police demandée */
+  font-family: 'Times New Roman', Times, serif; /* Police demandée */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -64,7 +64,7 @@ body {
   padding: 0.75rem 1.5rem;
   border-radius: 4px;
   cursor: pointer;
-  font-family: "Courier New", Courier, monospace; /* Police mono pour les boutons, look plus "code" */
+  font-family: 'Courier New', Courier, monospace; /* Police mono pour les boutons, look plus "code" */
   font-size: 0.9rem;
   transition: background-color 0.2s ease-in-out;
 }
@@ -75,9 +75,7 @@ body {
 
 .filter-btn.active {
   background-color: var(--accent-color);
-  color: var(
-    --bg-color
-  ); /* Texte sombre sur fond clair pour un contraste fort */
+  color: var(--bg-color); /* Texte sombre sur fond clair pour un contraste fort */
   font-weight: bold;
 }
 
@@ -93,6 +91,6 @@ body {
 
   /* Pour éviter la confusion avec la classe "space-y-4" de Tailwind */
   nav ul > * + * {
-    margin-top: 0;
+    margin-top: 0; 
   }
 }
