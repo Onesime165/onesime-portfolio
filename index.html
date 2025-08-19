@@ -1,0 +1,1666 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Data Analyst - Onesime N'Dri</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+    />
+    <style>
+      /* ============================================== */
+      /* ==  THEME VARIABLES                        == */
+      /* ============================================== */
+
+      :root {
+        /* Light & Modern Theme (default) */
+        --primary-bg: #ffffff;
+        --secondary-bg: #f5f7fa;
+        --surface-glass: rgba(255, 255, 255, 0.5);
+        --surface-holo: rgba(240, 244, 248, 0.9);
+        --gradient-neon: linear-gradient(135deg, #00b4db 0%, #80d0c7 100%);
+        --gradient-accent: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+        --gradient-success: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+        --gradient-pulse: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        --accent-neon: #00b4db;
+        --accent-pink: #fbc2eb;
+        --accent-purple: #a18cd1;
+        --accent-cyan: #c2e9fb;
+        --text-primary: #1f2937;
+        --text-secondary: #4b5563;
+        --text-muted: #9ca3af;
+        --shadow-neon: 0 0 10px rgba(0, 180, 219, 0.4);
+        --shadow-holo: 0 4px 20px rgba(0, 0, 0, 0.08);
+        --shadow-glow: 0 0 40px rgba(161, 196, 253, 0.4);
+        --border-neon: 1px solid rgba(0, 180, 219, 0.3);
+        --transition-fast: 0.2s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+        --transition-smooth: 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+        --transition-slow: 0.6s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+        --particle-color: rgba(0, 180, 219, 0.3);
+        --mobile-menu-bg: rgba(255, 255, 255, 0.95);
+      }
+
+      /* Dark Theme (Technological & Innovative) */
+      [data-theme="dark"] {
+        --primary-bg: #0d0d1a;
+        --secondary-bg: #1a1a2e;
+        --surface-glass: rgba(30, 30, 50, 0.7);
+        --surface-holo: rgba(40, 40, 60, 0.9);
+        --gradient-neon: linear-gradient(135deg, #00ddeb 0%, #ff00ff 100%);
+        --gradient-accent: linear-gradient(135deg, #ff007a 0%, #ffbb00 100%);
+        --gradient-success: linear-gradient(135deg, #00ffcc 0%, #00ccff 100%);
+        --gradient-pulse: linear-gradient(135deg, #7b00ff 0%, #00ffea 100%);
+        --accent-neon: #00ddeb;
+        --accent-pink: #ff007a;
+        --accent-purple: #7b00ff;
+        --accent-cyan: #00ffcc;
+        --text-primary: #e6e6ff;
+        --text-secondary: #a0a0cc;
+        --text-muted: #666699;
+        --shadow-neon: 0 0 15px rgba(0, 221, 235, 0.5);
+        --shadow-holo: 0 0 30px rgba(123, 0, 255, 0.3);
+        --shadow-glow: 0 0 50px rgba(0, 255, 204, 0.4);
+        --border-neon: 1px solid rgba(0, 221, 235, 0.3);
+        --particle-color: rgba(0, 221, 235, 0.5);
+        --mobile-menu-bg: rgba(13, 13, 26, 0.9);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        font-size: 16px;
+      }
+
+      body {
+        font-family: "Times New Roman", Times, serif;
+        background: var(--primary-bg);
+        color: var(--text-primary);
+        line-height: 1.6;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        transition: background var(--transition-smooth), color var(--transition-smooth);
+      }
+
+      /* Fond dynamique */
+      #particle-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+        background: var(--primary-bg);
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="0" y="0" width="100" height="100" fill="none" stroke="var(--accent-neon)" stroke-width="0.5"/></svg>')
+          repeat;
+        opacity: 0.3;
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Times New Roman", Times, serif;
+        font-weight: 700;
+        line-height: 1.2;
+        letter-spacing: 0.02em;
+        color: var(--text-primary);
+      }
+
+      h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); }
+      h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
+      h3 { font-size: clamp(1.5rem, 3vw, 2.2rem); }
+
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        background: var(--surface-glass);
+        backdrop-filter: blur(15px) saturate(200%);
+        border-bottom: var(--border-neon);
+        transition: all var(--transition-smooth);
+      }
+
+      nav.scrolled {
+        background: var(--surface-holo);
+        box-shadow: var(--shadow-holo);
+      }
+
+      .nav-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-family: "Times New Roman", Times, serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        background: var(--gradient-neon);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 10px var(--accent-neon);
+      }
+
+      .nav-menu {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+      }
+
+      .nav-link {
+        font-family: "Times New Roman", Times, serif;
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        position: relative;
+        transition: all var(--transition-fast);
+        cursor: pointer;
+      }
+
+      .nav-link::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: var(--gradient-neon);
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform var(--transition-smooth);
+        z-index: -1;
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--text-primary);
+        text-shadow: 0 0 10px var(--accent-neon);
+        transform: translateY(-2px);
+      }
+
+      .nav-link:hover::before,
+      .nav-link.active::before {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+
+      .theme-toggle-btn {
+        background: none;
+        border: none;
+        color: var(--text-primary);
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        border-radius: 8px;
+        transition: all var(--transition-fast);
+      }
+
+      .theme-toggle-btn:hover {
+        background: rgba(0, 180, 219, 0.2);
+        box-shadow: 0 0 10px var(--accent-neon);
+      }
+
+      .page {
+        min-height: 100vh;
+        padding-top: 80px;
+        display: none;
+        animation: glitchIn 0.5s ease-in-out;
+      }
+
+      .page.active {
+        display: block;
+      }
+
+      @keyframes glitchIn {
+        0% { opacity: 0; transform: translateX(-10px); clip-path: polygon(0 0, 100% 0, 100% 20%, 0 20%); }
+        20% { clip-path: polygon(0 0, 100% 0, 100% 40%, 0 40%); }
+        40% { clip-path: polygon(0 0, 100% 0, 100% 60%, 0 60%); }
+        60% { clip-path: polygon(0 0, 100% 0, 100% 80%, 0 80%); }
+        80% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+        100% { opacity: 1; transform: translateX(0); clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+      }
+
+      .hero {
+        min-height: calc(100vh - 80px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        padding: 2rem 0;
+      }
+
+      .hero-content {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 2rem;
+        z-index: 2;
+        position: relative;
+      }
+
+      .hero-image {
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        margin: 0 auto 2rem;
+        position: relative;
+        overflow: hidden;
+        box-shadow: var(--shadow-glow);
+        animation: float 3s ease-in-out infinite;
+      }
+
+      .hero-image::before {
+        content: "";
+        position: absolute;
+        top: -4px;
+        left: -4px;
+        right: -4px;
+        bottom: -4px;
+        background: var(--gradient-neon);
+        border-radius: 50%;
+        z-index: -1;
+        animation: orbit 6s linear infinite;
+        filter: blur(2px);
+      }
+
+      @keyframes orbit {
+        0% { transform: rotate(0deg) scale(1); }
+        50% { transform: rotate(180deg) scale(1.05); }
+        100% { transform: rotate(360deg) scale(1); }
+      }
+
+      .hero-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 2px solid var(--accent-neon);
+      }
+
+      .hero-title {
+        margin-bottom: 1rem;
+        background: var(--gradient-neon);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 15px var(--accent-neon);
+        animation: pulseGlow 2s ease-in-out infinite alternate;
+      }
+
+      .hero-subtitle {
+        font-family: "Times New Roman", Times, serif;
+        font-size: 1.3rem;
+        color: var(--text-secondary);
+        margin-bottom: 2rem;
+        font-weight: 400;
+        overflow: hidden;
+        white-space: nowrap;
+        animation: typing 4s steps(60, end) 1s 1 normal both,
+          blink-caret 0.75s step-end infinite;
+      }
+
+      @keyframes typing {
+        from { width: 0; }
+        to { width: 100%; }
+      }
+
+      @keyframes blink-caret {
+        from, to { border-right: 2px solid var(--accent-neon); }
+        50% { border-right: 2px solid transparent; }
+      }
+
+      @keyframes pulseGlow {
+        0% { filter: brightness(1); }
+        100% { filter: brightness(1.3); }
+      }
+
+      @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 8px;
+        font-family: "Times New Roman", Times, serif;
+        font-weight: 600;
+        font-size: 1rem;
+        text-decoration: none;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        transition: all var(--transition-smooth);
+        z-index: 1;
+      }
+
+      .btn-primary {
+        background: var(--gradient-neon);
+        color: var(--text-primary);
+        box-shadow: var(--shadow-neon);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 0 25px var(--accent-neon);
+      }
+
+      .btn-primary::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        transition: left 0.5s;
+        z-index: -1;
+      }
+
+      .btn-primary:hover::after {
+        left: 100%;
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: var(--accent-neon);
+        border: 2px solid var(--accent-neon);
+        box-shadow: 0 0 10px var(--accent-neon);
+      }
+
+      .btn-secondary:hover {
+        background: var(--accent-neon);
+        color: var(--primary-bg);
+        transform: translateY(-2px);
+      }
+
+      .projects-grid, .certifications-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        padding: 2rem;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .project-card {
+        background: var(--surface-glass);
+        backdrop-filter: blur(12px);
+        border: var(--border-neon);
+        border-radius: 16px;
+        padding: 2rem;
+        position: relative;
+        overflow: hidden;
+        transition: all var(--transition-smooth);
+        cursor: pointer;
+        box-shadow: var(--shadow-holo);
+      }
+
+      .project-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          45deg,
+          transparent,
+          rgba(0, 221, 235, 0.1),
+          transparent
+        );
+        transform: translateX(-100%);
+        transition: transform 0.6s;
+        z-index: -1;
+      }
+
+      .project-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 0 40px var(--accent-neon);
+      }
+
+      .project-card:hover::before {
+        transform: translateX(100%);
+      }
+
+      .project-icon {
+        font-size: 2.8rem;
+        margin-bottom: 1rem;
+        background: var(--gradient-neon);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 10px var(--accent-neon);
+      }
+
+      .project-title {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+        color: var(--text-primary);
+        text-shadow: 0 0 5px var(--accent-purple);
+      }
+
+      .project-description {
+        color: var(--text-secondary);
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+      }
+
+      .project-link {
+        color: var(--accent-neon);
+        text-decoration: none;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all var(--transition-fast);
+      }
+
+      .project-link:hover {
+        transform: translateX(5px);
+        color: var(--accent-pink);
+        text-shadow: 0 0 10px var(--accent-pink);
+      }
+
+      .certification-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        display: block;
+      }
+
+      .certification-info {
+        text-align: left;
+      }
+
+      .certification-provider {
+        color: var(--text-secondary);
+        font-size: 1rem;
+        font-weight: 400;
+        margin-top: 0.5rem;
+      }
+
+      .filter-container {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 3rem;
+        flex-wrap: wrap;
+      }
+
+      .filter-btn {
+        padding: 0.75rem 1.5rem;
+        border: 2px solid var(--accent-neon);
+        background: transparent;
+        color: var(--text-secondary);
+        border-radius: 25px;
+        font-family: "Times New Roman", Times, serif;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all var(--transition-smooth);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .filter-btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--gradient-neon);
+        transform: translateX(-100%);
+        transition: transform var(--transition-smooth);
+        z-index: -1;
+      }
+
+      .filter-btn:hover,
+      .filter-btn.active {
+        color: var(--text-primary);
+        border-color: transparent;
+        box-shadow: 0 0 15px var(--accent-neon);
+      }
+
+      .filter-btn:hover::before,
+      .filter-btn.active::before {
+        transform: translateX(0);
+      }
+
+      .section {
+        padding: 4rem 2rem;
+        max-width: 1400px;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 3rem;
+        position: relative;
+        text-shadow: 0 0 10px var(--accent-purple);
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: var(--gradient-neon);
+        border-radius: 2px;
+        box-shadow: 0 0 10px var(--accent-neon);
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .skill-card {
+        background: var(--surface-glass);
+        backdrop-filter: blur(12px);
+        border: var(--border-neon);
+        border-radius: 16px;
+        padding: 2rem;
+        text-align: center;
+        transition: all var(--transition-smooth);
+        box-shadow: var(--shadow-holo);
+      }
+
+      .skill-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0 30px var(--accent-neon);
+      }
+
+      .skill-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        background: var(--gradient-success);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 10px var(--accent-cyan);
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .contact-card {
+        background: var(--surface-glass);
+        backdrop-filter: blur(12px);
+        border: var(--border-neon);
+        border-radius: 16px;
+        padding: 2rem;
+        text-align: center;
+        transition: all var(--transition-smooth);
+        position: relative;
+        overflow: hidden;
+        box-shadow: var(--shadow-holo);
+      }
+
+      .contact-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--gradient-accent);
+        box-shadow: 0 0 10px var(--accent-pink);
+      }
+
+      .contact-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0 30px var(--accent-pink);
+      }
+
+      .contact-icon {
+        font-size: 2.8rem;
+        margin-bottom: 1rem;
+        background: var(--gradient-accent);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 10px var(--accent-pink);
+      }
+
+      .cv-container {
+        background: var(--surface-glass);
+        backdrop-filter: blur(12px);
+        border: var(--border-neon);
+        border-radius: 20px;
+        padding: 2rem;
+        margin: 2rem auto;
+        max-width: 1000px;
+        position: relative;
+        box-shadow: var(--shadow-holo);
+      }
+
+      .cv-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          45deg,
+          transparent,
+          rgba(0, 221, 235, 0.05),
+          transparent
+        );
+        animation: scanline 3s linear infinite;
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      .cv-frame {
+        width: 100%;
+        height: 80vh;
+        border: none;
+        border-radius: 12px;
+        background: var(--secondary-bg);
+        position: relative;
+        z-index: 1;
+      }
+
+      @keyframes scanline {
+        0% { transform: translateY(-100%); }
+        100% { transform: translateY(100%); }
+      }
+
+      footer {
+        background: var(--secondary-bg);
+        padding: 3rem 2rem 2rem;
+        text-align: center;
+        border-top: var(--border-neon);
+        position: relative;
+      }
+
+      footer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M0,50 H20 a5,5 0 0 1 5,5 v20 a5,5 0 0 0 5,5 h40 a5,5 0 0 1 5,5 v15" fill="none" stroke="rgba(0,221,235,0.1)" stroke-width="1"/></svg>')
+          repeat;
+        opacity: 0.5;
+        z-index: -1;
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--text-primary);
+        font-size: 1.8rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        border-radius: 8px;
+        transition: all var(--transition-fast);
+      }
+
+      .mobile-menu-btn:hover {
+        background: rgba(0, 221, 235, 0.2);
+        box-shadow: 0 0 10px var(--accent-neon);
+      }
+
+      .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--mobile-menu-bg);
+        backdrop-filter: blur(10px);
+        z-index: 200;
+        opacity: 0;
+        visibility: hidden;
+        transition: all var(--transition-smooth);
+        transform: translateX(-100%);
+      }
+
+      .mobile-menu-overlay.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+      }
+
+      .mobile-menu-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 80%;
+        max-width: 400px;
+        height: 100%;
+        background: var(--surface-holo);
+        border-right: var(--border-neon);
+        padding: 3rem;
+        box-shadow: 0 0 30px var(--accent-neon);
+      }
+
+      .mobile-nav-link {
+        font-family: "Times New Roman", Times, serif;
+        display: block;
+        color: var(--text-secondary);
+        text-decoration: none;
+        padding: 1rem;
+        margin-bottom: 0.5rem;
+        border-radius: 8px;
+        text-align: left;
+        font-weight: 500;
+        transition: all var(--transition-smooth);
+      }
+
+      .mobile-nav-link:hover,
+      .mobile-nav-link.active {
+        background: var(--gradient-neon);
+        color: var(--text-primary);
+        box-shadow: 0 0 15px var(--accent-neon);
+      }
+
+      @media (max-width: 768px) {
+        .nav-menu {
+          display: none;
+        }
+
+        .mobile-menu-btn {
+          display: block;
+        }
+
+        .hero-content {
+          padding: 1rem;
+        }
+
+        .projects-grid, .certifications-grid {
+          grid-template-columns: 1fr;
+          padding: 1rem;
+        }
+
+        .section {
+          padding: 3rem 1rem;
+        }
+
+        .nav-container {
+          padding: 1rem;
+        }
+      }
+
+      @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .animate-fade-in {
+        animation: fadeInUp 0.8s ease-out forwards;
+      }
+
+      .loading {
+        opacity: 0.7;
+        pointer-events: none;
+        transition: opacity var(--transition-smooth);
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Toile pour les particules -->
+    <canvas id="particle-bg"></canvas>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+      <div class="nav-container">
+        <div class="logo">Onesime N'Dri</div>
+        <ul class="nav-menu">
+          <li><a href="#" class="nav-link active" data-page="home">Accueil</a></li>
+          <li><a href="#" class="nav-link" data-page="projects">Projets</a></li>
+          <li><a href="#" class="nav-link" data-page="certifications">Certifications</a></li>
+          <li><a href="#" class="nav-link" data-page="about">À propos</a></li>
+          <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
+          <li><a href="#" class="nav-link" data-page="cv">CV</a></li>
+        </ul>
+        <div>
+          <button class="theme-toggle-btn" id="themeToggleBtn" title="Basculer le thème">
+            <i class="fas fa-moon"></i>
+          </button>
+          <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Menu mobile -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+      <div class="mobile-menu-content">
+        <a href="#" class="mobile-nav-link" data-page="home">🏠 Accueil</a>
+        <a href="#" class="mobile-nav-link" data-page="projects">💼 Projets</a>
+        <a href="#" class="mobile-nav-link" data-page="certifications">🏆 Certifications</a>
+        <a href="#" class="mobile-nav-link" data-page="about">👤 À propos</a>
+        <a href="#" class="mobile-nav-link" data-page="contact">📞 Contact</a>
+        <a href="#" class="mobile-nav-link" data-page="cv">📄 CV</a>
+        <button class="theme-toggle-btn" id="mobileThemeToggleBtn" title="Basculer le thème">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Page Accueil Hero -->
+    <div id="home" class="page active">
+      <section class="hero">
+        <div class="hero-content animate-fade-in">
+          <div class="hero-image">
+            <img
+              src="assets/pot.jpg"
+              alt="Onesime N'Dri"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <h1 class="hero-title">N'Dri Abo Onesime Ablatie</h1>
+          <p class="hero-subtitle">
+            Data Analyst | Analyse de données, visualisation,
+            modélisation économétrique & ML
+          </p>
+          <div
+            style="
+              display: flex;
+              gap: 1rem;
+              justify-content: center;
+              flex-wrap: wrap;
+            "
+          >
+            <button class="btn btn-primary" onclick="showPage('projects')">
+              <i class="fas fa-rocket"></i>
+              Découvrir mes projets
+            </button>
+            <button class="btn btn-secondary" onclick="showPage('contact')">
+              <i class="fas fa-paper-plane"></i>
+              Me contacter
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Page Projets -->
+    <div id="projects" class="page">
+      <section class="section">
+        <h2 class="section-title">Mes Projets</h2>
+        <div class="filter-container">
+          <button class="filter-btn active" data-type="all">
+            Tous les projets
+          </button>
+          <button class="filter-btn" data-type="pdf">📚 Rapports PDF</button>
+          <button class="filter-btn" data-type="streamlit">
+            🚀 Apps Streamlit
+          </button>
+          <button class="filter-btn" data-type="other">⚡ Autres</button>
+        </div>
+        <div class="projects-grid" id="projectsContainer">
+          <div class="project-card" data-type="pdf">
+            <div class="project-icon">📊</div>
+            <h3 class="project-title">Économétrie Quantitative</h3>
+            <p class="project-description">
+              Analyse approfondie des variables influençant le délai de
+              livraison avec régression multiple et ANOVA (2024-2025).
+            </p>
+            <a
+              href="projects/pdfs/ECONOMETRIE-Quanti.pdf"
+              target="_blank"
+              class="project-link"
+            >
+              Consulter le rapport <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+          <div class="project-card" data-type="pdf">
+            <div class="project-icon">🌍</div>
+            <h3 class="project-title">Économétrie Qualitative</h3>
+            <p class="project-description">
+              Étude des variables influençant le risque d'accident à l'aide de
+              méthodes économétriques avancées.
+            </p>
+            <a
+              href="projects/pdfs/Econometrie-Quali.pdf"
+              target="_blank"
+              class="project-link"
+            >
+              Voir l'analyse <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+          <div class="project-card" data-type="pdf">
+            <div class="project-icon">📈</div>
+            <h3 class="project-title">Séries Temporelles</h3>
+            <p class="project-description">
+              Prévision des indices de pollution de l'air pour les 30 premiers
+              jours de l'année 2015.
+            </p>
+            <a
+              href="projects/pdfs/Econometrie-serie_temp.pdf"
+              target="_blank"
+              class="project-link"
+            >
+              Découvrir l'étude <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+          <div class="project-card" data-type="pdf">
+            <div class="project-icon">🎯</div>
+            <h3 class="project-title">Statistique Descriptive</h3>
+            <p class="project-description">
+              Analyse des facteurs socio-économiques et sanitaires pour la
+              catégorisation des pays ayant besoin d'aide.
+            </p>
+            <a
+              href="projects/pdfs/mini-projet-HELP_international_n'dri_onesime.pdf"
+              target="_blank"
+              class="project-link"
+            >
+              Lire le rapport <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+          <div class="project-card" data-type="pdf">
+            <div class="project-icon">🧠</div>
+            <h3 class="project-title">Statistique Inférentielle</h3>
+            <p class="project-description">
+              Étude des facteurs influençant la dépression chez les étudiants à
+              l'aide de méthodes statistiques.
+            </p>
+            <a
+              href="projects/pdfs/statistique inferentiel.pdf"
+              target="_blank"
+              class="project-link"
+            >
+              Explorer l'analyse <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+          <div class="project-card" data-type="pdf">
+            <div class="project-icon">📊</div>
+            <h3 class="project-title">Corporación Favorita</h3>
+            <p class="project-description">
+              Rapport statistique complet pour Corporación Favorita - Analyse de
+              séries temporelles avancée.
+            </p>
+            <a
+              href="projects/pdfs/mini-projet-serie-temporelle.pdf"
+              target="_blank"
+              class="project-link"
+            >
+              Voir le rapport <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+          <div class="project-card" data-type="pdf">
+            <div class="project-icon">🔍</div>
+            <h3 class="project-title">Analyse ACP-ACM</h3>
+            <p class="project-description">
+              Analyse des comportements et préférences pour l'optimisation des
+              ressources avec ACP et ACM.
+            </p>
+            <a
+              href="projects/pdfs/Projet-ACP-ACM.pdf"
+              target="_blank"
+              class="project-link"
+            >
+              Consulter l'analyse <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+          <div class="project-card" data-type="streamlit">
+            <div class="project-icon">🤖</div>
+            <h3 class="project-title">App Régression Logistique</h3>
+            <p class="project-description">
+              Application Streamlit interactive pour l'analyse et la
+              modélisation par régression logistique.
+            </p>
+            <a
+              href="https://regressionlogistique-app.streamlit.app/"
+              target="_blank"
+              class="project-link"
+            >
+              Lancer l'app <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+          <div class="project-card" data-type="streamlit">
+            <div class="project-icon">🔭</div>
+            <h3 class="project-title">Analyse Univariée</h3>
+            <p class="project-description">
+              Application Streamlit pour l'analyse statistique univariée
+              complète et interactive.
+            </p>
+            <a
+              href="https://analyseunivariee-onesime.streamlit.app/"
+              target="_blank"
+              class="project-link"
+            >
+              Utiliser l'app <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+          <div class="project-card" data-type="streamlit">
+            <div class="project-icon">🔗</div>
+            <h3 class="project-title">Tests de Liaison</h3>
+            <p class="project-description">
+              Application Streamlit pour effectuer des tests de liaison
+              statistique de manière interactive.
+            </p>
+            <a
+              href="https://appliaison-onesime.streamlit.app/"
+              target="_blank"
+              class="project-link"
+            >
+              Tester l'app <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+          <div class="project-card" data-type="streamlit">
+            <div class="project-icon">🗺️</div>
+            <h3 class="project-title">Visualisation de données</h3>
+            <p class="project-description">
+              Application Streamlit pour effectuer la visualisation des données.
+            </p>
+            <a
+              href="https://visualisation-onesime.streamlit.app/"
+              target="_blank"
+              class="project-link"
+            >
+              Tester l'app <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+          <div class="project-card" data-type="streamlit">
+            <div class="project-icon">🛰️</div>
+            <h3 class="project-title">Estimation statistique</h3>
+            <p class="project-description">
+              Application Streamlit pour effectuer l'estimation statistique.
+            </p>
+            <a
+              href="https://estimations-statistique-app-qwj6r8bwoje7ndhvvj2k9e.streamlit.app/"
+              target="_blank"
+              class="project-link"
+            >
+              Tester l'app <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+          <div class="project-card" data-type="streamlit">
+            <div class="project-icon">🤖</div>
+            <h3 class="project-title">Machine learning quanti</h3>
+            <p class="project-description">
+              Application Streamlit pour évaluation des modèles machine learning
+              quanti.
+            </p>
+            <a
+              href="https://machine-learning-onesime-app.streamlit.app/"
+              target="_blank"
+              class="project-link"
+            >
+              Tester l'app <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+          <div class="project-card" data-type="streamlit">
+            <div class="project-icon">🏛️</div>
+            <h3 class="project-title">test égalité</h3>
+            <p class="project-description">
+              Application Streamlit pour test égalité de deux moyennes ou
+              proportions (population independante).
+            </p>
+            <a
+              href="https://test-deux-popindependant.streamlit.app/"
+              target="_blank"
+              class="project-link"
+            >
+              Tester l'app <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+          <div class="project-card" data-type="streamlit">
+            <div class="project-icon">🧭</div>
+            <h3 class="project-title">regle association</h3>
+            <p class="project-description">
+              Application Streamlit pour regle association ou panier menagere.
+            </p>
+            <a
+              href="https://regle-panier-menagere.streamlit.app/"
+              target="_blank"
+              class="project-link"
+            >
+              Tester l'app <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Page Certifications -->
+    <div id="certifications" class="page">
+      <section class="section">
+        <h2 class="section-title">Mes Certifications</h2>
+        <p style="text-align: center; color: var(--text-secondary); margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+          Découvrez mes certifications professionnelles qui attestent de mes compétences en analyse de données, 
+          statistiques et technologies modernes.
+        </p>
+        <div class="certifications-grid" id="certificationsContainer">
+          <div class="certification-card">
+            <img 
+              src="assets/certifications/python-intro.jpg" 
+              alt="introduction python"
+              class="certification-image"
+              onerror="this.style.display='none'"
+            />
+            <div class="certification-info">
+              <h3 class="certification-title">introduction to python</h3>
+              <p class="certification-provider">Sololearn</p>
+            </div>
+          </div>
+          <div class="certification-card">
+            <img 
+              src="assets/certifications/visualisation.jpg" 
+              alt="visualisation"
+              class="certification-image"
+              onerror="this.style.display='none'"
+            />
+            <div class="certification-info">
+              <h3 class="certification-title">Visualize your Data</h3>
+              <p class="certification-provider">Sololearn</p>
+            </div>
+          </div>
+          <div class="certification-card">
+            <img 
+              src="assets/certifications/machine-learning.jpg" 
+              alt="machine-learning"
+              class="certification-image"
+              onerror="this.style.display='none'"
+            />
+            <div class="certification-info">
+              <h3 class="certification-title">ML for beginners</h3>
+              <p class="certification-provider">Sololearn</p>
+            </div>
+          </div>
+          <div class="certification-card">
+            <img 
+              src="assets/certifications/Data-analytics-with-AI.jpg" 
+              alt="Data analytics with AI"
+              class="certification-image"
+              onerror="this.style.display='none'"
+            />
+            <div class="certification-info">
+              <h3 class="certification-title">Data analytics with AI</h3>
+              <p class="certification-provider">Sololearn</p>
+            </div>
+          </div>
+          <div class="certification-card">
+            <img 
+              src="assets/certifications/SQL-intermediaire.jpg" 
+              alt="SQL intermediaire"
+              class="certification-image"
+              onerror="this.style.display='none'"
+            />
+            <div class="certification-info">
+              <h3 class="certification-title">SQL intermediaire</h3>
+              <p class="certification-provider">Sololearn</p>
+            </div>
+          </div>
+          <div class="certification-card">
+            <img 
+              src="assets/certifications/introduction-SQL.jpg" 
+              alt="introduction SQL"
+              class="certification-image"
+              onerror="this.style.display='none'"
+            />
+            <div class="certification-info">
+              <h3 class="certification-title">Introduction to SQL</h3>
+              <p class="certification-provider">Sololearn</p>
+            </div>
+          </div>
+      </section>
+    </div>
+
+    <!-- Page À propos -->
+    <div id="about" class="page">
+      <section class="section">
+        <h2 class="section-title">À propos de moi</h2>
+        <div class="hero-content animate-fade-in">
+          <p
+            style="
+              max-width: 800px;
+              margin: 0 auto 2rem;
+              text-align: center;
+              color: var(--text-secondary);
+            "
+          >
+            Je suis N'Dri Abo Onesime Ablatie, Data Analyst passionné par la
+            transformation des données en insights exploitables. Avec une solide
+            expertise en analyse de données, visualisation, modélisation
+            économétrique et machine learning, j'aide les entreprises à prendre
+            des décisions éclairées basées sur des analyses rigoureuses.
+          </p>
+          <div class="skills-grid">
+            <div class="skill-card">
+              <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
+              <h3>Analyse de Données</h3>
+              <p>
+                Expertise en statistique descriptive, inférentielle et
+                économétrie pour extraire des insights significatifs.
+              </p>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon"><i class="fas fa-eye"></i></div>
+              <h3>Visualisation</h3>
+              <p>
+                Création de visualisations percutantes avec des outils comme
+                Excel, R, Power BI et Python (Matplotlib, Seaborn).
+              </p>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon"><i class="fas fa-robot"></i></div>
+              <h3>Machine Learning</h3>
+              <p>
+                Modélisation prédictive avec algorithmes comme régression
+                linéaire, Régression logistique.
+              </p>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon"><i class="fas fa-code"></i></div>
+              <h3>Programmation</h3>
+              <p>
+                Python, R, SQL et développement d'applications
+                interactives avec Streamlit.
+              </p>
+            </div>
+          </div>
+          <div style="text-align: center; margin-top: 2rem">
+            <button class="btn btn-primary" onclick="showPage('projects')">
+              <i class="fas fa-rocket"></i>
+              Voir mes projets
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Page Contact -->
+    <div id="contact" class="page">
+      <section class="section">
+        <h2 class="section-title">Me Contacter</h2>
+        <div class="hero-content animate-fade-in">
+          <p
+            style="
+              max-width: 800px;
+              margin: 0 auto 2rem;
+              text-align: center;
+              color: var(--text-secondary);
+            "
+          >
+            Vous souhaitez discuter d'un projet, d'une collaboration ou d'une
+            opportunité professionnelle ? N'hésitez pas à me contacter via les
+            canaux ci-dessous.
+          </p>
+          <div class="contact-grid">
+            <div class="contact-card">
+              <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+              <h3>Email</h3>
+              <p>
+                <a href="mailto:onesime.ndri@example.com" class="project-link"
+                  >onesime.ndri@example.com</a
+                >
+              </p>
+            </div>
+            <div class="contact-card">
+              <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
+              <h3>LinkedIn</h3>
+              <p>
+                <a
+                  href="https://www.linkedin.com/in/onesime-ndri"
+                  target="_blank"
+                  class="project-link"
+                  >Onesime N'Dri</a
+                >
+              </p>
+            </div>
+            <div class="contact-card">
+              <div class="contact-icon"><i class="fab fa-github"></i></div>
+              <h3>GitHub</h3>
+              <p>
+                <a
+                  href="https://github.com/onesime-ndri"
+                  target="_blank"
+                  class="project-link"
+                  >onesime-ndri</a
+                >
+              </p>
+            </div>
+            <div class="contact-card">
+              <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+              <h3>Numéro de téléphone</h3>
+              <p>
+                <a 
+                  href="https://wa.me/2250768059887"
+                  target="_blank" class="project-link"
+                  >+225 07 68 05 98 87 / +225 01 01 75 11 81</a
+                >
+              </p>
+            </div>
+          </div>
+          <div style="text-align: center; margin-top: 2rem">
+            <button class="btn btn-secondary" onclick="showPage('home')">
+              <i class="fas fa-home"></i>
+              Retour à l'accueil
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Page CV -->
+    <div id="cv" class="page">
+      <section class="section">
+        <h2 class="section-title">Mon CV</h2>
+        <div class="hero-content animate-fade-in">
+          <p
+            style="
+              max-width: 800px;
+              margin: 0 auto 2rem;
+              text-align: center;
+              color: var(--text-secondary);
+            "
+          >
+            Consultez mon CV détaillé ci-dessous pour en savoir plus sur mon
+            parcours, mes compétences et mes réalisations.
+          </p>
+          <div class="cv-container">
+            <iframe
+              class="cv-frame"
+              src="assets/cv.pdf"
+              title="CV Onesime N'Dri"
+            ></iframe>
+          </div>
+          <div style="text-align: center; margin-top: 2rem">
+            <a href="assets/cv.pdf" download class="btn btn-primary">
+              <i class="fas fa-download"></i>
+              Télécharger le CV
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Onesime N'Dri | Powered by Data & Innovation</p>
+      <div style="margin-top: 1rem; display: flex; justify-content: center; gap: 1rem;">
+        <a href="https://www.linkedin.com/in/onesime-ndri" target="_blank" class="project-link">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/onesime-ndri" target="_blank" class="project-link">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+    </footer>
+
+    <script>
+      // Particules dynamiques
+      const canvas = document.getElementById("particle-bg");
+      const ctx = canvas.getContext("2d");
+
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      const particles = [];
+      const particleCount = 100;
+
+      class Particle {
+        constructor() {
+          this.reset();
+        }
+
+        reset() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.size = Math.random() * 2 + 1;
+          this.speedX = Math.random() * 0.5 - 0.25;
+          this.speedY = Math.random() * 0.5 - 0.25;
+          this.opacity = Math.random() * 0.3 + 0.2;
+        }
+
+        update() {
+          this.x += this.speedX;
+          this.y += this.speedY;
+          if (this.x < 0 || this.x > canvas.width) this.reset();
+          if (this.y < 0 || this.y > canvas.height) this.reset();
+        }
+
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--particle-color').trim();
+          ctx.fill();
+        }
+      }
+
+      for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+      }
+
+      function animateParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach((particle) => {
+          particle.update();
+          particle.draw();
+        });
+        requestAnimationFrame(animateParticles);
+      }
+
+      window.addEventListener("resize", () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      });
+
+      animateParticles();
+
+      // Gestion des événements
+      document.addEventListener("DOMContentLoaded", () => {
+        const navLinks = document.querySelectorAll(".nav-link, .mobile-nav-link");
+        const pages = document.querySelectorAll(".page");
+        const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+        const mobileMenuOverlay = document.getElementById("mobileMenuOverlay");
+        const navbar = document.getElementById("navbar");
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const projectCards = document.querySelectorAll(".project-card");
+        const themeToggleBtn = document.getElementById("themeToggleBtn");
+        const mobileThemeToggleBtn = document.getElementById("mobileThemeToggleBtn");
+        const certificationsContainer = document.getElementById("certificationsContainer");
+
+        // Theme toggle functionality
+        function toggleTheme() {
+          const currentTheme = document.documentElement.getAttribute("data-theme");
+          const newTheme = currentTheme === "dark" ? "light" : "dark";
+          document.documentElement.setAttribute("data-theme", newTheme);
+          const icon = newTheme === "dark" ? "fa-moon" : "fa-sun";
+          themeToggleBtn.querySelector("i").className = `fas ${icon}`;
+          mobileThemeToggleBtn.querySelector("i").className = `fas ${icon}`;
+          localStorage.setItem("theme", newTheme);
+        }
+
+        // Check for saved theme preference or system preference
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme) {
+          document.documentElement.setAttribute("data-theme", savedTheme);
+          const icon = savedTheme === "dark" ? "fa-moon" : "fa-sun";
+          themeToggleBtn.querySelector("i").className = `fas ${icon}`;
+          mobileThemeToggleBtn.querySelector("i").className = `fas ${icon}`;
+        } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          document.documentElement.setAttribute("data-theme", "dark");
+          themeToggleBtn.querySelector("i").className = "fas fa-moon";
+          mobileThemeToggleBtn.querySelector("i").className = "fas fa-moon";
+        }
+
+        themeToggleBtn.addEventListener("click", toggleTheme);
+        mobileThemeToggleBtn.addEventListener("click", toggleTheme);
+
+        // Dynamic Certifications Loading
+        async function loadCertifications() {
+          try {
+            // Attempt to fetch certification images from a server endpoint
+            const response = await fetch('/assets/certifications/list.json');
+            if (!response.ok) throw new Error('Failed to fetch certifications');
+            const data = await response.json();
+            const files = data.files || [];
+
+            // Clear existing certifications
+            certificationsContainer.innerHTML = '';
+
+            if (files.length === 0) {
+              certificationsContainer.innerHTML = '<p style="color: var(--text-secondary); text-align: center;">Aucune certification trouvée.</p>';
+              return;
+            }
+
+            // Generate certification cards
+            files.forEach(file => {
+              // Format file name to title (e.g., "google-data-analytics.jpg" -> "Google Data Analytics")
+              const title = file.name
+                .replace(/\.(png|jpg|jpeg)$/i, '')
+                .replace(/-/g, ' ')
+                .replace(/\b\w/g, c => c.toUpperCase());
+              
+              // Use provided provider or fallback
+              const provider = file.provider || 'Unknown Provider';
+              
+              const card = document.createElement('div');
+              card.className = 'project-card animate-fade-in';
+              card.innerHTML = `
+                <img src="assets/certifications/${file.name}" alt="${title}" class="certification-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div class="project-icon" style="display: none;">🏆</div>
+                <div class="certification-info">
+                  <h3 class="project-title">${title}</h3>
+                  <p class="certification-provider">${provider}</p>
+                  <a href="assets/certifications/${file.name}" target="_blank" class="project-link">
+                    Voir la certification <i class="fas fa-external-link-alt"></i>
+                  </a>
+                </div>
+              `;
+              certificationsContainer.appendChild(card);
+            });
+          } catch (error) {
+            console.error('Error loading certifications:', error);
+            certificationsContainer.innerHTML = '<p style="color: var(--text-secondary); text-align: center;">Erreur lors du chargement des certifications.</p>';
+          }
+        }
+
+        // Load certifications when the certifications page is shown
+        function checkAndLoadCertifications() {
+          const certificationsPage = document.getElementById('certifications');
+          if (certificationsPage.classList.contains('active')) {
+            loadCertifications();
+          }
+        }
+
+        window.showPage = function (pageId) {
+          pages.forEach((page) => page.classList.remove("active"));
+          navLinks.forEach((link) => link.classList.remove("active"));
+          const targetPage = document.getElementById(pageId);
+          if (targetPage) {
+            targetPage.classList.add("active");
+          }
+          const targetLink = document.querySelector(
+            `.nav-link[data-page="${pageId}"], .mobile-nav-link[data-page="${pageId}"]`
+          );
+          if (targetLink) {
+            targetLink.classList.add("active");
+          }
+          mobileMenuOverlay.classList.remove("show");
+          window.scrollTo({ top: 0, behavior: "smooth" });
+          // Load certifications if the certifications page is shown
+          if (pageId === 'certifications') {
+            loadCertifications();
+          }
+        };
+
+        navLinks.forEach((link) => {
+          link.addEventListener("click", (e) => {
+            e.preventDefault();
+            const pageId = link.getAttribute("data-page");
+            showPage(pageId);
+          });
+        });
+
+        mobileMenuBtn.addEventListener("click", () => {
+          mobileMenuOverlay.classList.toggle("show");
+        });
+
+        mobileMenuOverlay.addEventListener("click", (e) => {
+          if (e.target === mobileMenuOverlay) {
+            mobileMenuOverlay.classList.remove("show");
+          }
+        });
+
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 50) {
+            navbar.classList.add("scrolled");
+          } else {
+            navbar.classList.remove("scrolled");
+          }
+        });
+
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const filterType = button.getAttribute("data-type");
+            filterButtons.forEach((btn) => btn.classList.remove("active"));
+            button.classList.add("active");
+            projectCards.forEach((card) => {
+              const cardType = card.getAttribute("data-type");
+              if (filterType === "all" || cardType === filterType) {
+                card.style.display = "block";
+                card.classList.add("animate-fade-in");
+              } else {
+                card.style.display = "none";
+                card.classList.remove("animate-fade-in");
+              }
+            });
+          });
+        });
+
+        // Initial check for certifications page
+        checkAndLoadCertifications();
+      });
+    </script>
+  </body>
+</html>
