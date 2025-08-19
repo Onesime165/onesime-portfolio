@@ -1507,7 +1507,6 @@
         const projectCards = document.querySelectorAll(".project-card");
         const themeToggleBtn = document.getElementById("themeToggleBtn");
         const mobileThemeToggleBtn = document.getElementById("mobileThemeToggleBtn");
-        const certificationsContainer = document.getElementById("certificationsContainer");
 
         // Theme toggle functionality
         function toggleTheme() {
@@ -1536,63 +1535,6 @@
         themeToggleBtn.addEventListener("click", toggleTheme);
         mobileThemeToggleBtn.addEventListener("click", toggleTheme);
 
-        // Dynamic Certifications Loading
-        async function loadCertifications() {
-          try {
-            // Attempt to fetch certification images from a server endpoint
-            const response = await fetch('/assets/certifications/list.json');
-            if (!response.ok) throw new Error('Failed to fetch certifications');
-            const data = await response.json();
-            const files = data.files || [];
-
-            // Clear existing certifications
-            certificationsContainer.innerHTML = '';
-
-            if (files.length === 0) {
-              certificationsContainer.innerHTML = '<p style="color: var(--text-secondary); text-align: center;">Aucune certification trouvée.</p>';
-              return;
-            }
-
-            // Generate certification cards
-            files.forEach(file => {
-              // Format file name to title (e.g., "google-data-analytics.jpg" -> "Google Data Analytics")
-              const title = file.name
-                .replace(/\.(png|jpg|jpeg)$/i, '')
-                .replace(/-/g, ' ')
-                .replace(/\b\w/g, c => c.toUpperCase());
-              
-              // Use provided provider or fallback
-              const provider = file.provider || 'Unknown Provider';
-              
-              const card = document.createElement('div');
-              card.className = 'project-card animate-fade-in';
-              card.innerHTML = `
-                <img src="assets/certifications/${file.name}" alt="${title}" class="certification-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <div class="project-icon" style="display: none;">🏆</div>
-                <div class="certification-info">
-                  <h3 class="project-title">${title}</h3>
-                  <p class="certification-provider">${provider}</p>
-                  <a href="assets/certifications/${file.name}" target="_blank" class="project-link">
-                    Voir la certification <i class="fas fa-external-link-alt"></i>
-                  </a>
-                </div>
-              `;
-              certificationsContainer.appendChild(card);
-            });
-          } catch (error) {
-            console.error('Error loading certifications:', error);
-            certificationsContainer.innerHTML = '<p style="color: var(--text-secondary); text-align: center;">Erreur lors du chargement des certifications.</p>';
-          }
-        }
-
-        // Load certifications when the certifications page is shown
-        function checkAndLoadCertifications() {
-          const certificationsPage = document.getElementById('certifications');
-          if (certificationsPage.classList.contains('active')) {
-            loadCertifications();
-          }
-        }
-
         window.showPage = function (pageId) {
           pages.forEach((page) => page.classList.remove("active"));
           navLinks.forEach((link) => link.classList.remove("active"));
@@ -1608,10 +1550,6 @@
           }
           mobileMenuOverlay.classList.remove("show");
           window.scrollTo({ top: 0, behavior: "smooth" });
-          // Load certifications if the certifications page is shown
-          if (pageId === 'certifications') {
-            loadCertifications();
-          }
         };
 
         navLinks.forEach((link) => {
@@ -1657,11 +1595,7 @@
             });
           });
         });
-
-        // Initial check for certifications page
-        checkAndLoadCertifications();
       });
     </script>
   </body>
 </html>
-
