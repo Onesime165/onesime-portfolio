@@ -529,6 +529,7 @@
         align-items: center;
         gap: 0.5rem;
         transition: all var(--transition-fast);
+        cursor: pointer;
       }
 
       .project-link:hover {
@@ -635,6 +636,7 @@
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 2rem;
         margin-top: 3rem;
+        margin-bottom: 3rem;
       }
 
       .skill-card {
@@ -735,6 +737,7 @@
         animation: scanline 3s linear infinite;
         z-index: 0;
         pointer-events: none;
+        display: none;
       }
 
       .cv-frame {
@@ -1234,78 +1237,8 @@
           statistiques et technologies modernes.
         </p>
         <div class="certifications-grid" id="certificationsContainer">
-          <div class="project-card">
-            <img 
-               src="assets/certifications/python-intro.jpg" 
-               alt="introduction python"
-              class="certification-image"
-              onerror="this.style.display='none'"
-            />
-            <div class="certification-info">
-              <h3 class="project-title">introduction to python</h3>
-              <p class="certification-provider">Sololearn</p>
-            </div>
-          </div>
-          <div class="project-card">
-            <img 
-               src="assets/certifications/visualisation.jpg" 
-               alt="visualisation"
-              class="certification-image"
-              onerror="this.style.display='none'"
-            />
-            <div class="certification-info">
-              <h3 class="project-title">Visualize your Data</h3>
-              <p class="certification-provider">Sololearn</p>
-            </div>
-          </div>
-          <div class="project-card">
-            <img 
-               src="assets/certifications/machine-learning.jpg" 
-               alt="machine-learning"
-              class="certification-image"
-              onerror="this.style.display='none'"
-            />
-            <div class="certification-info">
-              <h3 class="project-title">ML for beginners</h3>
-              <p class="certification-provider">Sololearn</p>
-            </div>
-          </div>
-          <div class="project-card">
-            <img 
-               src="assets/certifications/Data-analytics-with-AI.jpg" 
-               alt="Data analytics with AI"
-              class="certification-image"
-              onerror="this.style.display='none'"
-            />
-            <div class="certification-info">
-              <h3 class="project-title">Data analytics with AI</h3>
-              <p class="certification-provider">Sololearn</p>
-            </div>
-          </div>
-          <div class="project-card">
-            <img 
-               src="assets/certifications/SQL-intermediaire.jpg" 
-               alt="SQL intermediaire"
-              class="certification-image"
-              onerror="this.style.display='none'"
-            />
-            <div class="certification-info">
-              <h3 class="project-title">SQL intermediaire</h3>
-              <p class="certification-provider">Sololearn</p>
-            </div>
-          </div>
-          <div class="project-card">
-            <img 
-               src="assets/certifications/introduction-SQL.jpg" 
-               alt="introduction SQL"
-              class="certification-image"
-              onerror="this.style.display='none'"
-            />
-            <div class="certification-info">
-              <h3 class="project-title">Introduction to SQL</h3>
-              <p class="certification-provider">Sololearn</p>
-            </div>
-          </div>
+          <!-- Les certifications seront chargées dynamiquement par JavaScript -->
+        </div>
       </section>
     </div>
 
@@ -1689,43 +1622,62 @@
         themeToggleBtn.addEventListener("click", toggleTheme);
         mobileThemeToggleBtn.addEventListener("click", toggleTheme);
 
-        // Dynamic Certifications Loading
-        async function loadCertifications() {
-          try {
-            // Attempt to fetch certification images from a server endpoint
-            const response = await fetch('/assets/certifications/list.json');
-            if (!response.ok) throw new Error('Failed to fetch certifications');
-            const data = await response.json();
-            const files = data.files || [];
+        // Liste des certifications avec leurs informations
+        const certifications = [
+          {
+            name: "python-intro.jpg",
+            title: "Introduction to Python",
+            provider: "Sololearn"
+          },
+          {
+            name: "visualisation.jpg",
+            title: "Visualize your Data",
+            provider: "Sololearn"
+          },
+          {
+            name: "machine-learning.jpg",
+            title: "ML for beginners",
+            provider: "Sololearn"
+          },
+          {
+            name: "Data-analytics-with-AI.jpg",
+            title: "Data analytics with AI",
+            provider: "Sololearn"
+          },
+          {
+            name: "SQL-intermediaire.jpg",
+            title: "SQL intermediaire",
+            provider: "Sololearn"
+          },
+          {
+            name: "introduction-SQL.jpg",
+            title: "Introduction to SQL",
+            provider: "Sololearn"
+          }
+        ];
 
+        // Chargement des certifications
+        function loadCertifications() {
+          try {
             // Clear existing certifications
             certificationsContainer.innerHTML = '';
 
-            if (files.length === 0) {
+            if (certifications.length === 0) {
               certificationsContainer.innerHTML = '<p style="color: var(--text-secondary); text-align: center;">Aucune certification trouvée.</p>';
               return;
             }
 
             // Generate certification cards
-            files.forEach(file => {
-              // Format file name to title (e.g., "google-data-analytics.jpg" -> "Google Data Analytics")
-              const title = file.name
-                .replace(/\.(png|jpg|jpeg)$/i, '')
-                .replace(/-/g, ' ')
-                .replace(/\b\w/g, c => c.toUpperCase());
-                            
-              // Use provided provider or fallback
-              const provider = file.provider || 'Unknown Provider';
-
+            certifications.forEach(cert => {
               const card = document.createElement('div');
               card.className = 'project-card animate-fade-in';
               card.innerHTML = `
-                <img src="assets/certifications/${file.name}" alt="${title}" class="certification-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <img src="assets/certifications/${cert.name}" alt="${cert.title}" class="certification-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                 <div class="project-icon" style="display: none;">🏆</div>
                 <div class="certification-info">
-                  <h3 class="project-title">${title}</h3>
-                  <p class="certification-provider">${provider}</p>
-                  <a href="assets/certifications/${file.name}" target="_blank" class="project-link">
+                  <h3 class="project-title">${cert.title}</h3>
+                  <p class="certification-provider">${cert.provider}</p>
+                  <a href="assets/certifications/${cert.name}" target="_blank" class="project-link">
                     Voir la certification <i class="fas fa-external-link-alt"></i>
                   </a>
                 </div>
