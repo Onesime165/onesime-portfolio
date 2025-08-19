@@ -1179,78 +1179,14 @@
           statistiques et technologies modernes.
         </p>
         <div class="certifications-grid" id="certificationsContainer">
-          <div class="certification-card">
-            <img 
-              src="assets/certifications/python-intro.jpg" 
-              alt="introduction python"
-              class="certification-image"
-              onerror="this.style.display='none'"
-            />
-            <div class="certification-info">
-              <h3 class="certification-title">introduction to python</h3>
-              <p class="certification-provider">Sololearn</p>
-            </div>
-          </div>
-          <div class="certification-card">
-            <img 
-              src="assets/certifications/visualisation.jpg" 
-              alt="visualisation"
-              class="certification-image"
-              onerror="this.style.display='none'"
-            />
-            <div class="certification-info">
-              <h3 class="certification-title">Visualize your Data</h3>
-              <p class="certification-provider">Sololearn</p>
-            </div>
-          </div>
-          <div class="certification-card">
-            <img 
-              src="assets/certifications/machine-learning.jpg" 
-              alt="machine-learning"
-              class="certification-image"
-              onerror="this.style.display='none'"
-            />
-            <div class="certification-info">
-              <h3 class="certification-title">ML for beginners</h3>
-              <p class="certification-provider">Sololearn</p>
-            </div>
-          </div>
-          <div class="certification-card">
-            <img 
-              src="assets/certifications/Data-analytics-with-AI.jpg" 
-              alt="Data analytics with AI"
-              class="certification-image"
-              onerror="this.style.display='none'"
-            />
-            <div class="certification-info">
-              <h3 class="certification-title">Data analytics with AI</h3>
-              <p class="certification-provider">Sololearn</p>
-            </div>
-          </div>
-          <div class="certification-card">
-            <img 
-              src="assets/certifications/SQL-intermediaire.jpg" 
-              alt="SQL intermediaire"
-              class="certification-image"
-              onerror="this.style.display='none'"
-            />
-            <div class="certification-info">
-              <h3 class="certification-title">SQL intermediaire</h3>
-              <p class="certification-provider">Sololearn</p>
-            </div>
-          </div>
-          <div class="certification-card">
-            <img 
-              src="assets/certifications/introduction-SQL.jpg" 
-              alt="introduction SQL"
-              class="certification-image"
-              onerror="this.style.display='none'"
-            />
-            <div class="certification-info">
-              <h3 class="certification-title">Introduction to SQL</h3>
-              <p class="certification-provider">Sololearn</p>
-            </div>
-          </div>
+          <!-- Certifications will be dynamically populated here -->
+        </div>
+        <div style="text-align: center; margin-top: 3rem;">
+          <button class="btn btn-primary" onclick="showPage('projects')">
+            <i class="fas fa-briefcase"></i>
+            Voir mes projets
+          </button>
+        </div>
       </section>
     </div>
 
@@ -1555,8 +1491,8 @@
 
             // Generate certification cards
             files.forEach(file => {
-              // Format file name to title (e.g., "google-data-analytics.jpg" -> "Google Data Analytics")
-              const title = file.name
+              // Use provided title or format file name to title
+              const title = file.title || file.name
                 .replace(/\.(png|jpg|jpeg)$/i, '')
                 .replace(/-/g, ' ')
                 .replace(/\b\w/g, c => c.toUpperCase());
