@@ -1,2 +1,2 @@
 # onesime-portfolio
-![preview img](/new.png)
+![preview img](/few.png)
