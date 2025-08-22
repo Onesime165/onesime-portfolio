@@ -12,9 +12,7 @@
       /* ============================================== */
       /* ==  THEME VARIABLES                        == */
       /* ============================================== */
-
       :root {
-        /* Light & Modern Theme (default) */
         --primary-bg: #ffffff;
         --secondary-bg: #f5f7fa;
         --surface-glass: rgba(255, 255, 255, 0.5);
@@ -42,7 +40,6 @@
         --glass-blur: blur(15px);
       }
 
-      /* Dark Theme */
       [data-theme="dark"] {
         --primary-bg: #0d0d1a;
         --secondary-bg: #1a1a2e;
@@ -70,7 +67,6 @@
       /* ============================================== */
       /* ==  GLOBAL STYLES                          == */
       /* ============================================== */
-
       * {
         margin: 0;
         padding: 0;
@@ -92,7 +88,6 @@
           color var(--transition-smooth);
       }
 
-      /* Background Effects */
       #particle-bg {
         position: fixed;
         top: 0;
@@ -138,7 +133,6 @@
           );
       }
 
-      /* Typography */
       h1,
       h2,
       h3,
@@ -165,7 +159,6 @@
       /* ============================================== */
       /* ==  NAVIGATION                             == */
       /* ============================================== */
-
       .scroll-progress {
         position: fixed;
         top: 0;
@@ -278,7 +271,6 @@
         box-shadow: 0 0 10px var(--accent-neon);
       }
 
-      /* Mobile Menu */
       .mobile-menu-btn {
         display: none;
         background: none;
@@ -353,7 +345,6 @@
       /* ============================================== */
       /* ==  PAGE STRUCTURE                         == */
       /* ============================================== */
-
       .page {
         min-height: 100vh;
         padding-top: 80px;
@@ -420,7 +411,6 @@
       /* ============================================== */
       /* ==  HERO SECTION                           == */
       /* ============================================== */
-
       .hero {
         min-height: calc(100vh - 80px);
         display: flex;
@@ -588,7 +578,6 @@
       /* ============================================== */
       /* ==  BUTTONS                                == */
       /* ============================================== */
-
       .btn {
         display: inline-flex;
         align-items: center;
@@ -633,6 +622,7 @@
         );
         transition: left 0.5s;
         z-index: -1;
+        pointer-events: none;
       }
 
       .btn-primary:hover::after {
@@ -655,7 +645,6 @@
       /* ============================================== */
       /* ==  CARDS AND GRIDS                        == */
       /* ============================================== */
-
       .projects-grid,
       .certifications-grid {
         display: grid;
@@ -893,7 +882,6 @@
       /* ============================================== */
       /* ==  CV SECTION                             == */
       /* ============================================== */
-
       .cv-container {
         background: var(--surface-glass);
         backdrop-filter: blur(12px);
@@ -959,6 +947,7 @@
         font-size: 1.4rem;
         color: var(--text-secondary);
         margin-bottom: 1.5rem;
+        font-weight: 400;
       }
 
       .contact-info p,
@@ -1199,7 +1188,6 @@
       /* ============================================== */
       /* ==  FOOTER                                 == */
       /* ============================================== */
-
       footer {
         background: var(--secondary-bg);
         padding: 3rem 2rem 2rem;
@@ -1224,7 +1212,6 @@
       /* ============================================== */
       /* ==  ANIMATIONS                             == */
       /* ============================================== */
-
       @keyframes fadeInUp {
         from {
           opacity: 0;
@@ -1249,7 +1236,6 @@
       /* ============================================== */
       /* ==  RESPONSIVE DESIGN                      == */
       /* ============================================== */
-
       @media (max-width: 768px) {
         .nav-menu {
           display: none;
@@ -1712,7 +1698,7 @@
           "
         >
           Découvrez mes Projets de visualisation personnelle qui attestent de
-          mes compétences en analyse de données visuelle,
+          mes compétences en analyse de données visuelle.
         </p>
         <div class="certifications-grid" id="certificationsContainer">
           <div class="project-card">
@@ -1722,17 +1708,16 @@
               class="certification-image"
               onerror="this.style.display='none'"
             />
-            
             <div class="certification-info">
               <h3 class="project-title">Tableau de bord RH 2024</h3>
               <a
-              href="assets/dashboards/RH.xlsx"
-              target="_blank"
-              class="project-link"
-            >
-              Voir le dashboard <i class="fas fa-external-link-alt"></i>
+                href="assets/dashboards/RH.xlsx"
+                target="_blank"
+                class="project-link"
+              >
+                Voir le dashboard <i class="fas fa-external-link-alt"></i>
+              </a>
               <p class="certification-provider">Excel</p>
-            </a>
             </div>
           </div>
 
@@ -1743,17 +1728,16 @@
               class="certification-image"
               onerror="this.style.display='none'"
             />
-            
             <div class="certification-info">
               <h3 class="project-title">Tableau de bord gestion des cartes</h3>
               <a
-              href="assets/dashboards/Cristelle.xlsm"
-              target="_blank"
-              class="project-link"
-            >
-              Voir le dashboard <i class="fas fa-external-link-alt"></i>
+                href="assets/dashboards/Cristelle.xlsm"
+                target="_blank"
+                class="project-link"
+              >
+                Voir le dashboard <i class="fas fa-external-link-alt"></i>
+              </a>
               <p class="certification-provider">Excel</p>
-            </a>
             </div>
           </div>
 
@@ -1764,17 +1748,16 @@
               class="certification-image"
               onerror="this.style.display='none'"
             />
-            
             <div class="certification-info">
               <h3 class="project-title">Tableau de bord des ventes</h3>
               <a
-              href="assets/dashboards/vente.xlsx"
-              target="_blank"
-              class="project-link"
-            >
-              Voir le dashboard <i class="fas fa-external-link-alt"></i>
+                href="assets/dashboards/vente.xlsx"
+                target="_blank"
+                class="project-link"
+              >
+                Voir le dashboard <i class="fas fa-external-link-alt"></i>
+              </a>
               <p class="certification-provider">Excel</p>
-            </a>
             </div>
           </div>
 
@@ -1787,6 +1770,13 @@
             />
             <div class="certification-info">
               <h3 class="project-title">Dashboard assurance auto</h3>
+              <a
+                href="assets/dashboards/risque.jpg"
+                target="_blank"
+                class="project-link"
+              >
+                Voir l'image <i class="fas fa-external-link-alt"></i>
+              </a>
               <p class="certification-provider">Power bi</p>
             </div>
           </div>
@@ -1799,8 +1789,17 @@
               onerror="this.style.display='none'"
             />
             <div class="certification-info">
-              <h3 class="project-title">Analyse et prévision de la qualité de l'air</h3>
-              <p class="certification-provider">Power bi et Python </p>
+              <h3 class="project-title">
+                Analyse et prévision de la qualité de l'air
+              </h3>
+              <a
+                href="assets/dashboards/pollution.jpg"
+                target="_blank"
+                class="project-link"
+              >
+                Voir l'image <i class="fas fa-external-link-alt"></i>
+              </a>
+              <p class="certification-provider">Power bi et Python</p>
             </div>
           </div>
 
@@ -1813,6 +1812,13 @@
             />
             <div class="certification-info">
               <h3 class="project-title">Etude du delai de livraison</h3>
+              <a
+                href="assets/dashboards/livraison.jpg"
+                target="_blank"
+                class="project-link"
+              >
+                Voir l'image <i class="fas fa-external-link-alt"></i>
+              </a>
               <p class="certification-provider">Power bi</p>
             </div>
           </div>
@@ -1848,6 +1854,13 @@
             />
             <div class="certification-info">
               <h3 class="project-title">Introduction to Python</h3>
+              <a
+                href="assets/certifications/python-intro.jpg"
+                target="_blank"
+                class="project-link"
+              >
+                Voir l'image <i class="fas fa-external-link-alt"></i>
+              </a>
               <p class="certification-provider">Sololearn</p>
             </div>
           </div>
@@ -1861,6 +1874,13 @@
             />
             <div class="certification-info">
               <h3 class="project-title">Visualize your Data</h3>
+              <a
+                href="assets/certifications/visualisation.jpg"
+                target="_blank"
+                class="project-link"
+              >
+                Voir l'image <i class="fas fa-external-link-alt"></i>
+              </a>
               <p class="certification-provider">Sololearn</p>
             </div>
           </div>
@@ -1874,6 +1894,13 @@
             />
             <div class="certification-info">
               <h3 class="project-title">ML for Beginners</h3>
+              <a
+                href="assets/certifications/machine-learning.jpg"
+                target="_blank"
+                class="project-link"
+              >
+                Voir l'image <i class="fas fa-external-link-alt"></i>
+              </a>
               <p class="certification-provider">Sololearn</p>
             </div>
           </div>
@@ -1887,6 +1914,13 @@
             />
             <div class="certification-info">
               <h3 class="project-title">Data Analytics with AI</h3>
+              <a
+                href="assets/certifications/Data-analytics-with-AI.jpg"
+                target="_blank"
+                class="project-link"
+              >
+                Voir l'image <i class="fas fa-external-link-alt"></i>
+              </a>
               <p class="certification-provider">Sololearn</p>
             </div>
           </div>
@@ -1900,6 +1934,13 @@
             />
             <div class="certification-info">
               <h3 class="project-title">SQL Intermédiaire</h3>
+              <a
+                href="assets/certifications/SQL-intermediaire.jpg"
+                target="_blank"
+                class="project-link"
+              >
+                Voir l'image <i class="fas fa-external-link-alt"></i>
+              </a>
               <p class="certification-provider">Sololearn</p>
             </div>
           </div>
@@ -1913,6 +1954,13 @@
             />
             <div class="certification-info">
               <h3 class="project-title">Introduction to SQL</h3>
+              <a
+                href="assets/certifications/introduction-SQL.jpg"
+                target="_blank"
+                class="project-link"
+              >
+                Voir l'image <i class="fas fa-external-link-alt"></i>
+              </a>
               <p class="certification-provider">Sololearn</p>
             </div>
           </div>
@@ -2072,13 +2120,16 @@
             </div>
             <div class="cv-info">
               <h1>N'DRI ABO ONESIME ABLATIE</h1>
-              <h2>Data Analyst Spécialisé</h2>
+              <h2>Data Analyst </h2>
               <div class="contact-info">
-                <p>📧 onesime.ndri@example.com</p>
+            
+                <a href="https://ndriablatie123@gmail.com" target="_blank"
+                  >🏦 ndriablatie123@gmail.com</a
+                >
                 <p>📱 +225 07 68 05 98 87 / +225 01 01 75 11 81</p>
-                <a href="https://linkedin.com/in/onesime-ndri" target="_blank">
-                  🛜 linkedin.com/in/onesime-ndri
-                </a>
+                <a href="https://linkedin.com/in/onesime-ndri" target="_blank"
+                  >🛜 linkedin.com/in/onesime-ndri</a
+                >
                 <p>👨🏿 Célibataire</p>
                 <p>🌏 Ivoirien</p>
                 <p>🏠 Bingerville, Abidjan</p>
@@ -2307,10 +2358,6 @@
               <div class="lang-item">
                 <span>Anglais</span>
                 <span>Intermédiaire (B2)</span>
-              </div>
-              <div class="lang-item">
-                <span>Baoulé</span>
-                <span>Courant</span>
               </div>
             </div>
           </div>
