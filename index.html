@@ -1,1144 +1,1340 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio Data Analyst - Onesime N'Dri</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
     <style>
-        /* ============================================== */
-        /* ==  THEME VARIABLES                        == */
-        /* ============================================== */
+      /* ============================================== */
+      /* ==  THEME VARIABLES                        == */
+      /* ============================================== */
 
-        :root {
-            /* Light & Modern Theme (default) */
-            --primary-bg: #ffffff;
-            --secondary-bg: #f5f7fa;
-            --surface-glass: rgba(255, 255, 255, 0.5);
-            --surface-holo: rgba(240, 244, 248, 0.9);
-            --gradient-neon: linear-gradient(135deg, #00b4db 0%, #80d0c7 100%);
-            --gradient-accent: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
-            --gradient-success: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
-            --gradient-pulse: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-            --accent-neon: #00b4db;
-            --accent-pink: #fbc2eb;
-            --accent-purple: #a18cd1;
-            --accent-cyan: #c2e9fb;
-            --text-primary: #1f2937;
-            --text-secondary: #4b5563;
-            --text-muted: #9ca3af;
-            --shadow-neon: 0 0 10px rgba(0, 180, 219, 0.4);
-            --shadow-holo: 0 4px 20px rgba(0, 0, 0, 0.08);
-            --shadow-glow: 0 0 40px rgba(161, 196, 253, 0.4);
-            --border-neon: 1px solid rgba(0, 180, 219, 0.3);
-            --transition-fast: 0.2s cubic-bezier(0.46, 0.03, 0.52, 0.96);
-            --transition-smooth: 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
-            --transition-slow: 0.6s cubic-bezier(0.46, 0.03, 0.52, 0.96);
-            --particle-color: rgba(0, 180, 219, 0.3);
-            --mobile-menu-bg: rgba(255, 255, 255, 0.95);
-            --glass-blur: blur(15px);
+      :root {
+        /* Light & Modern Theme (default) */
+        --primary-bg: #ffffff;
+        --secondary-bg: #f5f7fa;
+        --surface-glass: rgba(255, 255, 255, 0.5);
+        --surface-holo: rgba(240, 244, 248, 0.9);
+        --gradient-neon: linear-gradient(135deg, #00b4db 0%, #80d0c7 100%);
+        --gradient-accent: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+        --gradient-success: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+        --gradient-pulse: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        --accent-neon: #00b4db;
+        --accent-pink: #fbc2eb;
+        --accent-purple: #a18cd1;
+        --accent-cyan: #c2e9fb;
+        --text-primary: #1f2937;
+        --text-secondary: #4b5563;
+        --text-muted: #9ca3af;
+        --shadow-neon: 0 0 10px rgba(0, 180, 219, 0.4);
+        --shadow-holo: 0 4px 20px rgba(0, 0, 0, 0.08);
+        --shadow-glow: 0 0 40px rgba(161, 196, 253, 0.4);
+        --border-neon: 1px solid rgba(0, 180, 219, 0.3);
+        --transition-fast: 0.2s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+        --transition-smooth: 0.4s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+        --transition-slow: 0.6s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+        --particle-color: rgba(0, 180, 219, 0.3);
+        --mobile-menu-bg: rgba(255, 255, 255, 0.95);
+        --glass-blur: blur(15px);
+      }
+
+      /* Dark Theme */
+      [data-theme="dark"] {
+        --primary-bg: #0d0d1a;
+        --secondary-bg: #1a1a2e;
+        --surface-glass: rgba(30, 30, 50, 0.7);
+        --surface-holo: rgba(40, 40, 60, 0.9);
+        --gradient-neon: linear-gradient(135deg, #00ddeb 0%, #ff00ff 100%);
+        --gradient-accent: linear-gradient(135deg, #ff007a 0%, #ffbb00 100%);
+        --gradient-success: linear-gradient(135deg, #00ffcc 0%, #00ccff 100%);
+        --gradient-pulse: linear-gradient(135deg, #7b00ff 0%, #00ffea 100%);
+        --accent-neon: #00ddeb;
+        --accent-pink: #ff007a;
+        --accent-purple: #7b00ff;
+        --accent-cyan: #00ffcc;
+        --text-primary: #e6e6ff;
+        --text-secondary: #a0a0cc;
+        --text-muted: #666699;
+        --shadow-neon: 0 0 15px rgba(0, 221, 235, 0.5);
+        --shadow-holo: 0 0 30px rgba(123, 0, 255, 0.3);
+        --shadow-glow: 0 0 50px rgba(0, 255, 204, 0.4);
+        --border-neon: 1px solid rgba(0, 221, 235, 0.3);
+        --particle-color: rgba(0, 221, 235, 0.5);
+        --mobile-menu-bg: rgba(13, 13, 26, 0.9);
+      }
+
+      /* ============================================== */
+      /* ==  GLOBAL STYLES                          == */
+      /* ============================================== */
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        font-size: 16px;
+      }
+
+      body {
+        font-family: "Times New Roman", Times, serif;
+        background: var(--primary-bg);
+        color: var(--text-primary);
+        line-height: 1.6;
+        overflow-x: hidden;
+        transition: background var(--transition-smooth),
+          color var(--transition-smooth);
+      }
+
+      /* Background Effects */
+      #particle-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+        background: var(--primary-bg);
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+            circle at 20% 80%,
+            rgba(0, 180, 219, 0.1) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(251, 194, 235, 0.1) 0%,
+            transparent 50%
+          );
+        z-index: -1;
+        pointer-events: none;
+        transition: all var(--transition-smooth);
+      }
+
+      [data-theme="dark"] body::before {
+        background: radial-gradient(
+            circle at 20% 80%,
+            rgba(0, 221, 235, 0.1) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(255, 0, 122, 0.1) 0%,
+            transparent 50%
+          );
+      }
+
+      /* Typography */
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Times New Roman", Times, serif;
+        font-weight: 700;
+        line-height: 1.2;
+        letter-spacing: 0.02em;
+        color: var(--text-primary);
+      }
+
+      h1 {
+        font-size: clamp(2.5rem, 5vw, 4.5rem);
+      }
+      h2 {
+        font-size: clamp(2rem, 4vw, 3.5rem);
+      }
+      h3 {
+        font-size: clamp(1.5rem, 3vw, 2.2rem);
+      }
+
+      /* ============================================== */
+      /* ==  NAVIGATION                             == */
+      /* ============================================== */
+
+      .scroll-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: var(--gradient-neon);
+        transform-origin: left;
+        transform: scaleX(0);
+        z-index: 1001;
+        transition: transform 0.1s ease;
+      }
+
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        background: var(--surface-glass);
+        backdrop-filter: var(--glass-blur) saturate(200%);
+        border-bottom: var(--border-neon);
+        transition: all var(--transition-smooth);
+      }
+
+      nav.scrolled {
+        background: var(--surface-holo);
+        box-shadow: var(--shadow-holo);
+      }
+
+      .nav-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-family: "Times New Roman", Times, serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        background: var(--gradient-neon);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 10px var(--accent-neon);
+      }
+
+      .nav-menu {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+      }
+
+      .nav-link {
+        font-family: "Times New Roman", Times, serif;
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        position: relative;
+        transition: all var(--transition-fast);
+        cursor: pointer;
+      }
+
+      .nav-link::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: var(--gradient-neon);
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform var(--transition-smooth);
+        z-index: -1;
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--text-primary);
+        text-shadow: 0 0 10px var(--accent-neon);
+        transform: translateY(-2px);
+      }
+
+      .nav-link:hover::before,
+      .nav-link.active::before {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+
+      .theme-toggle-btn {
+        background: none;
+        border: none;
+        color: var(--text-primary);
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        border-radius: 8px;
+        transition: all var(--transition-fast);
+        margin-right: 1rem;
+      }
+
+      .theme-toggle-btn:hover {
+        background: rgba(0, 180, 219, 0.2);
+        box-shadow: 0 0 10px var(--accent-neon);
+      }
+
+      /* Mobile Menu */
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--text-primary);
+        font-size: 1.8rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        border-radius: 8px;
+        transition: all var(--transition-fast);
+      }
+
+      .mobile-menu-btn:hover {
+        background: rgba(0, 221, 235, 0.2);
+        box-shadow: 0 0 10px var(--accent-neon);
+      }
+
+      .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--mobile-menu-bg);
+        backdrop-filter: blur(10px);
+        z-index: 200;
+        opacity: 0;
+        visibility: hidden;
+        transition: all var(--transition-smooth);
+        transform: translateX(-100%);
+      }
+
+      .mobile-menu-overlay.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+      }
+
+      .mobile-menu-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 80%;
+        max-width: 400px;
+        height: 100%;
+        background: var(--surface-holo);
+        border-right: var(--border-neon);
+        padding: 3rem;
+        box-shadow: 0 0 30px var(--accent-neon);
+      }
+
+      .mobile-nav-link {
+        font-family: "Times New Roman", Times, serif;
+        display: block;
+        color: var(--text-secondary);
+        text-decoration: none;
+        padding: 1rem;
+        margin-bottom: 0.5rem;
+        border-radius: 8px;
+        text-align: left;
+        font-weight: 500;
+        transition: all var(--transition-smooth);
+      }
+
+      .mobile-nav-link:hover,
+      .mobile-nav-link.active {
+        background: var(--gradient-neon);
+        color: var(--text-primary);
+        box-shadow: 0 0 15px var(--accent-neon);
+      }
+
+      /* ============================================== */
+      /* ==  PAGE STRUCTURE                         == */
+      /* ============================================== */
+
+      .page {
+        min-height: 100vh;
+        padding-top: 80px;
+        display: none;
+        animation: glitchIn 0.5s ease-in-out;
+      }
+
+      .page.active {
+        display: block;
+      }
+
+      @keyframes glitchIn {
+        0% {
+          opacity: 0;
+          transform: translateX(-10px);
+          clip-path: polygon(0 0, 100% 0, 100% 20%, 0 20%);
         }
-
-        /* Dark Theme */
-        [data-theme="dark"] {
-            --primary-bg: #0d0d1a;
-            --secondary-bg: #1a1a2e;
-            --surface-glass: rgba(30, 30, 50, 0.7);
-            --surface-holo: rgba(40, 40, 60, 0.9);
-            --gradient-neon: linear-gradient(135deg, #00ddeb 0%, #ff00ff 100%);
-            --gradient-accent: linear-gradient(135deg, #ff007a 0%, #ffbb00 100%);
-            --gradient-success: linear-gradient(135deg, #00ffcc 0%, #00ccff 100%);
-            --gradient-pulse: linear-gradient(135deg, #7b00ff 0%, #00ffea 100%);
-            --accent-neon: #00ddeb;
-            --accent-pink: #ff007a;
-            --accent-purple: #7b00ff;
-            --accent-cyan: #00ffcc;
-            --text-primary: #e6e6ff;
-            --text-secondary: #a0a0cc;
-            --text-muted: #666699;
-            --shadow-neon: 0 0 15px rgba(0, 221, 235, 0.5);
-            --shadow-holo: 0 0 30px rgba(123, 0, 255, 0.3);
-            --shadow-glow: 0 0 50px rgba(0, 255, 204, 0.4);
-            --border-neon: 1px solid rgba(0, 221, 235, 0.3);
-            --particle-color: rgba(0, 221, 235, 0.5);
-            --mobile-menu-bg: rgba(13, 13, 26, 0.9);
+        20% {
+          clip-path: polygon(0 0, 100% 0, 100% 40%, 0 40%);
         }
-
-        /* ============================================== */
-        /* ==  GLOBAL STYLES                          == */
-        /* ============================================== */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        40% {
+          clip-path: polygon(0 0, 100% 0, 100% 60%, 0 60%);
         }
-
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
+        60% {
+          clip-path: polygon(0 0, 100% 0, 100% 80%, 0 80%);
         }
-
-        body {
-            font-family: "Times New Roman", Times, serif;
-            background: var(--primary-bg);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-            transition: background var(--transition-smooth), color var(--transition-smooth);
+        80% {
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
         }
-
-        /* Background Effects */
-        #particle-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            background: var(--primary-bg);
+        100% {
+          opacity: 1;
+          transform: translateX(0);
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
         }
+      }
 
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(0, 180, 219, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(251, 194, 235, 0.1) 0%, transparent 50%);
-            z-index: -1;
-            pointer-events: none;
-            transition: all var(--transition-smooth);
+      .section {
+        padding: 4rem 2rem;
+        max-width: 1400px;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 3rem;
+        position: relative;
+        text-shadow: 0 0 10px var(--accent-purple);
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: var(--gradient-neon);
+        border-radius: 2px;
+        box-shadow: 0 0 10px var(--accent-neon);
+      }
+
+      /* ============================================== */
+      /* ==  HERO SECTION                           == */
+      /* ============================================== */
+
+      .hero {
+        min-height: calc(100vh - 80px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        padding: 2rem 0;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          transparent 0%,
+          rgba(0, 180, 219, 0.05) 50%,
+          transparent 100%
+        );
+        animation: heroGlow 4s ease-in-out infinite alternate;
+        z-index: -1;
+      }
+
+      @keyframes heroGlow {
+        0% {
+          opacity: 0.3;
         }
-
-        [data-theme="dark"] body::before {
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(0, 221, 235, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 0, 122, 0.1) 0%, transparent 50%);
+        100% {
+          opacity: 0.7;
         }
+      }
 
-        /* Typography */
-        h1, h2, h3, h4, h5, h6 {
-            font-family: "Times New Roman", Times, serif;
-            font-weight: 700;
-            line-height: 1.2;
-            letter-spacing: 0.02em;
-            color: var(--text-primary);
+      .hero-content {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 2rem;
+        z-index: 2;
+        position: relative;
+      }
+
+      .hero-image {
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        margin: 0 auto 2rem;
+        position: relative;
+        overflow: hidden;
+        box-shadow: var(--shadow-glow);
+        animation: float 3s ease-in-out infinite;
+      }
+
+      .hero-image::before {
+        content: "";
+        position: absolute;
+        top: -4px;
+        left: -4px;
+        right: -4px;
+        bottom: -4px;
+        background: var(--gradient-neon);
+        border-radius: 50%;
+        z-index: -1;
+        animation: orbit 6s linear infinite;
+        filter: blur(2px);
+      }
+
+      .hero-image::after {
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        background: var(--gradient-accent);
+        border-radius: 50%;
+        z-index: -1;
+        animation: orbit 4s linear infinite reverse;
+        opacity: 0.7;
+        filter: blur(1px);
+      }
+
+      @keyframes orbit {
+        0% {
+          transform: rotate(0deg) scale(1);
         }
-
-        h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); }
-        h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
-        h3 { font-size: clamp(1.5rem, 3vw, 2.2rem); }
-
-        /* ============================================== */
-        /* ==  NAVIGATION                             == */
-        /* ============================================== */
-
-        .scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--gradient-neon);
-            transform-origin: left;
-            transform: scaleX(0);
-            z-index: 1001;
-            transition: transform 0.1s ease;
+        50% {
+          transform: rotate(180deg) scale(1.05);
         }
-
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            background: var(--surface-glass);
-            backdrop-filter: var(--glass-blur) saturate(200%);
-            border-bottom: var(--border-neon);
-            transition: all var(--transition-smooth);
+        100% {
+          transform: rotate(360deg) scale(1);
         }
+      }
 
-        nav.scrolled {
-            background: var(--surface-holo);
-            box-shadow: var(--shadow-holo);
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
         }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        50% {
+          transform: translateY(-10px);
         }
+      }
 
-        .logo {
-            font-family: "Times New Roman", Times, serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            background: var(--gradient-neon);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 10px var(--accent-neon);
+      .hero-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 2px solid var(--accent-neon);
+      }
+
+      .hero-title {
+        margin-bottom: 1rem;
+        background: var(--gradient-neon);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 15px var(--accent-neon);
+        animation: pulseGlow 2s ease-in-out infinite alternate;
+      }
+
+      .hero-subtitle {
+        font-family: "Times New Roman", Times, serif;
+        font-size: 1.3rem;
+        color: var(--text-secondary);
+        margin-bottom: 2rem;
+        font-weight: 400;
+        overflow: hidden;
+        white-space: nowrap;
+        animation: typing 4s steps(60, end) 1s 1 normal both,
+          blink-caret 0.75s step-end infinite;
+      }
+
+      @keyframes typing {
+        from {
+          width: 0;
         }
+        to {
+          width: 100%;
+        }
+      }
 
+      @keyframes blink-caret {
+        from,
+        to {
+          border-right: 2px solid var(--accent-neon);
+        }
+        50% {
+          border-right: 2px solid transparent;
+        }
+      }
+
+      @keyframes pulseGlow {
+        0% {
+          filter: brightness(1);
+        }
+        100% {
+          filter: brightness(1.3);
+        }
+      }
+
+      /* ============================================== */
+      /* ==  BUTTONS                                == */
+      /* ============================================== */
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 8px;
+        font-family: "Times New Roman", Times, serif;
+        font-weight: 600;
+        font-size: 1rem;
+        text-decoration: none;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        transition: all var(--transition-smooth);
+        z-index: 1;
+      }
+
+      .btn-primary {
+        background: var(--gradient-neon);
+        color: var(--text-primary);
+        box-shadow: var(--shadow-neon);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 0 25px var(--accent-neon);
+      }
+
+      .btn-primary::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        transition: left 0.5s;
+        z-index: -1;
+      }
+
+      .btn-primary:hover::after {
+        left: 100%;
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: var(--accent-neon);
+        border: 2px solid var(--accent-neon);
+        box-shadow: 0 0 10px var(--accent-neon);
+      }
+
+      .btn-secondary:hover {
+        background: var(--accent-neon);
+        color: var(--primary-bg);
+        transform: translateY(-2px);
+      }
+
+      /* ============================================== */
+      /* ==  CARDS AND GRIDS                        == */
+      /* ============================================== */
+
+      .projects-grid,
+      .certifications-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        padding: 2rem;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .project-card {
+        background: var(--surface-glass);
+        backdrop-filter: blur(12px);
+        border: var(--border-neon);
+        border-radius: 16px;
+        padding: 2rem;
+        position: relative;
+        overflow: hidden;
+        transition: all var(--transition-smooth);
+        cursor: pointer;
+        box-shadow: var(--shadow-holo);
+      }
+
+      .project-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          45deg,
+          transparent,
+          rgba(0, 221, 235, 0.1),
+          transparent
+        );
+        transform: translateX(-100%);
+        transition: transform 0.6s;
+        z-index: -1;
+      }
+
+      .project-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 0 40px var(--accent-neon);
+      }
+
+      .project-card:hover::before {
+        transform: translateX(100%);
+      }
+
+      .project-icon {
+        font-size: 2.8rem;
+        margin-bottom: 1rem;
+        background: var(--gradient-neon);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 10px var(--accent-neon);
+      }
+
+      .project-title {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+        color: var(--text-primary);
+        text-shadow: 0 0 5px var(--accent-purple);
+      }
+
+      .project-description {
+        color: var(--text-secondary);
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+      }
+
+      .project-link {
+        color: var(--accent-neon);
+        text-decoration: none;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all var(--transition-fast);
+      }
+
+      .project-link:hover {
+        transform: translateX(5px);
+        color: var(--accent-pink);
+        text-shadow: 0 0 10px var(--accent-pink);
+      }
+
+      .certification-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        display: block;
+      }
+
+      .certification-info {
+        text-align: left;
+      }
+
+      .certification-provider {
+        color: var(--text-secondary);
+        font-size: 1rem;
+        font-weight: 400;
+        margin-top: 0.5rem;
+      }
+
+      /* Filter Buttons */
+      .filter-container {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 3rem;
+        flex-wrap: wrap;
+      }
+
+      .filter-btn {
+        padding: 0.75rem 1.5rem;
+        border: 2px solid var(--accent-neon);
+        background: transparent;
+        color: var(--text-secondary);
+        border-radius: 25px;
+        font-family: "Times New Roman", Times, serif;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all var(--transition-smooth);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .filter-btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--gradient-neon);
+        transform: translateX(-100%);
+        transition: transform var(--transition-smooth);
+        z-index: -1;
+      }
+
+      .filter-btn:hover,
+      .filter-btn.active {
+        color: var(--text-primary);
+        border-color: transparent;
+        box-shadow: 0 0 15px var(--accent-neon);
+      }
+
+      .filter-btn:hover::before,
+      .filter-btn.active::before {
+        transform: translateX(0);
+      }
+
+      /* Skills Grid */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .skill-card {
+        background: var(--surface-glass);
+        backdrop-filter: blur(12px);
+        border: var(--border-neon);
+        border-radius: 16px;
+        padding: 2rem;
+        text-align: center;
+        transition: all var(--transition-smooth);
+        box-shadow: var(--shadow-holo);
+      }
+
+      .skill-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0 30px var(--accent-neon);
+      }
+
+      .skill-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        background: var(--gradient-success);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 10px var(--accent-cyan);
+      }
+
+      /* Contact Grid */
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .contact-card {
+        background: var(--surface-glass);
+        backdrop-filter: blur(12px);
+        border: var(--border-neon);
+        border-radius: 16px;
+        padding: 2rem;
+        text-align: center;
+        transition: all var(--transition-smooth);
+        position: relative;
+        overflow: hidden;
+        box-shadow: var(--shadow-holo);
+      }
+
+      .contact-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--gradient-accent);
+        box-shadow: 0 0 10px var(--accent-pink);
+      }
+
+      .contact-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0 30px var(--accent-pink);
+      }
+
+      .contact-icon {
+        font-size: 2.8rem;
+        margin-bottom: 1rem;
+        background: var(--gradient-accent);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 10px var(--accent-pink);
+      }
+
+      /* ============================================== */
+      /* ==  CV SECTION                             == */
+      /* ============================================== */
+
+      .cv-container {
+        background: var(--surface-glass);
+        backdrop-filter: blur(12px);
+        border: var(--border-neon);
+        border-radius: 20px;
+        padding: 3rem;
+        margin: 2rem auto;
+        max-width: 1000px;
+        position: relative;
+        box-shadow: var(--shadow-holo);
+        line-height: 1.6;
+      }
+
+      .cv-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          45deg,
+          transparent,
+          rgba(0, 221, 235, 0.05),
+          transparent
+        );
+        animation: scanline 3s linear infinite;
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      .cv-header {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        gap: 2rem;
+        margin-bottom: 3rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .cv-photo {
+        text-align: center;
+      }
+
+      .cv-photo img {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid var(--accent-neon);
+        box-shadow: var(--shadow-glow);
+      }
+
+      .cv-info h1 {
+        font-size: 2.2rem;
+        margin-bottom: 0.5rem;
+        background: var(--gradient-neon);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .cv-info h2 {
+        font-size: 1.4rem;
+        color: var(--text-secondary);
+        margin-bottom: 1.5rem;
+      }
+
+      .contact-info p,
+      .contact-info a {
+        margin: 0.3rem 0;
+        color: var(--text-secondary);
+        text-decoration: none;
+      }
+
+      .contact-info a:hover {
+        color: var(--accent-neon);
+      }
+
+      .cv-section {
+        margin-bottom: 2.5rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .cv-section h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        color: var(--text-primary);
+        border-left: 4px solid var(--accent-neon);
+        padding-left: 1rem;
+      }
+
+      .job,
+      .education,
+      .project {
+        background: var(--surface-glass);
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        border: 1px solid var(--border-neon);
+        transition: all var(--transition-smooth);
+        box-shadow: var(--shadow-holo);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .job::before,
+      .education::before,
+      .project::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(0, 180, 219, 0.15) 0%,
+          transparent 70%
+        );
+        transform: rotate(45deg);
+        transition: all var(--transition-slow);
+        opacity: 0;
+        z-index: -1;
+      }
+
+      .job:hover::before,
+      .education:hover::before,
+      .project:hover::before {
+        opacity: 1;
+        top: 0;
+        left: 0;
+      }
+
+      .job:hover,
+      .education:hover,
+      .project:hover {
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 0 0 25px var(--accent-neon), 0 0 50px var(--accent-purple);
+        border-color: var(--accent-neon);
+      }
+
+      .job-header,
+      .edu-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.5rem;
+      }
+
+      .job-header h4,
+      .edu-header h4 {
+        font-size: 1.2rem;
+        color: var(--accent-neon);
+      }
+
+      .period {
+        background: var(--gradient-accent);
+        color: white;
+        padding: 0.3rem 0.8rem;
+        border-radius: 15px;
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+
+      .company,
+      .school {
+        font-weight: 600;
+        color: var(--text-secondary);
+        margin-bottom: 0.8rem;
+      }
+
+      .cv-section ul {
+        list-style: none;
+        padding-left: 1rem;
+      }
+
+      .cv-section ul li {
+        position: relative;
+        margin-bottom: 0.5rem;
+        padding-left: 1.5rem;
+        transition: transform var(--transition-fast);
+      }
+
+      .cv-section ul li:hover {
+        transform: translateX(5px);
+      }
+
+      .cv-section ul li::before {
+        content: "▸";
+        position: absolute;
+        left: 0;
+        color: var(--accent-neon);
+        font-weight: bold;
+      }
+
+      .skills-section {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .skill-category {
+        background: var(--surface-glass);
+        border-radius: 12px;
+        padding: 1.5rem;
+        border: 1px solid var(--border-neon);
+        transition: all var(--transition-smooth);
+        position: relative;
+        overflow: hidden;
+        box-shadow: var(--shadow-holo);
+      }
+
+      .skill-category::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 4px;
+        background: var(--gradient-neon);
+        transition: width var(--transition-smooth);
+      }
+
+      .skill-category:hover::before {
+        width: 100%;
+      }
+
+      .skill-category:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 0 20px var(--accent-cyan);
+      }
+
+      .skill-category h5 {
+        color: var(--accent-purple);
+        margin-bottom: 0.8rem;
+        font-size: 1.1rem;
+      }
+
+      .certifications-list {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .cert-item {
+        background: var(--surface-glass);
+        border-radius: 8px;
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid var(--border-neon);
+        transition: all var(--transition-smooth);
+        box-shadow: var(--shadow-holo);
+      }
+
+      .cert-item:hover {
+        transform: scale(1.02);
+        box-shadow: 0 0 15px var(--accent-purple);
+      }
+
+      .cert-item h5 {
+        color: var(--text-primary);
+      }
+
+      .cert-item span {
+        color: var(--accent-neon);
+        font-weight: 600;
+      }
+
+      .languages {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+      }
+
+      .lang-item {
+        background: var(--surface-glass);
+        border-radius: 8px;
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid var(--border-neon);
+        transition: all var(--transition-smooth);
+        box-shadow: var(--shadow-holo);
+      }
+
+      .lang-item:hover {
+        transform: scale(1.02);
+        box-shadow: 0 0 15px var(--accent-pink);
+      }
+
+      @keyframes scanline {
+        0% {
+          transform: translateY(-100%);
+        }
+        100% {
+          transform: translateY(100%);
+        }
+      }
+
+      /* ============================================== */
+      /* ==  FOOTER                                 == */
+      /* ============================================== */
+
+      footer {
+        background: var(--secondary-bg);
+        padding: 3rem 2rem 2rem;
+        text-align: center;
+        border-top: var(--border-neon);
+        position: relative;
+      }
+
+      footer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M0,50 H20 a5,5 0 0 1 5,5 v20 a5,5 0 0 0 5,5 h40 a5,5 0 0 1 5,5 v15" fill="none" stroke="rgba(0,221,235,0.1)" stroke-width="1"/></svg>')
+          repeat;
+        opacity: 0.5;
+        z-index: -1;
+      }
+
+      /* ============================================== */
+      /* ==  ANIMATIONS                             == */
+      /* ============================================== */
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .animate-fade-in {
+        animation: fadeInUp 0.8s ease-out forwards;
+      }
+
+      .loading {
+        opacity: 0.7;
+        pointer-events: none;
+        transition: opacity var(--transition-smooth);
+      }
+
+      /* ============================================== */
+      /* ==  RESPONSIVE DESIGN                      == */
+      /* ============================================== */
+
+      @media (max-width: 768px) {
         .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
+          display: none;
         }
 
-        .nav-link {
-            font-family: "Times New Roman", Times, serif;
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1rem;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            position: relative;
-            transition: all var(--transition-fast);
-            cursor: pointer;
-        }
-
-        .nav-link::before {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--gradient-neon);
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform var(--transition-smooth);
-            z-index: -1;
-        }
-
-        .nav-link:hover, .nav-link.active {
-            color: var(--text-primary);
-            text-shadow: 0 0 10px var(--accent-neon);
-            transform: translateY(-2px);
-        }
-
-        .nav-link:hover::before, .nav-link.active::before {
-            transform: scaleX(1);
-            transform-origin: left;
-        }
-
-        .theme-toggle-btn {
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 0.5rem;
-            border-radius: 8px;
-            transition: all var(--transition-fast);
-            margin-right: 1rem;
-        }
-
-        .theme-toggle-btn:hover {
-            background: rgba(0, 180, 219, 0.2);
-            box-shadow: 0 0 10px var(--accent-neon);
-        }
-
-        /* Mobile Menu */
         .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            font-size: 1.8rem;
-            cursor: pointer;
-            padding: 0.5rem;
-            border-radius: 8px;
-            transition: all var(--transition-fast);
-        }
-
-        .mobile-menu-btn:hover {
-            background: rgba(0, 221, 235, 0.2);
-            box-shadow: 0 0 10px var(--accent-neon);
-        }
-
-        .mobile-menu-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--mobile-menu-bg);
-            backdrop-filter: blur(10px);
-            z-index: 200;
-            opacity: 0;
-            visibility: hidden;
-            transition: all var(--transition-smooth);
-            transform: translateX(-100%);
-        }
-
-        .mobile-menu-overlay.show {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(0);
-        }
-
-        .mobile-menu-content {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 80%;
-            max-width: 400px;
-            height: 100%;
-            background: var(--surface-holo);
-            border-right: var(--border-neon);
-            padding: 3rem;
-            box-shadow: 0 0 30px var(--accent-neon);
-        }
-
-        .mobile-nav-link {
-            font-family: "Times New Roman", Times, serif;
-            display: block;
-            color: var(--text-secondary);
-            text-decoration: none;
-            padding: 1rem;
-            margin-bottom: 0.5rem;
-            border-radius: 8px;
-            text-align: left;
-            font-weight: 500;
-            transition: all var(--transition-smooth);
-        }
-
-        .mobile-nav-link:hover, .mobile-nav-link.active {
-            background: var(--gradient-neon);
-            color: var(--text-primary);
-            box-shadow: 0 0 15px var(--accent-neon);
-        }
-
-        /* ============================================== */
-        /* ==  PAGE STRUCTURE                         == */
-        /* ============================================== */
-
-        .page {
-            min-height: 100vh;
-            padding-top: 80px;
-            display: none;
-            animation: glitchIn 0.5s ease-in-out;
-        }
-
-        .page.active {
-            display: block;
-        }
-
-        @keyframes glitchIn {
-            0% { opacity: 0; transform: translateX(-10px); clip-path: polygon(0 0, 100% 0, 100% 20%, 0 20%); }
-            20% { clip-path: polygon(0 0, 100% 0, 100% 40%, 0 40%); }
-            40% { clip-path: polygon(0 0, 100% 0, 100% 60%, 0 60%); }
-            60% { clip-path: polygon(0 0, 100% 0, 100% 80%, 0 80%); }
-            80% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
-            100% { opacity: 1; transform: translateX(0); clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
-        }
-
-        .section {
-            padding: 4rem 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
-            text-shadow: 0 0 10px var(--accent-purple);
-        }
-
-        .section-title::after {
-            content: "";
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--gradient-neon);
-            border-radius: 2px;
-            box-shadow: 0 0 10px var(--accent-neon);
-        }
-
-        /* ============================================== */
-        /* ==  HERO SECTION                           == */
-        /* ============================================== */
-
-        .hero {
-            min-height: calc(100vh - 80px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            padding: 2rem 0;
-        }
-
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, transparent 0%, rgba(0, 180, 219, 0.05) 50%, transparent 100%);
-            animation: heroGlow 4s ease-in-out infinite alternate;
-            z-index: -1;
-        }
-
-        @keyframes heroGlow {
-            0% { opacity: 0.3; }
-            100% { opacity: 0.7; }
+          display: block;
         }
 
         .hero-content {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem;
-            z-index: 2;
-            position: relative;
+          padding: 1rem;
         }
 
-        .hero-image {
-            width: 220px;
-            height: 220px;
-            border-radius: 50%;
-            margin: 0 auto 2rem;
-            position: relative;
-            overflow: hidden;
-            box-shadow: var(--shadow-glow);
-            animation: float 3s ease-in-out infinite;
+        .projects-grid,
+        .certifications-grid {
+          grid-template-columns: 1fr;
+          padding: 1rem;
         }
 
-        .hero-image::before {
-            content: "";
-            position: absolute;
-            top: -4px;
-            left: -4px;
-            right: -4px;
-            bottom: -4px;
-            background: var(--gradient-neon);
-            border-radius: 50%;
-            z-index: -1;
-            animation: orbit 6s linear infinite;
-            filter: blur(2px);
+        .section {
+          padding: 3rem 1rem;
         }
 
-        .hero-image::after {
-            content: "";
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: var(--gradient-accent);
-            border-radius: 50%;
-            z-index: -1;
-            animation: orbit 4s linear infinite reverse;
-            opacity: 0.7;
-            filter: blur(1px);
-        }
-
-        @keyframes orbit {
-            0% { transform: rotate(0deg) scale(1); }
-            50% { transform: rotate(180deg) scale(1.05); }
-            100% { transform: rotate(360deg) scale(1); }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 2px solid var(--accent-neon);
-        }
-
-        .hero-title {
-            margin-bottom: 1rem;
-            background: var(--gradient-neon);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 15px var(--accent-neon);
-            animation: pulseGlow 2s ease-in-out infinite alternate;
-        }
-
-        .hero-subtitle {
-            font-family: "Times New Roman", Times, serif;
-            font-size: 1.3rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            font-weight: 400;
-            overflow: hidden;
-            white-space: nowrap;
-            animation: typing 4s steps(60, end) 1s 1 normal both, blink-caret 0.75s step-end infinite;
-        }
-
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-
-        @keyframes blink-caret {
-            from, to { border-right: 2px solid var(--accent-neon); }
-            50% { border-right: 2px solid transparent; }
-        }
-
-        @keyframes pulseGlow {
-            0% { filter: brightness(1); }
-            100% { filter: brightness(1.3); }
-        }
-
-        /* ============================================== */
-        /* ==  BUTTONS                                == */
-        /* ============================================== */
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 8px;
-            font-family: "Times New Roman", Times, serif;
-            font-weight: 600;
-            font-size: 1rem;
-            text-decoration: none;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            transition: all var(--transition-smooth);
-            z-index: 1;
-        }
-
-        .btn-primary {
-            background: var(--gradient-neon);
-            color: var(--text-primary);
-            box-shadow: var(--shadow-neon);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 25px var(--accent-neon);
-        }
-
-        .btn-primary::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.5s;
-            z-index: -1;
-        }
-
-        .btn-primary:hover::after {
-            left: 100%;
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--accent-neon);
-            border: 2px solid var(--accent-neon);
-            box-shadow: 0 0 10px var(--accent-neon);
-        }
-
-        .btn-secondary:hover {
-            background: var(--accent-neon);
-            color: var(--primary-bg);
-            transform: translateY(-2px);
-        }
-
-        /* ============================================== */
-        /* ==  CARDS AND GRIDS                       == */
-        /* ============================================== */
-
-        .projects-grid, .certifications-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            padding: 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .project-card {
-            background: var(--surface-glass);
-            backdrop-filter: blur(12px);
-            border: var(--border-neon);
-            border-radius: 16px;
-            padding: 2rem;
-            position: relative;
-            overflow: hidden;
-            transition: all var(--transition-smooth);
-            cursor: pointer;
-            box-shadow: var(--shadow-holo);
-        }
-
-        .project-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, transparent, rgba(0, 221, 235, 0.1), transparent);
-            transform: translateX(-100%);
-            transition: transform 0.6s;
-            z-index: -1;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 0 40px var(--accent-neon);
-        }
-
-        .project-card:hover::before {
-            transform: translateX(100%);
-        }
-
-        .project-icon {
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-            background: var(--gradient-neon);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 10px var(--accent-neon);
-        }
-
-        .project-title {
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-            text-shadow: 0 0 5px var(--accent-purple);
-        }
-
-        .project-description {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .project-link {
-            color: var(--accent-neon);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all var(--transition-fast);
-        }
-
-        .project-link:hover {
-            transform: translateX(5px);
-            color: var(--accent-pink);
-            text-shadow: 0 0 10px var(--accent-pink);
-        }
-
-        .certification-image {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .certification-info {
-            text-align: left;
-        }
-
-        .certification-provider {
-            color: var(--text-secondary);
-            font-size: 1rem;
-            font-weight: 400;
-            margin-top: 0.5rem;
-        }
-
-        /* Filter Buttons */
-        .filter-container {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            padding: 0.75rem 1.5rem;
-            border: 2px solid var(--accent-neon);
-            background: transparent;
-            color: var(--text-secondary);
-            border-radius: 25px;
-            font-family: "Times New Roman", Times, serif;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all var(--transition-smooth);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .filter-btn::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient-neon);
-            transform: translateX(-100%);
-            transition: transform var(--transition-smooth);
-            z-index: -1;
-        }
-
-        .filter-btn:hover, .filter-btn.active {
-            color: var(--text-primary);
-            border-color: transparent;
-            box-shadow: 0 0 15px var(--accent-neon);
-        }
-
-        .filter-btn:hover::before, .filter-btn.active::before {
-            transform: translateX(0);
-        }
-
-        /* Skills Grid */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .skill-card {
-            background: var(--surface-glass);
-            backdrop-filter: blur(12px);
-            border: var(--border-neon);
-            border-radius: 16px;
-            padding: 2rem;
-            text-align: center;
-            transition: all var(--transition-smooth);
-            box-shadow: var(--shadow-holo);
-        }
-
-        .skill-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 30px var(--accent-neon);
-        }
-
-        .skill-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            background: var(--gradient-success);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 10px var(--accent-cyan);
-        }
-
-        /* Contact Grid */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .contact-card {
-            background: var(--surface-glass);
-            backdrop-filter: blur(12px);
-            border: var(--border-neon);
-            border-radius: 16px;
-            padding: 2rem;
-            text-align: center;
-            transition: all var(--transition-smooth);
-            position: relative;
-            overflow: hidden;
-            box-shadow: var(--shadow-holo);
-        }
-
-        .contact-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gradient-accent);
-            box-shadow: 0 0 10px var(--accent-pink);
-        }
-
-        .contact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 30px var(--accent-pink);
-        }
-
-        .contact-icon {
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-            background: var(--gradient-accent);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 10px var(--accent-pink);
-        }
-
-        /* ============================================== */
-        /* ==  CV SECTION                             == */
-        /* ============================================== */
-
-        .cv-container {
-            background: var(--surface-glass);
-            backdrop-filter: blur(12px);
-            border: var(--border-neon);
-            border-radius: 20px;
-            padding: 3rem;
-            margin: 2rem auto;
-            max-width: 1000px;
-            position: relative;
-            box-shadow: var(--shadow-holo);
-            line-height: 1.6;
-        }
-
-        .cv-container::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, transparent, rgba(0, 221, 235, 0.05), transparent);
-            animation: scanline 3s linear infinite;
-            z-index: 0;
-            pointer-events: none;
+        .nav-container {
+          padding: 1rem;
         }
 
         .cv-header {
-            display: grid;
-            grid-template-columns: 200px 1fr;
-            gap: 2rem;
-            margin-bottom: 3rem;
-            position: relative;
-            z-index: 1;
+          grid-template-columns: 1fr;
+          text-align: center;
+          gap: 1rem;
         }
 
         .cv-photo {
-            text-align: center;
+          order: -1;
         }
 
-        .cv-photo img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--accent-neon);
-            box-shadow: var(--shadow-glow);
+        .job-header,
+        .edu-header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0.5rem;
         }
 
-        .cv-info h1 {
-            font-size: 2.2rem;
-            margin-bottom: 0.5rem;
-            background: var(--gradient-neon);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .filter-container {
+          gap: 0.5rem;
         }
 
-        .cv-info h2 {
-            font-size: 1.4rem;
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-info p, .contact-info a {
-            margin: 0.3rem 0;
-            color: var(--text-secondary);
-            text-decoration: none;
-        }
-
-        .contact-info a:hover {
-            color: var(--accent-neon);
-        }
-
-        .cv-section {
-            margin-bottom: 2.5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .cv-section h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-primary);
-            border-left: 4px solid var(--accent-neon);
-            padding-left: 1rem;
-        }
-
-        .job, .education, .project {
-            background: var(--surface-glass);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            border: 1px solid var(--border-neon);
-            transition: all var(--transition-smooth);
-        }
-
-        .job:hover, .education:hover, .project:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-neon);
-        }
-
-        .job-header, .edu-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.5rem;
-        }
-
-        .job-header h4, .edu-header h4 {
-            font-size: 1.2rem;
-            color: var(--accent-neon);
-        }
-
-        .period {
-            background: var(--gradient-accent);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .company, .school {
-            font-weight: 600;
-            color: var(--text-secondary);
-            margin-bottom: 0.8rem;
-        }
-
-        .cv-section ul {
-            list-style: none;
-            padding-left: 1rem;
-        }
-
-        .cv-section ul li {
-            position: relative;
-            margin-bottom: 0.5rem;
-            padding-left: 1.5rem;
-        }
-
-        .cv-section ul li::before {
-            content: "▸";
-            position: absolute;
-            left: 0;
-            color: var(--accent-neon);
-            font-weight: bold;
+        .filter-btn {
+          padding: 0.5rem 1rem;
+          font-size: 0.9rem;
         }
 
         .skills-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
+          grid-template-columns: 1fr;
         }
 
-        .skill-category {
-            background: var(--surface-glass);
-            border-radius: 12px;
-            padding: 1.5rem;
-            border: 1px solid var(--border-neon);
+        .contact-grid {
+          grid-template-columns: 1fr;
         }
 
-        .skill-category h5 {
-            color: var(--accent-purple);
-            margin-bottom: 0.8rem;
-            font-size: 1.1rem;
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-image {
+          width: 180px;
+          height: 180px;
         }
 
-        .certifications-list {
-            display: grid;
-            gap: 1rem;
-        }
-
-        .cert-item {
-            background: var(--surface-glass);
-            border-radius: 8px;
-            padding: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border: 1px solid var(--border-neon);
-        }
-
-        .cert-item h5 {
-            color: var(--text-primary);
-        }
-
-        .cert-item span {
-            color: var(--accent-neon);
-            font-weight: 600;
+        .cv-container {
+          padding: 2rem;
+          margin: 1rem;
         }
 
         .languages {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
+          grid-template-columns: 1fr;
         }
-
-        .lang-item {
-            background: var(--surface-glass);
-            border-radius: 8px;
-            padding: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border: 1px solid var(--border-neon);
-        }
-
-        @keyframes scanline {
-            0% { transform: translateY(-100%); }
-            100% { transform: translateY(100%); }
-        }
-
-        /* ============================================== */
-        /* ==  FOOTER                                 == */
-        /* ============================================== */
-
-        footer {
-            background: var(--secondary-bg);
-            padding: 3rem 2rem 2rem;
-            text-align: center;
-            border-top: var(--border-neon);
-            position: relative;
-        }
-
-        footer::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M0,50 H20 a5,5 0 0 1 5,5 v20 a5,5 0 0 0 5,5 h40 a5,5 0 0 1 5,5 v15" fill="none" stroke="rgba(0,221,235,0.1)" stroke-width="1"/></svg>') repeat;
-            opacity: 0.5;
-            z-index: -1;
-        }
-
-        /* ============================================== */
-        /* ==  ANIMATIONS                             == */
-        /* ============================================== */
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .animate-fade-in {
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-
-        .loading {
-            opacity: 0.7;
-            pointer-events: none;
-            transition: opacity var(--transition-smooth);
-        }
-
-        /* ============================================== */
-        /* ==  RESPONSIVE DESIGN                      == */
-        /* ============================================== */
-
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .hero-content {
-                padding: 1rem;
-            }
-
-            .projects-grid, .certifications-grid {
-                grid-template-columns: 1fr;
-                padding: 1rem;
-            }
-
-            .section {
-                padding: 3rem 1rem;
-            }
-
-            .nav-container {
-                padding: 1rem;
-            }
-
-            .cv-header {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 1rem;
-            }
-
-            .cv-photo {
-                order: -1;
-            }
-
-            .job-header, .edu-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.5rem;
-            }
-
-            .filter-container {
-                gap: 0.5rem;
-            }
-
-            .filter-btn {
-                padding: 0.5rem 1rem;
-                font-size: 0.9rem;
-            }
-
-            .skills-section {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-image {
-                width: 180px;
-                height: 180px;
-            }
-
-            .cv-container {
-                padding: 2rem;
-                margin: 1rem;
-            }
-
-            .languages {
-                grid-template-columns: 1fr;
-            }
-        }
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- Scroll Progress -->
     <div class="scroll-progress" id="scrollProgress"></div>
 
@@ -1147,903 +1343,1331 @@
 
     <!-- Navigation -->
     <nav id="navbar">
-        <div class="nav-container">
-            <div class="logo">Onesime N'Dri</div>
-            <ul class="nav-menu">
-                <li><a href="#" class="nav-link active" data-page="home">Accueil</a></li>
-                <li><a href="#" class="nav-link" data-page="projects">Projets</a></li>
-                <li><a href="#" class="nav-link" data-page="certifications">Certifications</a></li>
-                <li><a href="#" class="nav-link" data-page="about">À propos</a></li>
-                <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
-                <li><a href="#" class="nav-link" data-page="cv">CV</a></li>
-            </ul>
-            <div>
-                <button class="theme-toggle-btn" id="themeToggleBtn" title="Basculer le thème">
-                    <i class="fas fa-sun"></i>
-                </button>
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
+      <div class="nav-container">
+        <div class="logo">Onesime N'Dri</div>
+        <ul class="nav-menu">
+          <li>
+            <a href="#" class="nav-link active" data-page="home">Accueil</a>
+          </li>
+          <li><a href="#" class="nav-link" data-page="projects">Projets</a></li>
+          <li>
+            <a href="#" class="nav-link" data-page="visualisation"
+              >Visualisation</a
+            >
+          </li>
+          <li>
+            <a href="#" class="nav-link" data-page="certifications"
+              >Certifications</a
+            >
+          </li>
+          <li><a href="#" class="nav-link" data-page="about">À propos</a></li>
+          <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
+          <li><a href="#" class="nav-link" data-page="cv">CV</a></li>
+        </ul>
+        <div>
+          <button
+            class="theme-toggle-btn"
+            id="themeToggleBtn"
+            title="Basculer le thème"
+          >
+            <i class="fas fa-sun"></i>
+          </button>
+          <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+          </button>
         </div>
+      </div>
     </nav>
 
     <!-- Mobile Menu -->
     <div class="mobile-menu-overlay" id="mobileMenuOverlay">
-        <div class="mobile-menu-content">
-            <a href="#" class="mobile-nav-link" data-page="home">🏠 Accueil</a>
-            <a href="#" class="mobile-nav-link" data-page="projects">💼 Projets</a>
-            <a href="#" class="mobile-nav-link" data-page="certifications">🏆 Certifications</a>
-            <a href="#" class="mobile-nav-link" data-page="about">👤 À propos</a>
-            <a href="#" class="mobile-nav-link" data-page="contact">📞 Contact</a>
-            <a href="#" class="mobile-nav-link" data-page="cv">📄 CV</a>
-            <button class="theme-toggle-btn" id="mobileThemeToggleBtn" title="Basculer le thème">
-                <i class="fas fa-sun"></i>
-            </button>
-        </div>
+      <div class="mobile-menu-content">
+        <a href="#" class="mobile-nav-link" data-page="home">🏠 Accueil</a>
+        <a href="#" class="mobile-nav-link" data-page="projects">💼 Projets</a>
+        <a href="#" class="mobile-nav-link" data-page="visualisation"
+          >🔍 Visualisation</a
+        >
+        <a href="#" class="mobile-nav-link" data-page="certifications"
+          >🏆 Certifications</a
+        >
+        <a href="#" class="mobile-nav-link" data-page="about">👤 À propos</a>
+        <a href="#" class="mobile-nav-link" data-page="contact">📞 Contact</a>
+        <a href="#" class="mobile-nav-link" data-page="cv">📄 CV</a>
+        <button
+          class="theme-toggle-btn"
+          id="mobileThemeToggleBtn"
+          title="Basculer le thème"
+        >
+          <i class="fas fa-sun"></i>
+        </button>
+      </div>
     </div>
 
     <!-- Page Accueil -->
     <div id="home" class="page active">
-        <section class="hero">
-            <div class="hero-content animate-fade-in">
-                <div class="hero-image">
-                    <img src="assets/pot.jpg" alt="Onesime N'Dri" onerror="this.style.display='none'">
-                </div>
-                <h1 class="hero-title">N'Dri Abo Onesime Ablatie</h1>
-                <p class="hero-subtitle">
-                    Data Analyst | Analyse de données, visualisation, modélisation économétrique & ML
-                </p>
-                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                    <button class="btn btn-primary" onclick="showPage('projects')">
-                        <i class="fas fa-rocket"></i>
-                        Découvrir mes projets
-                    </button>
-                    <button class="btn btn-secondary" onclick="showPage('contact')">
-                        <i class="fas fa-paper-plane"></i>
-                        Me contacter
-                    </button>
-                </div>
-            </div>
-        </section>
+      <section class="hero">
+        <div class="hero-content animate-fade-in">
+          <div class="hero-image">
+            <img
+              src="assets/pot.jpg"
+              alt="Onesime N'Dri"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <h1 class="hero-title">N'Dri Abo Onesime Ablatie</h1>
+          <p class="hero-subtitle">
+            Data Analyst | Analyse de données, visualisation, modélisation
+            économétrique & ML
+          </p>
+          <div
+            style="
+              display: flex;
+              gap: 1rem;
+              justify-content: center;
+              flex-wrap: wrap;
+            "
+          >
+            <button class="btn btn-primary" onclick="showPage('projects')">
+              <i class="fas fa-rocket"></i>
+              Découvrir mes projets
+            </button>
+            <button class="btn btn-secondary" onclick="showPage('contact')">
+              <i class="fas fa-paper-plane"></i>
+              Me contacter
+            </button>
+          </div>
+        </div>
+      </section>
     </div>
 
     <!-- Page Projets -->
     <div id="projects" class="page">
-        <section class="section">
-            <h2 class="section-title">Mes Projets</h2>
-            <div class="filter-container">
-                <button class="filter-btn active" data-type="all">Tous les projets</button>
-                <button class="filter-btn" data-type="pdf">📚 Rapports PDF</button>
-                <button class="filter-btn" data-type="streamlit">🚀 Apps Streamlit</button>
-                <button class="filter-btn" data-type="other">⚡ Autres</button>
+      <section class="section">
+        <h2 class="section-title">Mes Projets</h2>
+        <div class="filter-container">
+          <button class="filter-btn active" data-type="all">
+            Tous les projets
+          </button>
+          <button class="filter-btn" data-type="pdf">📚 Rapports PDF</button>
+          <button class="filter-btn" data-type="streamlit">
+            🚀 Apps Streamlit
+          </button>
+          <button class="filter-btn" data-type="other">⚡ Autres</button>
+        </div>
+        <div class="projects-grid" id="projectsContainer">
+          <!-- PDF Projects -->
+          <div class="project-card" data-type="pdf">
+            <div class="project-icon">📊</div>
+            <h3 class="project-title">Économétrie Quantitative</h3>
+            <p class="project-description">
+              Analyse approfondie des variables influençant le délai de
+              livraison avec régression multiple et ANOVA (2024-2025).
+            </p>
+            <a
+              href="projects/pdfs/ECONOMETRIE-Quanti.pdf"
+              target="_blank"
+              class="project-link"
+            >
+              Consulter le rapport <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+
+          <div class="project-card" data-type="pdf">
+            <div class="project-icon">🌍</div>
+            <h3 class="project-title">Économétrie Qualitative</h3>
+            <p class="project-description">
+              Étude des variables influençant le risque d'accident à l'aide de
+              méthodes économétriques avancées.
+            </p>
+            <a
+              href="projects/pdfs/Econometrie-Quali.pdf"
+              target="_blank"
+              class="project-link"
+            >
+              Voir l'analyse <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+
+          <div class="project-card" data-type="pdf">
+            <div class="project-icon">📈</div>
+            <h3 class="project-title">Séries Temporelles</h3>
+            <p class="project-description">
+              Prévision des indices de pollution de l'air pour les 30 premiers
+              jours de l'année 2015.
+            </p>
+            <a
+              href="projects/pdfs/Econometrie-serie_temp.pdf"
+              target="_blank"
+              class="project-link"
+            >
+              Découvrir l'étude <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+
+          <div class="project-card" data-type="pdf">
+            <div class="project-icon">🎯</div>
+            <h3 class="project-title">Statistique Descriptive</h3>
+            <p class="project-description">
+              Analyse des facteurs socio-économiques et sanitaires pour la
+              catégorisation des pays ayant besoin d'aide.
+            </p>
+            <a
+              href="projects/pdfs/mini-projet-HELP_international_n'dri_onesime.pdf"
+              target="_blank"
+              class="project-link"
+            >
+              Lire le rapport <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+
+          <div class="project-card" data-type="pdf">
+            <div class="project-icon">🧠</div>
+            <h3 class="project-title">Statistique Inférentielle</h3>
+            <p class="project-description">
+              Étude des facteurs influençant la dépression chez les étudiants à
+              l'aide de méthodes statistiques.
+            </p>
+            <a
+              href="projects/pdfs/statistique inferentiel.pdf"
+              target="_blank"
+              class="project-link"
+            >
+              Explorer l'analyse <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+
+          <div class="project-card" data-type="pdf">
+            <div class="project-icon">📊</div>
+            <h3 class="project-title">Corporación Favorita</h3>
+            <p class="project-description">
+              Rapport statistique complet pour Corporación Favorita - Analyse de
+              séries temporelles avancée.
+            </p>
+            <a
+              href="projects/pdfs/mini-projet-serie-temporelle.pdf"
+              target="_blank"
+              class="project-link"
+            >
+              Voir le rapport <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+
+          <div class="project-card" data-type="pdf">
+            <div class="project-icon">🔍</div>
+            <h3 class="project-title">Analyse ACP-ACM</h3>
+            <p class="project-description">
+              Analyse des comportements et préférences pour l'optimisation des
+              ressources avec ACP et ACM.
+            </p>
+            <a
+              href="projects/pdfs/Projet-ACP-ACM.pdf"
+              target="_blank"
+              class="project-link"
+            >
+              Consulter l'analyse <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+
+          <!-- Streamlit Apps -->
+          <div class="project-card" data-type="streamlit">
+            <div class="project-icon">🤖</div>
+            <h3 class="project-title">App Régression Logistique</h3>
+            <p class="project-description">
+              Application Streamlit interactive pour l'analyse et la
+              modélisation par régression logistique.
+            </p>
+            <a
+              href="https://regressionlogistique-app.streamlit.app/"
+              target="_blank"
+              class="project-link"
+            >
+              Lancer l'app <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+
+          <div class="project-card" data-type="streamlit">
+            <div class="project-icon">🔭</div>
+            <h3 class="project-title">Analyse Univariée</h3>
+            <p class="project-description">
+              Application Streamlit pour l'analyse statistique univariée
+              complète et interactive.
+            </p>
+            <a
+              href="https://analyseunivariee-onesime.streamlit.app/"
+              target="_blank"
+              class="project-link"
+            >
+              Utiliser l'app <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+
+          <div class="project-card" data-type="streamlit">
+            <div class="project-icon">🔗</div>
+            <h3 class="project-title">Tests de Liaison</h3>
+            <p class="project-description">
+              Application Streamlit pour effectuer des tests de liaison
+              statistique de manière interactive.
+            </p>
+            <a
+              href="https://appliaison-onesime.streamlit.app/"
+              target="_blank"
+              class="project-link"
+            >
+              Tester l'app <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+
+          <div class="project-card" data-type="streamlit">
+            <div class="project-icon">🗺️</div>
+            <h3 class="project-title">Visualisation de données</h3>
+            <p class="project-description">
+              Application Streamlit pour effectuer la visualisation des données.
+            </p>
+            <a
+              href="https://visualisation-onesime.streamlit.app/"
+              target="_blank"
+              class="project-link"
+            >
+              Tester l'app <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+
+          <div class="project-card" data-type="streamlit">
+            <div class="project-icon">🛰️</div>
+            <h3 class="project-title">Estimation statistique</h3>
+            <p class="project-description">
+              Application Streamlit pour effectuer l'estimation statistique.
+            </p>
+            <a
+              href="https://estimations-statistique-app-qwj6r8bwoje7ndhvvj2k9e.streamlit.app/"
+              target="_blank"
+              class="project-link"
+            >
+              Tester l'app <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+
+          <div class="project-card" data-type="streamlit">
+            <div class="project-icon">🤖</div>
+            <h3 class="project-title">Machine learning quanti</h3>
+            <p class="project-description">
+              Application Streamlit pour évaluation des modèles machine learning
+              quantitatifs.
+            </p>
+            <a
+              href="https://machine-learning-onesime-app.streamlit.app/"
+              target="_blank"
+              class="project-link"
+            >
+              Tester l'app <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+
+          <div class="project-card" data-type="streamlit">
+            <div class="project-icon">🏛️</div>
+            <h3 class="project-title">Test égalité</h3>
+            <p class="project-description">
+              Application Streamlit pour test d'égalité de deux moyennes ou
+              proportions (populations indépendantes).
+            </p>
+            <a
+              href="https://test-deux-popindependant.streamlit.app/"
+              target="_blank"
+              class="project-link"
+            >
+              Tester l'app <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+
+          <div class="project-card" data-type="streamlit">
+            <div class="project-icon">🧭</div>
+            <h3 class="project-title">Règles d'association</h3>
+            <p class="project-description">
+              Application Streamlit pour règles d'association ou panier ménager.
+            </p>
+            <a
+              href="https://regle-panier-menagere.streamlit.app/"
+              target="_blank"
+              class="project-link"
+            >
+              Tester l'app <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Page Visualisation -->
+    <div id="visualisation" class="page">
+      <section class="section">
+        <h2 class="section-title">Visualisation</h2>
+        <p
+          style="
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+          "
+        >
+          Découvrez mes Projets de visualisation personnelle qui attestent de
+          mes compétences en analyse de données visuelle,
+        </p>
+        <div class="certifications-grid" id="certificationsContainer">
+          <div class="project-card">
+            <img
+              src="assets/dashboards/RH.jpg"
+              alt="Tableau de bord RH 2024"
+              class="certification-image"
+              onerror="this.style.display='none'"
+            />
+            
+            <div class="certification-info">
+              <h3 class="project-title">Tableau de bord RH 2024</h3>
+              <a
+              href="assets/dashboards/RH.xlsx"
+              target="_blank"
+              class="project-link"
+            >
+              Voir le dashboard <i class="fas fa-external-link-alt"></i>
+              <p class="certification-provider">Excel</p>
+            </a>
             </div>
-            <div class="projects-grid" id="projectsContainer">
-                <!-- PDF Projects -->
-                <div class="project-card" data-type="pdf">
-                    <div class="project-icon">📊</div>
-                    <h3 class="project-title">Économétrie Quantitative</h3>
-                    <p class="project-description">
-                        Analyse approfondie des variables influençant le délai de livraison avec régression multiple et ANOVA (2024-2025).
-                    </p>
-                    <a href="projects/pdfs/ECONOMETRIE-Quanti.pdf" target="_blank" class="project-link">
-                        Consulter le rapport <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
+          </div>
 
-                <div class="project-card" data-type="pdf">
-                    <div class="project-icon">🌍</div>
-                    <h3 class="project-title">Économétrie Qualitative</h3>
-                    <p class="project-description">
-                        Étude des variables influençant le risque d'accident à l'aide de méthodes économétriques avancées.
-                    </p>
-                    <a href="projects/pdfs/Econometrie-Quali.pdf" target="_blank" class="project-link">
-                        Voir l'analyse <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
-
-                <div class="project-card" data-type="pdf">
-                    <div class="project-icon">📈</div>
-                    <h3 class="project-title">Séries Temporelles</h3>
-                    <p class="project-description">
-                        Prévision des indices de pollution de l'air pour les 30 premiers jours de l'année 2015.
-                    </p>
-                    <a href="projects/pdfs/Econometrie-serie_temp.pdf" target="_blank" class="project-link">
-                        Découvrir l'étude <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
-
-                <div class="project-card" data-type="pdf">
-                    <div class="project-icon">🎯</div>
-                    <h3 class="project-title">Statistique Descriptive</h3>
-                    <p class="project-description">
-                        Analyse des facteurs socio-économiques et sanitaires pour la catégorisation des pays ayant besoin d'aide.
-                    </p>
-                    <a href="projects/pdfs/mini-projet-HELP_international_n'dri_onesime.pdf" target="_blank" class="project-link">
-                        Lire le rapport <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
-
-                <div class="project-card" data-type="pdf">
-                    <div class="project-icon">🧠</div>
-                    <h3 class="project-title">Statistique Inférentielle</h3>
-                    <p class="project-description">
-                        Étude des facteurs influençant la dépression chez les étudiants à l'aide de méthodes statistiques.
-                    </p>
-                    <a href="projects/pdfs/statistique inferentiel.pdf" target="_blank" class="project-link">
-                        Explorer l'analyse <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
-
-                <div class="project-card" data-type="pdf">
-                    <div class="project-icon">📊</div>
-                    <h3 class="project-title">Corporación Favorita</h3>
-                    <p class="project-description">
-                        Rapport statistique complet pour Corporación Favorita - Analyse de séries temporelles avancée.
-                    </p>
-                    <a href="projects/pdfs/mini-projet-serie-temporelle.pdf" target="_blank" class="project-link">
-                        Voir le rapport <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
-
-                <div class="project-card" data-type="pdf">
-                    <div class="project-icon">🔍</div>
-                    <h3 class="project-title">Analyse ACP-ACM</h3>
-                    <p class="project-description">
-                        Analyse des comportements et préférences pour l'optimisation des ressources avec ACP et ACM.
-                    </p>
-                    <a href="projects/pdfs/Projet-ACP-ACM.pdf" target="_blank" class="project-link">
-                        Consulter l'analyse <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
-
-                <!-- Streamlit Apps -->
-                <div class="project-card" data-type="streamlit">
-                    <div class="project-icon">🤖</div>
-                    <h3 class="project-title">App Régression Logistique</h3>
-                    <p class="project-description">
-                        Application Streamlit interactive pour l'analyse et la modélisation par régression logistique.
-                    </p>
-                    <a href="https://regressionlogistique-app.streamlit.app/" target="_blank" class="project-link">
-                        Lancer l'app <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
-
-                <div class="project-card" data-type="streamlit">
-                    <div class="project-icon">🔭</div>
-                    <h3 class="project-title">Analyse Univariée</h3>
-                    <p class="project-description">
-                        Application Streamlit pour l'analyse statistique univariée complète et interactive.
-                    </p>
-                    <a href="https://analyseunivariee-onesime.streamlit.app/" target="_blank" class="project-link">
-                        Utiliser l'app <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
-
-                <div class="project-card" data-type="streamlit">
-                    <div class="project-icon">🔗</div>
-                    <h3 class="project-title">Tests de Liaison</h3>
-                    <p class="project-description">
-                        Application Streamlit pour effectuer des tests de liaison statistique de manière interactive.
-                    </p>
-                    <a href="https://appliaison-onesime.streamlit.app/" target="_blank" class="project-link">
-                        Tester l'app <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
-
-                <div class="project-card" data-type="streamlit">
-                    <div class="project-icon">🗺️</div>
-                    <h3 class="project-title">Visualisation de données</h3>
-                    <p class="project-description">
-                        Application Streamlit pour effectuer la visualisation des données.
-                    </p>
-                    <a href="https://visualisation-onesime.streamlit.app/" target="_blank" class="project-link">
-                        Tester l'app <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
-
-                <div class="project-card" data-type="streamlit">
-                    <div class="project-icon">🛰️</div>
-                    <h3 class="project-title">Estimation statistique</h3>
-                    <p class="project-description">
-                        Application Streamlit pour effectuer l'estimation statistique.
-                    </p>
-                    <a href="https://estimations-statistique-app-qwj6r8bwoje7ndhvvj2k9e.streamlit.app/" target="_blank" class="project-link">
-                        Tester l'app <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
-
-                <div class="project-card" data-type="streamlit">
-                    <div class="project-icon">🤖</div>
-                    <h3 class="project-title">Machine learning quanti</h3>
-                    <p class="project-description">
-                        Application Streamlit pour évaluation des modèles machine learning quantitatifs.
-                    </p>
-                    <a href="https://machine-learning-onesime-app.streamlit.app/" target="_blank" class="project-link">
-                        Tester l'app <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
-
-                <div class="project-card" data-type="streamlit">
-                    <div class="project-icon">🏛️</div>
-                    <h3 class="project-title">Test égalité</h3>
-                    <p class="project-description">
-                        Application Streamlit pour test d'égalité de deux moyennes ou proportions (populations indépendantes).
-                    </p>
-                    <a href="https://test-deux-popindependant.streamlit.app/" target="_blank" class="project-link">
-                        Tester l'app <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
-
-                <div class="project-card" data-type="streamlit">
-                    <div class="project-icon">🧭</div>
-                    <h3 class="project-title">Règles d'association</h3>
-                    <p class="project-description">
-                        Application Streamlit pour règles d'association ou panier ménager.
-                    </p>
-                    <a href="https://regle-panier-menagere.streamlit.app/" target="_blank" class="project-link">
-                        Tester l'app <i class="fas fa-external-link-alt"></i>
-                    </a>
-                </div>
+          <div class="project-card">
+            <img
+              src="assets/dashboards/orabank.jpg"
+              alt="Tableau de bord gestion des cartes"
+              class="certification-image"
+              onerror="this.style.display='none'"
+            />
+            
+            <div class="certification-info">
+              <h3 class="project-title">Tableau de bord gestion des cartes</h3>
+              <a
+              href="assets/dashboards/Cristelle.xlsm"
+              target="_blank"
+              class="project-link"
+            >
+              Voir le dashboard <i class="fas fa-external-link-alt"></i>
+              <p class="certification-provider">Excel</p>
+            </a>
             </div>
-        </section>
+          </div>
+
+          <div class="project-card">
+            <img
+              src="assets/dashboards/vente.jpg"
+              alt="Tableau de bord des ventes"
+              class="certification-image"
+              onerror="this.style.display='none'"
+            />
+            
+            <div class="certification-info">
+              <h3 class="project-title">Tableau de bord des ventes</h3>
+              <a
+              href="assets/dashboards/vente.xlsx"
+              target="_blank"
+              class="project-link"
+            >
+              Voir le dashboard <i class="fas fa-external-link-alt"></i>
+              <p class="certification-provider">Excel</p>
+            </a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <img
+              src="assets/dashboards/risque.jpg"
+              alt="Dashboard assurance auto"
+              class="certification-image"
+              onerror="this.style.display='none'"
+            />
+            <div class="certification-info">
+              <h3 class="project-title">Dashboard assurance auto</h3>
+              <p class="certification-provider">Power bi</p>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <img
+              src="assets/dashboards/pollution.jpg"
+              alt="Analyse et prévision de la qualité de l'air"
+              class="certification-image"
+              onerror="this.style.display='none'"
+            />
+            <div class="certification-info">
+              <h3 class="project-title">Analyse et prévision de la qualité de l'air</h3>
+              <p class="certification-provider">Power bi et Python </p>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <img
+              src="assets/dashboards/livraison.jpg"
+              alt="Etude du delai de livraison"
+              class="certification-image"
+              onerror="this.style.display='none'"
+            />
+            <div class="certification-info">
+              <h3 class="project-title">Etude du delai de livraison</h3>
+              <p class="certification-provider">Power bi</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
 
     <!-- Page Certifications -->
     <div id="certifications" class="page">
-        <section class="section">
-            <h2 class="section-title">Mes Certifications</h2>
-            <p style="text-align: center; color: var(--text-secondary); margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-                Découvrez mes certifications professionnelles qui attestent de mes compétences en analyse de données, 
-                statistiques et technologies modernes.
-            </p>
-            <div class="certifications-grid" id="certificationsContainer">
-                <div class="project-card">
-                    <img src="assets/certifications/python-intro.jpg" alt="Introduction Python" class="certification-image" onerror="this.style.display='none'">
-                    <div class="certification-info">
-                        <h3 class="project-title">Introduction to Python</h3>
-                        <p class="certification-provider">Sololearn</p>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <img src="assets/certifications/visualisation.jpg" alt="Visualisation" class="certification-image" onerror="this.style.display='none'">
-                    <div class="certification-info">
-                        <h3 class="project-title">Visualize your Data</h3>
-                        <p class="certification-provider">Sololearn</p>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <img src="assets/certifications/machine-learning.jpg" alt="Machine Learning" class="certification-image" onerror="this.style.display='none'">
-                    <div class="certification-info">
-                        <h3 class="project-title">ML for Beginners</h3>
-                        <p class="certification-provider">Sololearn</p>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <img src="assets/certifications/Data-analytics-with-AI.jpg" alt="Data Analytics with AI" class="certification-image" onerror="this.style.display='none'">
-                    <div class="certification-info">
-                        <h3 class="project-title">Data Analytics with AI</h3>
-                        <p class="certification-provider">Sololearn</p>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <img src="assets/certifications/SQL-intermediaire.jpg" alt="SQL Intermédiaire" class="certification-image" onerror="this.style.display='none'">
-                    <div class="certification-info">
-                        <h3 class="project-title">SQL Intermédiaire</h3>
-                        <p class="certification-provider">Sololearn</p>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <img src="assets/certifications/introduction-SQL.jpg" alt="Introduction SQL" class="certification-image" onerror="this.style.display='none'">
-                    <div class="certification-info">
-                        <h3 class="project-title">Introduction to SQL</h3>
-                        <p class="certification-provider">Sololearn</p>
-                    </div>
-                </div>
+      <section class="section">
+        <h2 class="section-title">Mes Certifications</h2>
+        <p
+          style="
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+          "
+        >
+          Découvrez mes certifications professionnelles qui attestent de mes
+          compétences en analyse de données, statistiques et technologies
+          modernes.
+        </p>
+        <div class="certifications-grid" id="certificationsContainer">
+          <div class="project-card">
+            <img
+              src="assets/certifications/python-intro.jpg"
+              alt="Introduction Python"
+              class="certification-image"
+              onerror="this.style.display='none'"
+            />
+            <div class="certification-info">
+              <h3 class="project-title">Introduction to Python</h3>
+              <p class="certification-provider">Sololearn</p>
             </div>
-        </section>
+          </div>
+
+          <div class="project-card">
+            <img
+              src="assets/certifications/visualisation.jpg"
+              alt="Visualisation"
+              class="certification-image"
+              onerror="this.style.display='none'"
+            />
+            <div class="certification-info">
+              <h3 class="project-title">Visualize your Data</h3>
+              <p class="certification-provider">Sololearn</p>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <img
+              src="assets/certifications/machine-learning.jpg"
+              alt="Machine Learning"
+              class="certification-image"
+              onerror="this.style.display='none'"
+            />
+            <div class="certification-info">
+              <h3 class="project-title">ML for Beginners</h3>
+              <p class="certification-provider">Sololearn</p>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <img
+              src="assets/certifications/Data-analytics-with-AI.jpg"
+              alt="Data Analytics with AI"
+              class="certification-image"
+              onerror="this.style.display='none'"
+            />
+            <div class="certification-info">
+              <h3 class="project-title">Data Analytics with AI</h3>
+              <p class="certification-provider">Sololearn</p>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <img
+              src="assets/certifications/SQL-intermediaire.jpg"
+              alt="SQL Intermédiaire"
+              class="certification-image"
+              onerror="this.style.display='none'"
+            />
+            <div class="certification-info">
+              <h3 class="project-title">SQL Intermédiaire</h3>
+              <p class="certification-provider">Sololearn</p>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <img
+              src="assets/certifications/introduction-SQL.jpg"
+              alt="Introduction SQL"
+              class="certification-image"
+              onerror="this.style.display='none'"
+            />
+            <div class="certification-info">
+              <h3 class="project-title">Introduction to SQL</h3>
+              <p class="certification-provider">Sololearn</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
 
     <!-- Page À propos -->
     <div id="about" class="page">
-        <section class="section">
-            <h2 class="section-title">À propos de moi</h2>
-            <div class="hero-content animate-fade-in">
-                <p style="max-width: 800px; margin: 0 auto 2rem; text-align: center; color: var(--text-secondary);">
-                    Je suis N'Dri Abo Onesime Ablatie, Data Analyst passionné par la transformation des données en insights exploitables. 
-                    Avec une solide expertise en analyse de données, visualisation, modélisation économétrique et machine learning, 
-                    j'aide les entreprises à prendre des décisions éclairées basées sur des analyses rigoureuses.
-                </p>
-                <div class="skills-grid">
-                    <div class="skill-card">
-                        <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
-                        <h3>Analyse de Données</h3>
-                        <p>Expertise en statistique descriptive, inférentielle et économétrie pour extraire des insights significatifs.</p>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon"><i class="fas fa-eye"></i></div>
-                        <h3>Visualisation</h3>
-                        <p>Création de visualisations percutantes avec des outils comme Excel, R, Power BI et Python (Matplotlib, Seaborn).</p>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon"><i class="fas fa-robot"></i></div>
-                        <h3>Machine Learning</h3>
-                        <p>Modélisation prédictive avec algorithmes comme régression linéaire, régression logistique.</p>
-                    </div>
-                    <div class="skill-card">
-                        <div class="skill-icon"><i class="fas fa-code"></i></div>
-                        <h3>Programmation</h3>
-                        <p>Python, R, SQL et développement d'applications interactives avec Streamlit.</p>
-                    </div>
-                </div>
-                <div style="text-align: center; margin-top: 2rem;">
-                    <button class="btn btn-primary" onclick="showPage('projects')">
-                        <i class="fas fa-rocket"></i>
-                        Voir mes projets
-                    </button>
-                </div>
+      <section class="section">
+        <h2 class="section-title">À propos de moi</h2>
+        <div class="hero-content animate-fade-in">
+          <p
+            style="
+              max-width: 800px;
+              margin: 0 auto 2rem;
+              text-align: center;
+              color: var(--text-secondary);
+            "
+          >
+            Je suis N'Dri Abo Onesime Ablatie, Data Analyst passionné par la
+            transformation des données en insights exploitables. Avec une solide
+            expertise en analyse de données, visualisation, modélisation
+            économétrique et machine learning, j'aide les entreprises à prendre
+            des décisions éclairées basées sur des analyses rigoureuses.
+          </p>
+          <div class="skills-grid">
+            <div class="skill-card">
+              <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
+              <h3>Analyse de Données</h3>
+              <p>
+                Expertise en statistique descriptive, inférentielle et
+                économétrie pour extraire des insights significatifs.
+              </p>
             </div>
-        </section>
+            <div class="skill-card">
+              <div class="skill-icon"><i class="fas fa-eye"></i></div>
+              <h3>Visualisation</h3>
+              <p>
+                Création de visualisations percutantes avec des outils comme
+                Excel, R, Power BI et Python (Matplotlib, Seaborn).
+              </p>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon"><i class="fas fa-robot"></i></div>
+              <h3>Machine Learning</h3>
+              <p>
+                Modélisation prédictive avec algorithmes comme régression
+                linéaire, régression logistique.
+              </p>
+            </div>
+            <div class="skill-card">
+              <div class="skill-icon"><i class="fas fa-code"></i></div>
+              <h3>Programmation</h3>
+              <p>
+                Python, R, SQL et développement d'applications interactives avec
+                Streamlit.
+              </p>
+            </div>
+          </div>
+          <div style="text-align: center; margin-top: 2rem">
+            <button class="btn btn-primary" onclick="showPage('projects')">
+              <i class="fas fa-rocket"></i>
+              Voir mes projets
+            </button>
+          </div>
+        </div>
+      </section>
     </div>
 
     <!-- Page Contact -->
     <div id="contact" class="page">
-        <section class="section">
-            <h2 class="section-title">Me Contacter</h2>
-            <div class="hero-content animate-fade-in">
-                <p style="max-width: 800px; margin: 0 auto 2rem; text-align: center; color: var(--text-secondary);">
-                    Vous souhaitez discuter d'un projet, d'une collaboration ou d'une opportunité professionnelle ? 
-                    N'hésitez pas à me contacter via les canaux ci-dessous.
-                </p>
-                <div class="contact-grid">
-                    <div class="contact-card">
-                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                        <h3>Email</h3>
-                        <p><a href="mailto:onesime.ndri@example.com" class="project-link">onesime.ndri@example.com</a></p>
-                    </div>
-                    <div class="contact-card">
-                        <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
-                        <h3>LinkedIn</h3>
-                        <p><a href="https://www.linkedin.com/in/onesime-ndri" target="_blank" class="project-link">Onesime N'Dri</a></p>
-                    </div>
-                    <div class="contact-card">
-                        <div class="contact-icon"><i class="fab fa-github"></i></div>
-                        <h3>GitHub</h3>
-                        <p><a href="https://github.com/onesime-ndri" target="_blank" class="project-link">onesime-ndri</a></p>
-                    </div>
-                    <div class="contact-card">
-                        <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
-                        <h3>Téléphone</h3>
-                        <p><a href="https://wa.me/2250768059887" target="_blank" class="project-link">+225 07 68 05 98 87 / +225 01 01 75 11 81</a></p>
-                    </div>
-                </div>
-                <div style="text-align: center; margin-top: 2rem;">
-                    <button class="btn btn-secondary" onclick="showPage('home')">
-                        <i class="fas fa-home"></i>
-                        Retour à l'accueil
-                    </button>
-                </div>
+      <section class="section">
+        <h2 class="section-title">Me Contacter</h2>
+        <div class="hero-content animate-fade-in">
+          <p
+            style="
+              max-width: 800px;
+              margin: 0 auto 2rem;
+              text-align: center;
+              color: var(--text-secondary);
+            "
+          >
+            Vous souhaitez discuter d'un projet, d'une collaboration ou d'une
+            opportunité professionnelle ? N'hésitez pas à me contacter via les
+            canaux ci-dessous.
+          </p>
+          <div class="contact-grid">
+            <div class="contact-card">
+              <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+              <h3>Email</h3>
+              <p>
+                <a href="mailto:onesime.ndri@example.com" class="project-link"
+                  >onesime.ndri@example.com</a
+                >
+              </p>
             </div>
-        </section>
+            <div class="contact-card">
+              <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
+              <h3>LinkedIn</h3>
+              <p>
+                <a
+                  href="https://www.linkedin.com/in/onesime-ndri"
+                  target="_blank"
+                  class="project-link"
+                  >Onesime N'Dri</a
+                >
+              </p>
+            </div>
+            <div class="contact-card">
+              <div class="contact-icon"><i class="fab fa-github"></i></div>
+              <h3>GitHub</h3>
+              <p>
+                <a
+                  href="https://github.com/onesime-ndri"
+                  target="_blank"
+                  class="project-link"
+                  >onesime-ndri</a
+                >
+              </p>
+            </div>
+            <div class="contact-card">
+              <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+              <h3>Téléphone</h3>
+              <p>
+                <a
+                  href="https://wa.me/2250768059887"
+                  target="_blank"
+                  class="project-link"
+                  >+225 07 68 05 98 87 / +225 01 01 75 11 81</a
+                >
+              </p>
+            </div>
+          </div>
+          <div style="text-align: center; margin-top: 2rem">
+            <button class="btn btn-secondary" onclick="showPage('home')">
+              <i class="fas fa-home"></i>
+              Retour à l'accueil
+            </button>
+          </div>
+        </div>
+      </section>
     </div>
 
     <!-- Page CV -->
     <div id="cv" class="page">
-        <section class="section">
-            <h2 class="section-title">Curriculum Vitae</h2>
-            <div class="cv-container">
-                <div class="cv-header">
-                    <div class="cv-photo">
-                        <img src="assets/pot.jpg" alt="N'Dri Abo Onesime Ablatie" onerror="this.style.display='none'">
-                    </div>
-                    <div class="cv-info">
-                        <h1>N'DRI ABO ONESIME ABLATIE</h1>
-                        <h2>Data Analyst Spécialisé</h2>
-                        <div class="contact-info">
-                            <p>📧 onesime.ndri@example.com</p>
-                            <p>📱 +225 07 68 05 98 87 / +225 01 01 75 11 81</p>
-                            <a href="https://linkedin.com/in/onesime-ndri" target="_blank">
-                                🛜 linkedin.com/in/onesime-ndri
-                            </a>
-                            <p>👨🏿 Célibataire</p>
-                            <p>🌏 Ivoirien</p>
-                            <p>🏠 Bingerville, Abidjan</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cv-section">
-                    <h3>🎯 PROFIL PROFESSIONNEL</h3>
-                    <p>
-                        Data Analyst passionné avec une expertise approfondie en analyse statistique, économétrie et machine learning. 
-                        Spécialisé dans la transformation de données complexes en insights exploitables pour optimiser les processus 
-                        d'affaires et supporter la prise de décision stratégique. Fort d'une solide formation en statistiques et 
-                        d'une expérience pratique dans le développement d'applications analytiques, je combine rigueur scientifique 
-                        et innovation technologique pour livrer des solutions data-driven performantes.
-                    </p>
-                </div>
-
-                <div class="cv-section">
-                    <h3>💼 EXPÉRIENCE PROFESSIONNELLE</h3>
-                    <div class="job">
-                        <div class="job-header">
-                            <h4>Data Analyst Freelance</h4>
-                            <span class="period">2023 - Présent</span>
-                        </div>
-                        <p class="company">Projets Divers & Collaborations</p>
-                        <ul>
-                            <li>Développement d'applications Streamlit interactives pour l'analyse statistique</li>
-                            <li>Réalisation d'études économétriques pour des organismes de recherche</li>
-                            <li>Création de modèles prédictifs et d'analyses de séries temporelles</li>
-                            <li>Formation et conseil en méthodologies d'analyse de données</li>
-                        </ul>
-                    </div>
-
-                    <div class="job">
-                        <div class="job-header">
-                            <h4>Analyste Statistique Junior</h4>
-                            <span class="period">2022 - 2023</span>
-                        </div>
-                        <p class="company">Institut National de Statistique, Abidjan</p>
-                        <ul>
-                            <li>Traitement et analyse de données d'enquêtes nationales</li>
-                            <li>Participation aux études sectorielles et démographiques</li>
-                            <li>Création de rapports statistiques et visualisations pour les parties prenantes</li>
-                            <li>Support technique dans l'utilisation d'outils statistiques (R, SPSS)</li>
-                        </ul>
-                    </div>
-
-                    <div class="job">
-                        <div class="job-header">
-                            <h4>Stagiaire Analyste de Données</h4>
-                            <span class="period">2021 - 2022</span>
-                        </div>
-                        <p class="company">Ministère de l'Économie et des Finances</p>
-                        <ul>
-                            <li>Collecte et validation de données économiques</li>
-                            <li>Assistance dans la préparation de rapports économiques trimestriels</li>
-                            <li>Initiation aux méthodes d'analyse économétrique</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="cv-section">
-                    <h3>🎓 FORMATION ACADÉMIQUE</h3>
-                    <div class="education">
-                        <div class="edu-header">
-                            <h4>Master en Statistiques et Économétrie</h4>
-                            <span class="period">2020 - 2022</span>
-                        </div>
-                        <p class="school">Université Félix Houphouët-Boigny, Abidjan</p>
-                        <p><strong>Spécialisation :</strong> Analyse Quantitative et Modélisation Économique</p>
-                        <p><strong>Mention :</strong> Très Bien (16.2/20)</p>
-                        <p><strong>Mémoire :</strong> "Modélisation économétrique des facteurs de croissance économique en Côte d'Ivoire"</p>
-                    </div>
-
-                    <div class="education">
-                        <div class="edu-header">
-                            <h4>Licence en Mathématiques Appliquées</h4>
-                            <span class="period">2017 - 2020</span>
-                        </div>
-                        <p class="school">Université Félix Houphouët-Boigny, Abidjan</p>
-                        <p><strong>Mention :</strong> Bien (14.5/20)</p>
-                        <p><strong>Projet de fin d'études :</strong> "Applications des méthodes statistiques dans l'analyse des données de santé"</p>
-                    </div>
-                </div>
-
-                <div class="cv-section">
-                    <h3>🛠️ COMPÉTENCES TECHNIQUES</h3>
-                    <div class="skills-section">
-                        <div class="skill-category">
-                            <h5>Langages & Outils d'Analyse</h5>
-                            <p>Python (Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn), R (ggplot2, dplyr, tidyr), SQL (PostgreSQL, MySQL)</p>
-                        </div>
-                        <div class="skill-category">
-                            <h5>Visualisation & Reporting</h5>
-                            <p>Streamlit, Power BI, Tableau, Excel Avancé (VBA, Pivot Tables), LaTeX</p>
-                        </div>
-                        <div class="skill-category">
-                            <h5>Statistiques & Modélisation</h5>
-                            <p>Économétrie, Séries Temporelles, Machine Learning, Tests Statistiques, ACP/ACM, Régression Multiple</p>
-                        </div>
-                        <div class="skill-category">
-                            <h5>Outils de Développement</h5>
-                            <p>Git/GitHub, Jupyter Notebooks, VS Code, Google Colab, Docker (notions)</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cv-section">
-                    <h3>🌟 PROJETS MAJEURS</h3>
-                    <div class="project">
-                        <h4>Suite d'Applications Streamlit pour l'Analyse Statistique</h4>
-                        <p><strong>Technologies :</strong> Python, Streamlit, Pandas, Scikit-learn</p>
-                        <p>Développement d'une suite complète d'applications web interactives couvrant l'analyse univariée, 
-                        la régression logistique, les tests de liaison, et l'estimation statistique. Ces outils permettent 
-                        aux utilisateurs non-techniques d'effectuer des analyses complexes de manière intuitive.</p>
-                    </div>
-
-                    <div class="project">
-                        <h4>Modélisation Économétrique Avancée</h4>
-                        <p><strong>Technologies :</strong> R, Python, LaTeX</p>
-                        <p>Réalisation d'études économétriques approfondies incluant l'analyse des facteurs de livraison, 
-                        la prévision de la pollution atmosphérique par séries temporelles, et l'étude des risques d'accidents. 
-                        Utilisation de méthodes ARIMA, régression multiple, et tests de causalité.</p>
-                    </div>
-
-                    <div class="project">
-                        <h4>Analyse ACP-ACM pour l'Optimisation des Ressources</h4>
-                        <p><strong>Technologies :</strong> R, FactoMineR</p>
-                        <p>Application des méthodes d'analyse factorielle (ACP/ACM) pour l'étude des comportements 
-                        et préférences dans le cadre de l'optimisation des ressources organisationnelles.</p>
-                    </div>
-                </div>
-
-                <div class="cv-section">
-                    <h3>🏆 CERTIFICATIONS</h3>
-                    <div class="certifications-list">
-                        <div class="cert-item">
-                            <h5>Introduction to Python</h5>
-                            <span>Sololearn - 2023</span>
-                        </div>
-                        <div class="cert-item">
-                            <h5>Data Analytics with AI</h5>
-                            <span>Sololearn - 2023</span>
-                        </div>
-                        <div class="cert-item">
-                            <h5>Machine Learning for Beginners</h5>
-                            <span>Sololearn - 2023</span>
-                        </div>
-                        <div class="cert-item">
-                            <h5>SQL Intermédiaire</h5>
-                            <span>Sololearn - 2023</span>
-                        </div>
-                        <div class="cert-item">
-                            <h5>Visualize Your Data</h5>
-                            <span>Sololearn - 2023</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cv-section">
-                    <h3>🌐 COMPÉTENCES LINGUISTIQUES</h3>
-                    <div class="languages">
-                        <div class="lang-item">
-                            <span>Français</span>
-                            <span>Natif</span>
-                        </div>
-                        <div class="lang-item">
-                            <span>Anglais</span>
-                            <span>Intermédiaire (B2)</span>
-                        </div>
-                        <div class="lang-item">
-                            <span>Baoulé</span>
-                            <span>Courant</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cv-section">
-                    <h3>💡 CENTRES D'INTÉRÊT</h3>
-                    <p>
-                        <strong>Technologie :</strong> Veille technologique en Data Science, participation à des communautés open source<br>
-                        <strong>Recherche :</strong> Lecture d'articles scientifiques en économétrie et statistiques<br>
-                        <strong>Formation :</strong> Participation à des webinaires et MOOCs sur l'intelligence artificielle<br>
-                        <strong>Sport :</strong> Football, course à pied pour maintenir un équilibre vie professionnelle/personnelle
-                    </p>
-                </div>
+      <section class="section">
+        <h2 class="section-title">Curriculum Vitae</h2>
+        <div class="cv-container">
+          <div class="cv-header">
+            <div class="cv-photo">
+              <img
+                src="assets/pot.jpg"
+                alt="N'Dri Abo Onesime Ablatie"
+                onerror="this.style.display='none'"
+              />
             </div>
-        </section>
+            <div class="cv-info">
+              <h1>N'DRI ABO ONESIME ABLATIE</h1>
+              <h2>Data Analyst Spécialisé</h2>
+              <div class="contact-info">
+                <p>📧 onesime.ndri@example.com</p>
+                <p>📱 +225 07 68 05 98 87 / +225 01 01 75 11 81</p>
+                <a href="https://linkedin.com/in/onesime-ndri" target="_blank">
+                  🛜 linkedin.com/in/onesime-ndri
+                </a>
+                <p>👨🏿 Célibataire</p>
+                <p>🌏 Ivoirien</p>
+                <p>🏠 Bingerville, Abidjan</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="cv-section">
+            <h3>🎯 PROFIL PROFESSIONNEL</h3>
+            <p>
+              Data Analyst passionné avec une expertise approfondie en analyse
+              statistique, économétrie et machine learning. Spécialisé dans la
+              transformation de données complexes en insights exploitables pour
+              optimiser les processus d'affaires et supporter la prise de
+              décision stratégique. Fort d'une solide formation en statistiques
+              et d'une expérience pratique dans le développement d'applications
+              analytiques, je combine rigueur scientifique et innovation
+              technologique pour livrer des solutions data-driven performantes.
+            </p>
+          </div>
+
+          <div class="cv-section">
+            <h3>💼 EXPÉRIENCE PROFESSIONNELLE</h3>
+            <div class="job">
+              <div class="job-header">
+                <h4>Data Analyst Freelance</h4>
+                <span class="period">2023 - Présent</span>
+              </div>
+              <p class="company">Projets Divers & Collaborations</p>
+              <ul>
+                <li>
+                  Développement d'applications Streamlit interactives pour
+                  l'analyse statistique
+                </li>
+                <li>
+                  Réalisation d'études économétriques pour des organismes de
+                  recherche
+                </li>
+                <li>
+                  Création de modèles prédictifs et d'analyses de séries
+                  temporelles
+                </li>
+                <li>
+                  Formation et conseil en méthodologies d'analyse de données
+                </li>
+              </ul>
+            </div>
+
+            <div class="job">
+              <div class="job-header">
+                <h4>Analyste Statistique Junior</h4>
+                <span class="period">2022 - 2023</span>
+              </div>
+              <p class="company">Institut National de Statistique, Abidjan</p>
+              <ul>
+                <li>Traitement et analyse de données d'enquêtes nationales</li>
+                <li>Participation aux études sectorielles et démographiques</li>
+                <li>
+                  Création de rapports statistiques et visualisations pour les
+                  parties prenantes
+                </li>
+                <li>
+                  Support technique dans l'utilisation d'outils statistiques (R,
+                  SPSS)
+                </li>
+              </ul>
+            </div>
+
+            <div class="job">
+              <div class="job-header">
+                <h4>Stagiaire Analyste de Données</h4>
+                <span class="period">2021 - 2022</span>
+              </div>
+              <p class="company">Ministère de l'Économie et des Finances</p>
+              <ul>
+                <li>Collecte et validation de données économiques</li>
+                <li>
+                  Assistance dans la préparation de rapports économiques
+                  trimestriels
+                </li>
+                <li>Initiation aux méthodes d'analyse économétrique</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="cv-section">
+            <h3>🎓 FORMATION ACADÉMIQUE</h3>
+            <div class="education">
+              <div class="edu-header">
+                <h4>Master en Statistiques et Économétrie</h4>
+                <span class="period">2020 - 2022</span>
+              </div>
+              <p class="school">Université Félix Houphouët-Boigny, Abidjan</p>
+              <p>
+                <strong>Spécialisation :</strong> Analyse Quantitative et
+                Modélisation Économique
+              </p>
+              <p><strong>Mention :</strong> Très Bien (16.2/20)</p>
+              <p>
+                <strong>Mémoire :</strong> "Modélisation économétrique des
+                facteurs de croissance économique en Côte d'Ivoire"
+              </p>
+            </div>
+
+            <div class="education">
+              <div class="edu-header">
+                <h4>Licence en Mathématiques Appliquées</h4>
+                <span class="period">2017 - 2020</span>
+              </div>
+              <p class="school">Université Félix Houphouët-Boigny, Abidjan</p>
+              <p><strong>Mention :</strong> Bien (14.5/20)</p>
+              <p>
+                <strong>Projet de fin d'études :</strong> "Applications des
+                méthodes statistiques dans l'analyse des données de santé"
+              </p>
+            </div>
+          </div>
+
+          <div class="cv-section">
+            <h3>🛠️ COMPÉTENCES TECHNIQUES</h3>
+            <div class="skills-section">
+              <div class="skill-category">
+                <h5>Langages & Outils d'Analyse</h5>
+                <p>
+                  Python (Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn), R
+                  (ggplot2, dplyr, tidyr), SQL (PostgreSQL, MySQL)
+                </p>
+              </div>
+              <div class="skill-category">
+                <h5>Visualisation & Reporting</h5>
+                <p>
+                  Streamlit, Power BI, Tableau, Excel Avancé (VBA, Pivot
+                  Tables), LaTeX
+                </p>
+              </div>
+              <div class="skill-category">
+                <h5>Statistiques & Modélisation</h5>
+                <p>
+                  Économétrie, Séries Temporelles, Machine Learning, Tests
+                  Statistiques, ACP/ACM, Régression Multiple
+                </p>
+              </div>
+              <div class="skill-category">
+                <h5>Outils de Développement</h5>
+                <p>
+                  Git/GitHub, Jupyter Notebooks, VS Code, Google Colab, Docker
+                  (notions)
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="cv-section">
+            <h3>🌟 PROJETS MAJEURS</h3>
+            <div class="project">
+              <h4>Suite d'Applications Streamlit pour l'Analyse Statistique</h4>
+              <p>
+                <strong>Technologies :</strong> Python, Streamlit, Pandas,
+                Scikit-learn
+              </p>
+              <p>
+                Développement d'une suite complète d'applications web
+                interactives couvrant l'analyse univariée, la régression
+                logistique, les tests de liaison, et l'estimation statistique.
+                Ces outils permettent aux utilisateurs non-techniques
+                d'effectuer des analyses complexes de manière intuitive.
+              </p>
+            </div>
+
+            <div class="project">
+              <h4>Modélisation Économétrique Avancée</h4>
+              <p><strong>Technologies :</strong> R, Python, LaTeX</p>
+              <p>
+                Réalisation d'études économétriques approfondies incluant
+                l'analyse des facteurs de livraison, la prévision de la
+                pollution atmosphérique par séries temporelles, et l'étude des
+                risques d'accidents. Utilisation de méthodes ARIMA, régression
+                multiple, et tests de causalité.
+              </p>
+            </div>
+
+            <div class="project">
+              <h4>Analyse ACP-ACM pour l'Optimisation des Ressources</h4>
+              <p><strong>Technologies :</strong> R, FactoMineR</p>
+              <p>
+                Application des méthodes d'analyse factorielle (ACP/ACM) pour
+                l'étude des comportements et préférences dans le cadre de
+                l'optimisation des ressources organisationnelles.
+              </p>
+            </div>
+          </div>
+
+          <div class="cv-section">
+            <h3>🏆 CERTIFICATIONS</h3>
+            <div class="certifications-list">
+              <div class="cert-item">
+                <h5>Introduction to Python</h5>
+                <span>Sololearn - 2023</span>
+              </div>
+              <div class="cert-item">
+                <h5>Data Analytics with AI</h5>
+                <span>Sololearn - 2023</span>
+              </div>
+              <div class="cert-item">
+                <h5>Machine Learning for Beginners</h5>
+                <span>Sololearn - 2023</span>
+              </div>
+              <div class="cert-item">
+                <h5>SQL Intermédiaire</h5>
+                <span>Sololearn - 2023</span>
+              </div>
+              <div class="cert-item">
+                <h5>Visualize Your Data</h5>
+                <span>Sololearn - 2023</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cv-section">
+            <h3>🌐 COMPÉTENCES LINGUISTIQUES</h3>
+            <div class="languages">
+              <div class="lang-item">
+                <span>Français</span>
+                <span>Natif</span>
+              </div>
+              <div class="lang-item">
+                <span>Anglais</span>
+                <span>Intermédiaire (B2)</span>
+              </div>
+              <div class="lang-item">
+                <span>Baoulé</span>
+                <span>Courant</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cv-section">
+            <h3>💡 CENTRES D'INTÉRÊT</h3>
+            <p>
+              <strong>Technologie :</strong> Veille technologique en Data
+              Science, participation à des communautés open source<br />
+              <strong>Recherche :</strong> Lecture d'articles scientifiques en
+              économétrie et statistiques<br />
+              <strong>Formation :</strong> Participation à des webinaires et
+              MOOCs sur l'intelligence artificielle<br />
+              <strong>Sport :</strong> Football, course à pied pour maintenir un
+              équilibre vie professionnelle/personnelle
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Onesime N'Dri | Portfolio Data Analyst - Powered by Data & Innovation</p>
-        <div style="margin-top: 1rem; display: flex; justify-content: center; gap: 1rem;">
-            <a href="https://www.linkedin.com/in/onesime-ndri" target="_blank" class="project-link">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://github.com/onesime-ndri" target="_blank" class="project-link">
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="mailto:onesime.ndri@example.com" class="project-link">
-                <i class="fas fa-envelope"></i>
-            </a>
-        </div>
+      <p>
+        &copy; 2025 Onesime N'Dri | Portfolio Data Analyst - Powered by Data &
+        Innovation
+      </p>
+      <div
+        style="
+          margin-top: 1rem;
+          display: flex;
+          justify-content: center;
+          gap: 1rem;
+        "
+      >
+        <a
+          href="https://www.linkedin.com/in/onesime-ndri"
+          target="_blank"
+          class="project-link"
+        >
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a
+          href="https://github.com/onesime-ndri"
+          target="_blank"
+          class="project-link"
+        >
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="mailto:onesime.ndri@example.com" class="project-link">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </div>
     </footer>
 
     <!-- JavaScript -->
     <script>
-        // Enhanced Particle System
-        class ParticleSystem {
-            constructor() {
-                this.canvas = document.getElementById("particle-bg");
-                this.ctx = this.canvas.getContext("2d");
-                this.particles = [];
-                this.particleCount = window.innerWidth < 768 ? 50 : 100;
-                this.mouse = { x: null, y: null, radius: 150 };
-                
-                this.init();
-                this.bindEvents();
-                this.animate();
-            }
+      // Enhanced Particle System
+      class ParticleSystem {
+        constructor() {
+          this.canvas = document.getElementById("particle-bg");
+          this.ctx = this.canvas.getContext("2d");
+          this.particles = [];
+          this.particleCount = window.innerWidth < 768 ? 50 : 100;
+          this.mouse = { x: null, y: null, radius: 150 };
 
-            init() {
-                this.resize();
-                this.particles = [];
-                
-                for (let i = 0; i < this.particleCount; i++) {
-                    this.particles.push(new Particle(this.canvas));
-                }
-            }
-
-            resize() {
-                this.canvas.width = window.innerWidth;
-                this.canvas.height = window.innerHeight;
-            }
-
-            bindEvents() {
-                window.addEventListener('resize', () => this.resize());
-                
-                window.addEventListener('mousemove', (e) => {
-                    this.mouse.x = e.x;
-                    this.mouse.y = e.y;
-                });
-
-                window.addEventListener('mouseleave', () => {
-                    this.mouse.x = null;
-                    this.mouse.y = null;
-                });
-            }
-
-            animate() {
-                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-                
-                this.particles.forEach((particle) => {
-                    particle.update(this.mouse);
-                    particle.draw(this.ctx);
-                });
-
-                this.connectParticles();
-                requestAnimationFrame(() => this.animate());
-            }
-
-            connectParticles() {
-                for (let a = 0; a < this.particles.length; a++) {
-                    for (let b = a; b < this.particles.length; b++) {
-                        const dx = this.particles[a].x - this.particles[b].x;
-                        const dy = this.particles[a].y - this.particles[b].y;
-                        const distance = Math.sqrt(dx * dx + dy * dy);
-
-                        if (distance < 100) {
-                            const opacity = (100 - distance) / 100 * 0.2;
-                            const color = getComputedStyle(document.documentElement)
-                                .getPropertyValue('--particle-color').trim();
-                            
-                            this.ctx.strokeStyle = color.replace('0.3)', `${opacity})`);
-                            this.ctx.lineWidth = 0.5;
-                            this.ctx.beginPath();
-                            this.ctx.moveTo(this.particles[a].x, this.particles[a].y);
-                            this.ctx.lineTo(this.particles[b].x, this.particles[b].y);
-                            this.ctx.stroke();
-                        }
-                    }
-                }
-            }
+          this.init();
+          this.bindEvents();
+          this.animate();
         }
 
-        class Particle {
-            constructor(canvas) {
-                this.canvas = canvas;
-                this.reset();
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-            }
+        init() {
+          this.resize();
+          this.particles = [];
 
-            reset() {
-                this.x = Math.random() * this.canvas.width;
-                this.y = Math.random() * this.canvas.height;
-                this.size = Math.random() * 3 + 1;
-                this.speedX = Math.random() * 1 - 0.5;
-                this.speedY = Math.random() * 1 - 0.5;
-                this.opacity = Math.random() * 0.5 + 0.3;
-            }
+          for (let i = 0; i < this.particleCount; i++) {
+            this.particles.push(new Particle(this.canvas));
+          }
+        }
 
-            update(mouse) {
-                // Mouse interaction
-                if (mouse.x != null && mouse.y != null) {
-                    const dx = mouse.x - this.x;
-                    const dy = mouse.y - this.y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-                    
-                    if (distance < mouse.radius) {
-                        const force = (mouse.radius - distance) / mouse.radius;
-                        const angle = Math.atan2(dy, dx);
-                        this.x -= Math.cos(angle) * force * 2;
-                        this.y -= Math.sin(angle) * force * 2;
-                    }
-                }
+        resize() {
+          this.canvas.width = window.innerWidth;
+          this.canvas.height = window.innerHeight;
+        }
 
-                // Movement
-                this.x += this.speedX;
-                this.y += this.speedY;
+        bindEvents() {
+          window.addEventListener("resize", () => this.resize());
 
-                // Boundaries
-                if (this.x < 0 || this.x > this.canvas.width) {
-                    this.speedX = -this.speedX;
-                }
-                if (this.y < 0 || this.y > this.canvas.height) {
-                    this.speedY = -this.speedY;
-                }
+          window.addEventListener("mousemove", (e) => {
+            this.mouse.x = e.x;
+            this.mouse.y = e.y;
+          });
 
-                // Keep in bounds
-                this.x = Math.max(0, Math.min(this.canvas.width, this.x));
-                this.y = Math.max(0, Math.min(this.canvas.height, this.y));
-            }
+          window.addEventListener("mouseleave", () => {
+            this.mouse.x = null;
+            this.mouse.y = null;
+          });
+        }
 
-            draw(ctx) {
+        animate() {
+          this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+          this.particles.forEach((particle) => {
+            particle.update(this.mouse);
+            particle.draw(this.ctx);
+          });
+
+          this.connectParticles();
+          requestAnimationFrame(() => this.animate());
+        }
+
+        connectParticles() {
+          for (let a = 0; a < this.particles.length; a++) {
+            for (let b = a; b < this.particles.length; b++) {
+              const dx = this.particles[a].x - this.particles[b].x;
+              const dy = this.particles[a].y - this.particles[b].y;
+              const distance = Math.sqrt(dx * dx + dy * dy);
+
+              if (distance < 100) {
+                const opacity = ((100 - distance) / 100) * 0.2;
                 const color = getComputedStyle(document.documentElement)
-                    .getPropertyValue('--particle-color').trim();
-                
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = color;
-                ctx.fill();
+                  .getPropertyValue("--particle-color")
+                  .trim();
 
-                // Glow effect
-                ctx.shadowBlur = 20;
-                ctx.shadowColor = color;
-                ctx.fill();
-                ctx.shadowBlur = 0;
+                this.ctx.strokeStyle = color.replace("0.3)", `${opacity})`);
+                this.ctx.lineWidth = 0.5;
+                this.ctx.beginPath();
+                this.ctx.moveTo(this.particles[a].x, this.particles[a].y);
+                this.ctx.lineTo(this.particles[b].x, this.particles[b].y);
+                this.ctx.stroke();
+              }
             }
+          }
+        }
+      }
+
+      class Particle {
+        constructor(canvas) {
+          this.canvas = canvas;
+          this.reset();
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
         }
 
-        // Scroll progress indicator
-        const scrollProgress = document.getElementById('scrollProgress');
-        window.addEventListener('scroll', () => {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height);
-            scrollProgress.style.transform = `scaleX(${scrolled})`;
+        reset() {
+          this.x = Math.random() * this.canvas.width;
+          this.y = Math.random() * this.canvas.height;
+          this.size = Math.random() * 3 + 1;
+          this.speedX = Math.random() * 1 - 0.5;
+          this.speedY = Math.random() * 1 - 0.5;
+          this.opacity = Math.random() * 0.5 + 0.3;
+        }
+
+        update(mouse) {
+          // Mouse interaction
+          if (mouse.x != null && mouse.y != null) {
+            const dx = mouse.x - this.x;
+            const dy = mouse.y - this.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < mouse.radius) {
+              const force = (mouse.radius - distance) / mouse.radius;
+              const angle = Math.atan2(dy, dx);
+              this.x -= Math.cos(angle) * force * 2;
+              this.y -= Math.sin(angle) * force * 2;
+            }
+          }
+
+          // Movement
+          this.x += this.speedX;
+          this.y += this.speedY;
+
+          // Boundaries
+          if (this.x < 0 || this.x > this.canvas.width) {
+            this.speedX = -this.speedX;
+          }
+          if (this.y < 0 || this.y > this.canvas.height) {
+            this.speedY = -this.speedY;
+          }
+
+          // Keep in bounds
+          this.x = Math.max(0, Math.min(this.canvas.width, this.x));
+          this.y = Math.max(0, Math.min(this.canvas.height, this.y));
+        }
+
+        draw(ctx) {
+          const color = getComputedStyle(document.documentElement)
+            .getPropertyValue("--particle-color")
+            .trim();
+
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fillStyle = color;
+          ctx.fill();
+
+          // Glow effect
+          ctx.shadowBlur = 20;
+          ctx.shadowColor = color;
+          ctx.fill();
+          ctx.shadowBlur = 0;
+        }
+      }
+
+      // Scroll progress indicator
+      const scrollProgress = document.getElementById("scrollProgress");
+      window.addEventListener("scroll", () => {
+        const winScroll =
+          document.body.scrollTop || document.documentElement.scrollTop;
+        const height =
+          document.documentElement.scrollHeight -
+          document.documentElement.clientHeight;
+        const scrolled = winScroll / height;
+        scrollProgress.style.transform = `scaleX(${scrolled})`;
+      });
+
+      // Main Application Logic
+      document.addEventListener("DOMContentLoaded", () => {
+        const navLinks = document.querySelectorAll(
+          ".nav-link, .mobile-nav-link"
+        );
+        const pages = document.querySelectorAll(".page");
+        const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+        const mobileMenuOverlay = document.getElementById("mobileMenuOverlay");
+        const navbar = document.getElementById("navbar");
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const projectCards = document.querySelectorAll(".project-card");
+        const themeToggleBtn = document.getElementById("themeToggleBtn");
+        const mobileThemeToggleBtn = document.getElementById(
+          "mobileThemeToggleBtn"
+        );
+
+        // Initialize particle system
+        new ParticleSystem();
+
+        // Theme toggle functionality
+        function toggleTheme() {
+          const currentTheme =
+            document.documentElement.getAttribute("data-theme");
+          const newTheme = currentTheme === "dark" ? "light" : "dark";
+          document.documentElement.setAttribute("data-theme", newTheme);
+          const icon = newTheme === "dark" ? "fa-moon" : "fa-sun";
+          themeToggleBtn.querySelector("i").className = `fas ${icon}`;
+          mobileThemeToggleBtn.querySelector("i").className = `fas ${icon}`;
+          localStorage.setItem("theme", newTheme);
+        }
+
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme) {
+          document.documentElement.setAttribute("data-theme", savedTheme);
+          const icon = savedTheme === "dark" ? "fa-moon" : "fa-sun";
+          themeToggleBtn.querySelector("i").className = `fas ${icon}`;
+          mobileThemeToggleBtn.querySelector("i").className = `fas ${icon}`;
+        } else if (
+          window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches
+        ) {
+          document.documentElement.setAttribute("data-theme", "dark");
+          themeToggleBtn.querySelector("i").className = "fas fa-moon";
+          mobileThemeToggleBtn.querySelector("i").className = "fas fa-moon";
+        }
+
+        themeToggleBtn.addEventListener("click", toggleTheme);
+        mobileThemeToggleBtn.addEventListener("click", toggleTheme);
+
+        // Page navigation
+        window.showPage = function (pageId) {
+          pages.forEach((page) => page.classList.remove("active"));
+          navLinks.forEach((link) => link.classList.remove("active"));
+
+          const targetPage = document.getElementById(pageId);
+          if (targetPage) {
+            targetPage.classList.add("active");
+          }
+
+          const targetLink = document.querySelector(
+            `.nav-link[data-page="${pageId}"], .mobile-nav-link[data-page="${pageId}"]`
+          );
+          if (targetLink) {
+            targetLink.classList.add("active");
+          }
+
+          mobileMenuOverlay.classList.remove("show");
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        };
+
+        // Event listeners
+        navLinks.forEach((link) => {
+          link.addEventListener("click", (e) => {
+            e.preventDefault();
+            const pageId = link.getAttribute("data-page");
+            showPage(pageId);
+          });
         });
 
-        // Main Application Logic
-        document.addEventListener("DOMContentLoaded", () => {
-            const navLinks = document.querySelectorAll(".nav-link, .mobile-nav-link");
-            const pages = document.querySelectorAll(".page");
-            const mobileMenuBtn = document.getElementById("mobileMenuBtn");
-            const mobileMenuOverlay = document.getElementById("mobileMenuOverlay");
-            const navbar = document.getElementById("navbar");
-            const filterButtons = document.querySelectorAll(".filter-btn");
-            const projectCards = document.querySelectorAll(".project-card");
-            const themeToggleBtn = document.getElementById("themeToggleBtn");
-            const mobileThemeToggleBtn = document.getElementById("mobileThemeToggleBtn");
-
-            // Initialize particle system
-            new ParticleSystem();
-
-            // Theme toggle functionality
-            function toggleTheme() {
-                const currentTheme = document.documentElement.getAttribute("data-theme");
-                const newTheme = currentTheme === "dark" ? "light" : "dark";
-                document.documentElement.setAttribute("data-theme", newTheme);
-                const icon = newTheme === "dark" ? "fa-moon" : "fa-sun";
-                themeToggleBtn.querySelector("i").className = `fas ${icon}`;
-                mobileThemeToggleBtn.querySelector("i").className = `fas ${icon}`;
-                localStorage.setItem("theme", newTheme);
-            }
-
-            // Check for saved theme preference
-            const savedTheme = localStorage.getItem("theme");
-            if (savedTheme) {
-                document.documentElement.setAttribute("data-theme", savedTheme);
-                const icon = savedTheme === "dark" ? "fa-moon" : "fa-sun";
-                themeToggleBtn.querySelector("i").className = `fas ${icon}`;
-                mobileThemeToggleBtn.querySelector("i").className = `fas ${icon}`;
-            } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-                document.documentElement.setAttribute("data-theme", "dark");
-                themeToggleBtn.querySelector("i").className = "fas fa-moon";
-                mobileThemeToggleBtn.querySelector("i").className = "fas fa-moon";
-            }
-
-            themeToggleBtn.addEventListener("click", toggleTheme);
-            mobileThemeToggleBtn.addEventListener("click", toggleTheme);
-
-            // Page navigation
-            window.showPage = function(pageId) {
-                pages.forEach((page) => page.classList.remove("active"));
-                navLinks.forEach((link) => link.classList.remove("active"));
-                
-                const targetPage = document.getElementById(pageId);
-                if (targetPage) {
-                    targetPage.classList.add("active");
-                }
-                
-                const targetLink = document.querySelector(
-                    `.nav-link[data-page="${pageId}"], .mobile-nav-link[data-page="${pageId}"]`
-                );
-                if (targetLink) {
-                    targetLink.classList.add("active");
-                }
-                
-                mobileMenuOverlay.classList.remove("show");
-                window.scrollTo({ top: 0, behavior: "smooth" });
-            };
-
-            // Event listeners
-            navLinks.forEach((link) => {
-                link.addEventListener("click", (e) => {
-                    e.preventDefault();
-                    const pageId = link.getAttribute("data-page");
-                    showPage(pageId);
-                });
-            });
-
-            // Mobile menu
-            mobileMenuBtn.addEventListener("click", () => {
-                mobileMenuOverlay.classList.toggle("show");
-            });
-
-            mobileMenuOverlay.addEventListener("click", (e) => {
-                if (e.target === mobileMenuOverlay) {
-                    mobileMenuOverlay.classList.remove("show");
-                }
-            });
-
-            // Navbar scroll effect
-            window.addEventListener("scroll", () => {
-                if (window.scrollY > 50) {
-                    navbar.classList.add("scrolled");
-                } else {
-                    navbar.classList.remove("scrolled");
-                }
-            });
-
-            // Project filtering
-            filterButtons.forEach((button) => {
-                button.addEventListener("click", () => {
-                    const filterType = button.getAttribute("data-type");
-                    
-                    filterButtons.forEach((btn) => btn.classList.remove("active"));
-                    button.classList.add("active");
-                    
-                    projectCards.forEach((card) => {
-                        const cardType = card.getAttribute("data-type");
-                        if (filterType === "all" || cardType === filterType) {
-                            card.style.display = "block";
-                            card.classList.add("animate-fade-in");
-                        } else {
-                            card.style.display = "none";
-                            card.classList.remove("animate-fade-in");
-                        }
-                    });
-                });
-            });
-
-            // Smooth animations on scroll
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animate-fade-in');
-                    }
-                });
-            }, observerOptions);
-
-            // Observe all cards and sections
-            document.querySelectorAll('.project-card, .skill-card, .contact-card').forEach(el => {
-                observer.observe(el);
-            });
+        // Mobile menu
+        mobileMenuBtn.addEventListener("click", () => {
+          mobileMenuOverlay.classList.toggle("show");
         });
+
+        mobileMenuOverlay.addEventListener("click", (e) => {
+          if (e.target === mobileMenuOverlay) {
+            mobileMenuOverlay.classList.remove("show");
+          }
+        });
+
+        // Navbar scroll effect
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 50) {
+            navbar.classList.add("scrolled");
+          } else {
+            navbar.classList.remove("scrolled");
+          }
+        });
+
+        // Project filtering
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const filterType = button.getAttribute("data-type");
+
+            filterButtons.forEach((btn) => btn.classList.remove("active"));
+            button.classList.add("active");
+
+            projectCards.forEach((card) => {
+              const cardType = card.getAttribute("data-type");
+              if (filterType === "all" || cardType === filterType) {
+                card.style.display = "block";
+                card.classList.add("animate-fade-in");
+              } else {
+                card.style.display = "none";
+                card.classList.remove("animate-fade-in");
+              }
+            });
+          });
+        });
+
+        // Smooth animations on scroll
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("animate-fade-in");
+            }
+          });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document
+          .querySelectorAll(".project-card, .skill-card, .contact-card")
+          .forEach((el) => {
+            observer.observe(el);
+          });
+      });
     </script>
-</body>
+  </body>
 </html>
