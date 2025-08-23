@@ -4,6 +4,9 @@
 # Mes projets
 ![preview img](/gew.png)
 
+# Visualisations
+![preview img](/rew.png)
+
 # Mes certifications
 ![preview img](/kew.png)
 
