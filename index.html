@@ -10,58 +10,34 @@
     />
     <style>
       /* ============================================== */
-      /* ==  THEME VARIABLES - NATURE INSPIRED      == */
+      /* ==  THEME VARIABLES - NETFLIX INSPIRED      == */
       /* ============================================== */
       :root {
-        --primary-bg: #f8fffe;
-        --secondary-bg: #eef7f3;
-        --surface-glass: rgba(255, 255, 255, 0.7);
-        --surface-holo: rgba(238, 247, 243, 0.95);
-        --gradient-neon: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
-        --gradient-accent: linear-gradient(135deg, #6b9080 0%, #a4c3b2 100%);
-        --gradient-success: linear-gradient(135deg, #84a98c 0%, #cad2c5 100%);
-        --gradient-pulse: linear-gradient(135deg, #52796f 0%, #84a98c 100%);
-        --accent-neon: #2d5016;
-        --accent-pink: #6b9080;
-        --accent-purple: #354f52;
-        --accent-cyan: #84a98c;
-        --text-primary: #2f3e46;
-        --text-secondary: #52796f;
-        --text-muted: #84a98c;
-        --shadow-neon: 0 0 15px rgba(45, 80, 22, 0.3);
-        --shadow-holo: 0 8px 25px rgba(82, 121, 111, 0.15);
-        --shadow-glow: 0 0 30px rgba(107, 144, 128, 0.4);
-        --border-neon: 1px solid rgba(45, 80, 22, 0.2);
+        --primary-bg: #141414;
+        --secondary-bg: #0a0a0a;
+        --surface-glass: rgba(20, 20, 20, 0.85);
+        --surface-holo: rgba(229, 9, 20, 0.15);
+        --gradient-neon: linear-gradient(135deg, #e50914 0%, #b8070f 100%);
+        --gradient-accent: linear-gradient(135deg, #e50914 0%, #564d4d 100%);
+        --gradient-success: linear-gradient(135deg, #e50914 0%, #831010 100%);
+        --gradient-pulse: linear-gradient(135deg, #e50914 0%, #f5f5f1 100%);
+        --accent-neon: #e50914;
+        --accent-pink: #b8070f;
+        --accent-purple: #831010;
+        --accent-cyan: #f5f5f1;
+        --text-primary: #f5f5f1;
+        --text-secondary: #dbdbdb;
+        --text-muted: #9b9b9b;
+        --shadow-neon: 0 0 15px rgba(229, 9, 20, 0.5);
+        --shadow-holo: 0 8px 25px rgba(0, 0, 0, 0.5);
+        --shadow-glow: 0 0 30px rgba(229, 9, 20, 0.6);
+        --border-neon: 1px solid rgba(229, 9, 20, 0.3);
         --transition-fast: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         --transition-smooth: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         --transition-slow: 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        --particle-color: rgba(45, 80, 22, 0.4);
-        --mobile-menu-bg: rgba(248, 255, 254, 0.95);
+        --particle-color: rgba(229, 9, 20, 0.4);
+        --mobile-menu-bg: rgba(10, 10, 10, 0.95);
         --glass-blur: blur(12px);
-      }
-
-      [data-theme="dark"] {
-        --primary-bg: #1a2118;
-        --secondary-bg: #2f3e46;
-        --surface-glass: rgba(47, 62, 70, 0.8);
-        --surface-holo: rgba(82, 121, 111, 0.9);
-        --gradient-neon: linear-gradient(135deg, #52796f 0%, #84a98c 100%);
-        --gradient-accent: linear-gradient(135deg, #6b9080 0%, #a4c3b2 100%);
-        --gradient-success: linear-gradient(135deg, #84a98c 0%, #cad2c5 100%);
-        --gradient-pulse: linear-gradient(135deg, #52796f 0%, #84a98c 100%);
-        --accent-neon: #84a98c;
-        --accent-pink: #a4c3b2;
-        --accent-purple: #6b9080;
-        --accent-cyan: #cad2c5;
-        --text-primary: #cad2c5;
-        --text-secondary: #a4c3b2;
-        --text-muted: #84a98c;
-        --shadow-neon: 0 0 20px rgba(132, 169, 140, 0.4);
-        --shadow-holo: 0 8px 30px rgba(82, 121, 111, 0.3);
-        --shadow-glow: 0 0 40px rgba(202, 210, 197, 0.3);
-        --border-neon: 1px solid rgba(132, 169, 140, 0.3);
-        --particle-color: rgba(132, 169, 140, 0.6);
-        --mobile-menu-bg: rgba(26, 33, 24, 0.95);
       }
 
       /* ============================================== */
@@ -79,7 +55,7 @@
       }
 
       body {
-        font-family: "Georgia", "Times New Roman", serif;
+        font-family: "Times New Roman", Times, serif;
         background: var(--primary-bg);
         color: var(--text-primary);
         line-height: 1.7;
@@ -106,23 +82,16 @@
         width: 100%;
         height: 100%;
         background: 
-          radial-gradient(circle at 20% 80%, rgba(45, 80, 22, 0.08) 0%, transparent 50%),
-          radial-gradient(circle at 80% 20%, rgba(107, 144, 128, 0.08) 0%, transparent 50%),
-          radial-gradient(circle at 40% 40%, rgba(132, 169, 140, 0.05) 0%, transparent 50%);
+          radial-gradient(circle at 20% 80%, rgba(229, 9, 20, 0.08) 0%, transparent 50%),
+          radial-gradient(circle at 80% 20%, rgba(180, 7, 15, 0.08) 0%, transparent 50%),
+          radial-gradient(circle at 40% 40%, rgba(245, 245, 241, 0.05) 0%, transparent 50%);
         z-index: -1;
         pointer-events: none;
         transition: all var(--transition-smooth);
       }
 
-      [data-theme="dark"] body::before {
-        background: 
-          radial-gradient(circle at 20% 80%, rgba(132, 169, 140, 0.1) 0%, transparent 50%),
-          radial-gradient(circle at 80% 20%, rgba(164, 195, 178, 0.08) 0%, transparent 50%),
-          radial-gradient(circle at 40% 40%, rgba(202, 210, 197, 0.06) 0%, transparent 50%);
-      }
-
       h1, h2, h3, h4, h5, h6 {
-        font-family: "Georgia", "Times New Roman", serif;
+        font-family: "Times New Roman", Times, serif;
         font-weight: 600;
         line-height: 1.3;
         letter-spacing: 0.01em;
@@ -176,7 +145,7 @@
       }
 
       .logo {
-        font-family: "Georgia", serif;
+        font-family: "Times New Roman", Times, serif;
         font-size: 1.6rem;
         font-weight: 700;
         background: var(--gradient-neon);
@@ -188,10 +157,11 @@
       }
 
       .logo::before {
-        content: "🌿";
+        content: "N";
         font-size: 1.8rem;
         filter: none;
         -webkit-text-fill-color: initial;
+        color: #e50914;
       }
 
       .nav-menu {
@@ -201,7 +171,7 @@
       }
 
       .nav-link {
-        font-family: "Georgia", serif;
+        font-family: "Times New Roman", Times, serif;
         color: var(--text-secondary);
         text-decoration: none;
         font-weight: 500;
@@ -230,7 +200,7 @@
       .nav-link:hover,
       .nav-link.active {
         color: var(--text-primary);
-        background: rgba(45, 80, 22, 0.1);
+        background: rgba(229, 9, 20, 0.1);
         transform: translateY(-2px);
       }
 
@@ -253,7 +223,7 @@
       }
 
       .theme-toggle-btn:hover {
-        background: rgba(45, 80, 22, 0.15);
+        background: rgba(229, 9, 20, 0.15);
         transform: rotate(15deg) scale(1.1);
       }
 
@@ -270,7 +240,7 @@
       }
 
       .mobile-menu-btn:hover {
-        background: rgba(45, 80, 22, 0.15);
+        background: rgba(229, 9, 20, 0.15);
         transform: scale(1.1);
       }
 
@@ -305,11 +275,11 @@
         background: var(--surface-holo);
         border-right: var(--border-neon);
         padding: 3rem;
-        box-shadow: 0 0 30px rgba(45, 80, 22, 0.2);
+        box-shadow: 0 0 30px rgba(229, 9, 20, 0.2);
       }
 
       .mobile-nav-link {
-        font-family: "Georgia", serif;
+        font-family: "Times New Roman", Times, serif;
         display: block;
         color: var(--text-secondary);
         text-decoration: none;
@@ -335,14 +305,14 @@
         min-height: 100vh;
         padding-top: 80px;
         display: none;
-        animation: fadeInNature 0.6s ease-in-out;
+        animation: fadeInNetflix 0.6s ease-in-out;
       }
 
       .page.active {
         display: block;
       }
 
-      @keyframes fadeInNature {
+      @keyframes fadeInNetflix {
         0% {
           opacity: 0;
           transform: translateY(20px);
@@ -380,12 +350,13 @@
       }
 
       .section-title::before {
-        content: "🍃";
+        content: "N";
         position: absolute;
         top: -15px;
         left: 50%;
         transform: translateX(-50%);
         font-size: 1.5rem;
+        color: #e50914;
       }
 
       /* ============================================== */
@@ -409,12 +380,12 @@
         width: 100%;
         height: 100%;
         background: 
-          linear-gradient(135deg, transparent 0%, rgba(45, 80, 22, 0.03) 50%, transparent 100%);
-        animation: heroBreeze 6s ease-in-out infinite alternate;
+          linear-gradient(135deg, transparent 0%, rgba(229, 9, 20, 0.03) 50%, transparent 100%);
+        animation: heroNetflix 6s ease-in-out infinite alternate;
         z-index: -1;
       }
 
-      @keyframes heroBreeze {
+      @keyframes heroNetflix {
         0% { opacity: 0.5; transform: translateX(-10px); }
         100% { opacity: 0.8; transform: translateX(10px); }
       }
@@ -457,7 +428,7 @@
         background: var(--gradient-neon);
         border-radius: 50%;
         z-index: -1;
-        animation: leafSway 8s linear infinite;
+        animation: netflixPulse 8s linear infinite;
         filter: blur(2px);
       }
 
@@ -471,12 +442,12 @@
         background: var(--gradient-accent);
         border-radius: 50%;
         z-index: -1;
-        animation: leafSway 6s linear infinite reverse;
+        animation: netflixPulse 6s linear infinite reverse;
         opacity: 0.6;
         filter: blur(1px);
       }
 
-      @keyframes leafSway {
+      @keyframes netflixPulse {
         0% { transform: rotate(0deg) scale(1); }
         25% { transform: rotate(2deg) scale(1.02); }
         50% { transform: rotate(0deg) scale(1.05); }
@@ -510,7 +481,7 @@
       }
 
       .hero-subtitle {
-        font-family: "Georgia", serif;
+        font-family: "Times New Roman", Times, serif;
         font-size: 1.4rem;
         color: var(--text-secondary);
         margin-bottom: 2rem;
@@ -549,11 +520,12 @@
       }
 
       .hero-quote::before {
-        content: "🌱";
+        content: "N";
         position: absolute;
         left: -12px;
         top: -5px;
         font-size: 1.2rem;
+        color: #e50914;
       }
 
       /* ============================================== */
@@ -566,7 +538,7 @@
         padding: 1rem 2rem;
         border: none;
         border-radius: 30px;
-        font-family: "Georgia", serif;
+        font-family: "Times New Roman", Times, serif;
         font-weight: 600;
         font-size: 1rem;
         text-decoration: none;
@@ -585,7 +557,7 @@
 
       .btn-primary:hover {
         transform: translateY(-3px);
-        box-shadow: 0 8px 25px rgba(45, 80, 22, 0.4);
+        box-shadow: 0 8px 25px rgba(229, 9, 20, 0.4);
       }
 
       .btn-primary::after {
@@ -662,7 +634,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(45deg, transparent, rgba(45, 80, 22, 0.08), transparent);
+        background: linear-gradient(45deg, transparent, rgba(229, 9, 20, 0.08), transparent);
         transform: translateX(-100%);
         transition: transform 0.8s;
         z-index: -1;
@@ -670,7 +642,7 @@
 
       .carousel-item:hover {
         transform: translateY(-5px) scale(1.02);
-        box-shadow: 0 15px 40px rgba(45, 80, 22, 0.2);
+        box-shadow: 0 15px 40px rgba(229, 9, 20, 0.2);
         border-color: var(--accent-neon);
       }
 
@@ -820,7 +792,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(45deg, transparent, rgba(45, 80, 22, 0.08), transparent);
+        background: linear-gradient(45deg, transparent, rgba(229, 9, 20, 0.08), transparent);
         transform: translateX(-100%);
         transition: transform 0.8s;
         z-index: -1;
@@ -828,7 +800,7 @@
 
       .project-card:hover {
         transform: translateY(-8px) scale(1.01);
-        box-shadow: 0 12px 40px rgba(45, 80, 22, 0.2);
+        box-shadow: 0 12px 40px rgba(229, 9, 20, 0.2);
         border-color: var(--accent-neon);
       }
 
@@ -886,7 +858,7 @@
         background: transparent;
         color: var(--text-secondary);
         border-radius: 30px;
-        font-family: "Georgia", serif;
+        font-family: "Times New Roman", Times, serif;
         font-weight: 500;
         cursor: pointer;
         transition: all var(--transition-smooth);
@@ -926,7 +898,7 @@
 
       .skill-card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 15px 35px rgba(45, 80, 22, 0.2);
+        box-shadow: 0 15px 35px rgba(229, 9, 20, 0.2);
       }
 
       .skill-icon {
@@ -970,7 +942,7 @@
 
       .contact-card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 15px 35px rgba(107, 144, 128, 0.2);
+        box-shadow: 0 15px 35px rgba(180, 7, 15, 0.2);
       }
 
       .contact-icon {
@@ -1005,7 +977,7 @@
         width: 100%;
         height: 100%;
         background: 
-          linear-gradient(45deg, transparent, rgba(45, 80, 22, 0.03), transparent);
+          linear-gradient(45deg, transparent, rgba(229, 9, 20, 0.03), transparent);
         animation: gentleBreeze 5s linear infinite;
         z-index: 0;
         pointer-events: none;
@@ -1055,6 +1027,7 @@
         margin: 0.3rem 0;
         color: var(--text-secondary);
         text-decoration: none;
+        font-family: "Times New Roman", Times, serif;
       }
 
       .contact-info a:hover {
@@ -1074,13 +1047,15 @@
         border-left: 4px solid var(--accent-neon);
         padding-left: 1rem;
         position: relative;
+        font-family: "Times New Roman", Times, serif;
       }
 
       .cv-section h3::before {
-        content: "🌿";
+        content: "N";
         position: absolute;
         left: -15px;
         font-size: 1rem;
+        color: #e50914;
       }
 
       .job,
@@ -1106,7 +1081,7 @@
         left: -50%;
         width: 200%;
         height: 200%;
-        background: radial-gradient(circle, rgba(45, 80, 22, 0.1) 0%, transparent 70%);
+        background: radial-gradient(circle, rgba(229, 9, 20, 0.1) 0%, transparent 70%);
         transform: rotate(45deg);
         transition: all var(--transition-slow);
         opacity: 0;
@@ -1125,7 +1100,7 @@
       .education:hover,
       .project:hover {
         transform: translateY(-3px) scale(1.01);
-        box-shadow: 0 8px 25px rgba(45, 80, 22, 0.15);
+        box-shadow: 0 8px 25px rgba(229, 9, 20, 0.15);
         border-color: var(--accent-neon);
       }
 
@@ -1141,6 +1116,7 @@
       .edu-header h4 {
         font-size: 1.1rem;
         color: var(--accent-neon);
+        font-family: "Times New Roman", Times, serif;
       }
 
       .period {
@@ -1157,6 +1133,7 @@
         font-weight: 600;
         color: var(--text-secondary);
         margin-bottom: 0.8rem;
+        font-family: "Times New Roman", Times, serif;
       }
 
       .cv-section ul {
@@ -1169,6 +1146,7 @@
         margin-bottom: 0.5rem;
         padding-left: 1.5rem;
         transition: transform var(--transition-fast);
+        font-family: "Times New Roman", Times, serif;
       }
 
       .cv-section ul li:hover {
@@ -1176,10 +1154,11 @@
       }
 
       .cv-section ul li::before {
-        content: "🌱";
+        content: "N";
         position: absolute;
         left: 0;
         font-size: 0.8rem;
+        color: #e50914;
       }
 
       .skills-section {
@@ -1217,13 +1196,14 @@
 
       .skill-category:hover {
         transform: translateY(-3px);
-        box-shadow: 0 8px 20px rgba(45, 80, 22, 0.15);
+        box-shadow: 0 8px 20px rgba(229, 9, 20, 0.15);
       }
 
       .skill-category h5 {
         color: var(--accent-purple);
         margin-bottom: 0.8rem;
         font-size: 1.05rem;
+        font-family: "Times New Roman", Times, serif;
       }
 
       .certifications-list {
@@ -1245,11 +1225,12 @@
 
       .cert-item:hover {
         transform: scale(1.02);
-        box-shadow: 0 6px 15px rgba(45, 80, 22, 0.15);
+        box-shadow: 0 6px 15px rgba(229, 9, 20, 0.15);
       }
 
       .cert-item h5 {
         color: var(--text-primary);
+        font-family: "Times New Roman", Times, serif;
       }
 
       .cert-item span {
@@ -1278,7 +1259,7 @@
 
       .lang-item:hover {
         transform: scale(1.02);
-        box-shadow: 0 6px 15px rgba(107, 144, 128, 0.15);
+        box-shadow: 0 6px 15px rgba(180, 7, 15, 0.15);
       }
 
       @keyframes gentleBreeze {
@@ -1305,8 +1286,8 @@
         width: 100%;
         height: 100%;
         background: 
-          radial-gradient(circle at 25% 25%, rgba(45, 80, 22, 0.05) 0%, transparent 50%),
-          radial-gradient(circle at 75% 75%, rgba(107, 144, 128, 0.05) 0%, transparent 50%);
+          radial-gradient(circle at 25% 25%, rgba(229, 9, 20, 0.05) 0%, transparent 50%),
+          radial-gradient(circle at 75% 75%, rgba(180, 7, 15, 0.05) 0%, transparent 50%);
         z-index: -1;
       }
 
@@ -1608,182 +1589,215 @@
           </button>
           <button class="filter-btn" data-type="other">⚡ Autres</button>
         </div>
-        <div class="projects-grid" id="projectsContainer">
-          <!-- PDF Projects -->
-          <div class="project-card" data-type="pdf">
-            <div class="project-icon">🌱</div>
-            <h3 class="project-title">Économétrie Quantitative</h3>
-            <p class="project-description">
-              Analyse approfondie des variables influençant le délai de
-              livraison avec régression multiple et ANOVA (2024-2025).
-            </p>
-            <a
-              href="projects/pdfs/ECONOMETRIE-Quanti.pdf"
-              target="_blank"
-              class="project-link"
-            >
-              Consulter le rapport <i class="fas fa-external-link-alt"></i>
-            </a>
-          </div>
+        <div class="carousel-container" id="projectsCarousel">
+          <button class="carousel-nav prev" id="projectsPrev">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="carousel-nav next" id="projectsNext">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+          <div class="carousel-wrapper" id="projectsWrapper">
+            <!-- PDF Projects -->
+            <div class="carousel-item project-card" data-type="pdf">
+              <div class="carousel-item-content">
+                <div class="project-icon">🌱</div>
+                <h3 class="carousel-item-title">Économétrie Quantitative</h3>
+                <p class="project-description">
+                  Analyse approfondie des variables influençant le délai de
+                  livraison avec régression multiple et ANOVA (2024-2025).
+                </p>
+                <a
+                  href="projects/pdfs/ECONOMETRIE-Quanti.pdf"
+                  target="_blank"
+                  class="carousel-item-link"
+                >
+                  Consulter le rapport <i class="fas fa-external-link-alt"></i>
+                </a>
+              </div>
+            </div>
 
-          <div class="project-card" data-type="pdf">
-            <div class="project-icon">🌍</div>
-            <h3 class="project-title">Économétrie Qualitative</h3>
-            <p class="project-description">
-              Étude des variables influençant le risque d'accident à l'aide de
-              méthodes économétriques avancées.
-            </p>
-            <a
-              href="projects/pdfs/Econometrie-Quali.pdf"
-              target="_blank"
-              class="project-link"
-            >
-              Voir l'analyse <i class="fas fa-external-link-alt"></i>
-            </a>
-          </div>
+            <div class="carousel-item project-card" data-type="pdf">
+              <div class="carousel-item-content">
+                <div class="project-icon">🌍</div>
+                <h3 class="carousel-item-title">Économétrie Qualitative</h3>
+                <p class="project-description">
+                  Étude des variables influençant le risque d'accident à l'aide de
+                  méthodes économétriques avancées.
+                </p>
+                <a
+                  href="projects/pdfs/Econometrie-Quali.pdf"
+                  target="_blank"
+                  class="carousel-item-link"
+                >
+                  Voir l'analyse <i class="fas fa-external-link-alt"></i>
+                </a>
+              </div>
+            </div>
 
-          <div class="project-card" data-type="pdf">
-            <div class="project-icon">🌿</div>
-            <h3 class="project-title">Séries Temporelles</h3>
-            <p class="project-description">
-              Prévision des indices de pollution de l'air pour les 30 premiers
-              jours de l'année 2015.
-            </p>
-            <a
-              href="projects/pdfs/Econometrie-serie_temp.pdf"
-              target="_blank"
-              class="project-link"
-            >
-              Découvrir l'étude <i class="fas fa-external-link-alt"></i>
-            </a>
-          </div>
+            <div class="carousel-item project-card" data-type="pdf">
+              <div class="carousel-item-content">
+                <div class="project-icon">🌿</div>
+                <h3 class="carousel-item-title">Séries Temporelles</h3>
+                <p class="project-description">
+                  Prévision des indices de pollution de l'air pour les 30 premiers
+                  jours de l'année 2015.
+                </p>
+                <a
+                  href="projects/pdfs/Econometrie-serie_temp.pdf"
+                  target="_blank"
+                  class="carousel-item-link"
+                >
+                  Découvrir l'étude <i class="fas fa-external-link-alt"></i>
+                </a>
+              </div>
+            </div>
 
-          <div class="project-card" data-type="pdf">
-            <div class="project-icon">🌳</div>
-            <h3 class="project-title">Statistique Descriptive</h3>
-            <p class="project-description">
-              Analyse des facteurs socio-économiques et sanitaires pour la
-              catégorisation des pays ayant besoin d'aide.
-            </p>
-            <a
-              href="projects/pdfs/mini-projet-HELP_international_n'dri_onesime.pdf"
-              target="_blank"
-              class="project-link"
-            >
-              Lire le rapport <i class="fas fa-external-link-alt"></i>
-            </a>
-          </div>
+            <div class="carousel-item project-card" data-type="pdf">
+              <div class="carousel-item-content">
+                <div class="project-icon">🌳</div>
+                <h3 class="carousel-item-title">Statistique Descriptive</h3>
+                <p class="project-description">
+                  Analyse des facteurs socio-économiques et sanitaires pour la
+                  catégorisation des pays ayant besoin d'aide.
+                </p>
+                <a
+                  href="projects/pdfs/mini-projet-HELP_international_n'dri_onesime.pdf"
+                  target="_blank"
+                  class="carousel-item-link"
+                >
+                  Lire le rapport <i class="fas fa-external-link-alt"></i>
+                </a>
+              </div>
+            </div>
 
-          <div class="project-card" data-type="pdf">
-            <div class="project-icon">🍃</div>
-            <h3 class="project-title">Statistique Inférentielle</h3>
-            <p class="project-description">
-              Étude des facteurs influençant la dépression chez les étudiants à
-              l'aide de méthodes statistiques.
-            </p>
-            <a
-              href="projects/pdfs/statistique inferentiel.pdf"
-              target="_blank"
-              class="project-link"
-            >
-              Explorer l'analyse <i class="fas fa-external-link-alt"></i>
-            </a>
-          </div>
+            <div class="carousel-item project-card" data-type="pdf">
+              <div class="carousel-item-content">
+                <div class="project-icon">🍃</div>
+                <h3 class="carousel-item-title">Statistique Inférentielle</h3>
+                <p class="project-description">
+                  Étude des facteurs influençant la dépression chez les étudiants à
+                  l'aide de méthodes statistiques.
+                </p>
+                <a
+                  href="projects/pdfs/statistique inferentiel.pdf"
+                  target="_blank"
+                  class="carousel-item-link"
+                >
+                  Explorer l'analyse <i class="fas fa-external-link-alt"></i>
+                </a>
+              </div>
+            </div>
 
-          <div class="project-card" data-type="pdf">
-            <div class="project-icon">🌲</div>
-            <h3 class="project-title">Corporación Favorita</h3>
-            <p class="project-description">
-              Rapport statistique complet pour Corporación Favorita - Analyse de
-              séries temporelles avancée.
-            </p>
-            <a
-              href="projects/pdfs/mini-projet-serie-temporelle.pdf"
-              target="_blank"
-              class="project-link"
-            >
-              Voir le rapport <i class="fas fa-external-link-alt"></i>
-            </a>
-          </div>
+            <div class="carousel-item project-card" data-type="pdf">
+              <div class="carousel-item-content">
+                <div class="project-icon">🌲</div>
+                <h3 class="carousel-item-title">Corporación Favorita</h3>
+                <p class="project-description">
+                  Rapport statistique complet pour Corporación Favorita - Analyse de
+                  séries temporelles avancée.
+                </p>
+                <a
+                  href="projects/pdfs/mini-projet-serie-temporelle.pdf"
+                  target="_blank"
+                  class="carousel-item-link"
+                >
+                  Voir le rapport <i class="fas fa-external-link-alt"></i>
+                </a>
+              </div>
+            </div>
 
-          <div class="project-card" data-type="pdf">
-            <div class="project-icon">🌺</div>
-            <h3 class="project-title">Analyse ACP-ACM</h3>
-            <p class="project-description">
-              Analyse des comportements et préférences pour l'optimisation des
-              ressources avec ACP et ACM.
-            </p>
-            <a
-              href="projects/pdfs/Projet-ACP-ACM.pdf"
-              target="_blank"
-              class="project-link"
-            >
-              Consulter l'analyse <i class="fas fa-external-link-alt"></i>
-            </a>
-          </div>
+            <div class="carousel-item project-card" data-type="pdf">
+              <div class="carousel-item-content">
+                <div class="project-icon">🌺</div>
+                <h3 class="carousel-item-title">Analyse ACP-ACM</h3>
+                <p class="project-description">
+                  Analyse des comportements et préférences pour l'optimisation des
+                  ressources avec ACP et ACM.
+                </p>
+                <a
+                  href="projects/pdfs/Projet-ACP-ACM.pdf"
+                  target="_blank"
+                  class="carousel-item-link"
+                >
+                  Consulter l'analyse <i class="fas fa-external-link-alt"></i>
+                </a>
+              </div>
+            </div>
 
-          <!-- Streamlit Apps -->
-          <div class="project-card" data-type="streamlit">
-            <div class="project-icon">🌿</div>
-            <h3 class="project-title">App Régression Logistique</h3>
-            <p class="project-description">
-              Application Streamlit interactive pour l'analyse et la
-              modélisation par régression logistique.
-            </p>
-            <a
-              href="https://regressionlogistique-app.streamlit.app/"
-              target="_blank"
-              class="project-link"
-            >
-              Lancer l'app <i class="fas fa-external-link-alt"></i>
-            </a>
-          </div>
+            <!-- Streamlit Apps -->
+            <div class="carousel-item project-card" data-type="streamlit">
+              <div class="carousel-item-content">
+                <div class="project-icon">🌿</div>
+                <h3 class="carousel-item-title">App Régression Logistique</h3>
+                <p class="project-description">
+                  Application Streamlit interactive pour l'analyse et la
+                  modélisation par régression logistique.
+                </p>
+                <a
+                  href="https://regressionlogistique-app.streamlit.app/"
+                  target="_blank"
+                  class="carousel-item-link"
+                >
+                  Lancer l'app <i class="fas fa-external-link-alt"></i>
+                </a>
+              </div>
+            </div>
 
-          <div class="project-card" data-type="streamlit">
-            <div class="project-icon">🌱</div>
-            <h3 class="project-title">Analyse Univariée</h3>
-            <p class="project-description">
-              Application Streamlit pour l'analyse statistique univariée
-              complète et interactive.
-            </p>
-            <a
-              href="https://analyseunivariee-onesime.streamlit.app/"
-              target="_blank"
-              class="project-link"
-            >
-              Utiliser l'app <i class="fas fa-external-link-alt"></i>
-            </a>
-          </div>
+            <div class="carousel-item project-card" data-type="streamlit">
+              <div class="carousel-item-content">
+                <div class="project-icon">🌱</div>
+                <h3 class="carousel-item-title">Analyse Univariée</h3>
+                <p class="project-description">
+                  Application Streamlit pour l'analyse statistique univariée
+                  complète et interactive.
+                </p>
+                <a
+                  href="https://analyseunivariee-onesime.streamlit.app/"
+                  target="_blank"
+                  class="carousel-item-link"
+                >
+                  Utiliser l'app <i class="fas fa-external-link-alt"></i>
+                </a>
+              </div>
+            </div>
 
-          <div class="project-card" data-type="streamlit">
-            <div class="project-icon">🍀</div>
-            <h3 class="project-title">Tests de Liaison</h3>
-            <p class="project-description">
-              Application Streamlit pour effectuer des tests de liaison
-              statistique de manière interactive.
-            </p>
-            <a
-              href="https://appliaison-onesime.streamlit.app/"
-              target="_blank"
-              class="project-link"
-            >
-              Tester l'app <i class="fas fa-external-link-alt"></i>
-            </a>
-          </div>
+            <div class="carousel-item project-card" data-type="streamlit">
+              <div class="carousel-item-content">
+                <div class="project-icon">🍀</div>
+                <h3 class="carousel-item-title">Tests de Liaison</h3>
+                <p class="project-description">
+                  Application Streamlit pour effectuer des tests de liaison
+                  statistique de manière interactive.
+                </p>
+                <a
+                  href="https://appliaison-onesime.streamlit.app/"
+                  target="_blank"
+                  class="carousel-item-link"
+                >
+                  Tester l'app <i class="fas fa-external-link-alt"></i>
+                </a>
+              </div>
+            </div>
 
-          <div class="project-card" data-type="streamlit">
-            <div class="project-icon">🌿</div>
-            <h3 class="project-title">Règles d'association</h3>
-            <p class="project-description">
-              Application Streamlit pour règles d'association ou panier ménager.
-            </p>
-            <a
-              href="https://regle-panier-menagere.streamlit.app/"
-              target="_blank"
-              class="project-link"
-            >
-              Tester l'app <i class="fas fa-external-link-alt"></i>
-            </a>
+            <div class="carousel-item project-card" data-type="streamlit">
+              <div class="carousel-item-content">
+                <div class="project-icon">🌿</div>
+                <h3 class="carousel-item-title">Règles d'association</h3>
+                <p class="project-description">
+                  Application Streamlit pour règles d'association ou panier ménager.
+                </p>
+                <a
+                  href="https://regle-panier-menagere.streamlit.app/"
+                  target="_blank"
+                  class="carousel-item-link"
+                >
+                  Tester l'app <i class="fas fa-external-link-alt"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-indicators" id="projectsIndicators">
+            <!-- Dots will be generated by JavaScript -->
           </div>
         </div>
       </section>
@@ -2058,7 +2072,7 @@
               <img
                 src="assets/certifications/SQL-intermediaire.jpg"
                 alt="SQL Intermédiaire"
-                class="certification-image"
+                class="carousel-item-image"
                 onerror="this.style.display='none'"
               />
               <div class="carousel-item-content">
@@ -2078,7 +2092,7 @@
               <img
                 src="assets/certifications/introduction-SQL.jpg"
                 alt="Introduction SQL"
-                class="certification-image"
+                class="carousel-item-image"
                 onerror="this.style.display='none'"
               />
               <div class="carousel-item-content">
@@ -2121,38 +2135,57 @@
             économétrique et machine learning, j'aide les entreprises à prendre
             des décisions éclairées basées sur des analyses rigoureuses.
           </p>
-          <div class="skills-grid">
-            <div class="skill-card">
-              <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
-              <h3>🌱 Analyse de Données</h3>
-              <p>
-                Expertise en statistique descriptive, inférentielle et
-                économétrie pour extraire des insights significatifs.
-              </p>
+          <div class="carousel-container" id="skillsCarousel">
+            <button class="carousel-nav prev" id="skillsPrev">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="carousel-nav next" id="skillsNext">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="carousel-wrapper" id="skillsWrapper">
+              <div class="carousel-item skill-card">
+                <div class="carousel-item-content">
+                  <div class="skill-icon"><i class="fas fa-chart-line"></i></div>
+                  <h3 class="carousel-item-title">🌱 Analyse de Données</h3>
+                  <p>
+                    Expertise en statistique descriptive, inférentielle et
+                    économétrie pour extraire des insights significatifs.
+                  </p>
+                </div>
+              </div>
+              <div class="carousel-item skill-card">
+                <div class="carousel-item-content">
+                  <div class="skill-icon"><i class="fas fa-eye"></i></div>
+                  <h3 class="carousel-item-title">🎨 Visualisation</h3>
+                  <p>
+                    Création de visualisations percutantes avec des outils comme
+                    Excel, R, Power BI et Python (Matplotlib, Seaborn).
+                  </p>
+                </div>
+              </div>
+              <div class="carousel-item skill-card">
+                <div class="carousel-item-content">
+                  <div class="skill-icon"><i class="fas fa-robot"></i></div>
+                  <h3 class="carousel-item-title">🤖 Machine Learning</h3>
+                  <p>
+                    Modélisation prédictive avec algorithmes comme régression
+                    linéaire, régression logistique.
+                  </p>
+                </div>
+              </div>
+              <div class="carousel-item skill-card">
+                <div class="carousel-item-content">
+                  <div class="skill-icon"><i class="fas fa-code"></i></div>
+                  <h3 class="carousel-item-title">💻 Programmation</h3>
+                  <p>
+                    Python, R, SQL et développement d'applications interactives avec
+                    Streamlit.
+                  </p>
+                </div>
+              </div>
             </div>
-            <div class="skill-card">
-              <div class="skill-icon"><i class="fas fa-eye"></i></div>
-              <h3>🎨 Visualisation</h3>
-              <p>
-                Création de visualisations percutantes avec des outils comme
-                Excel, R, Power BI et Python (Matplotlib, Seaborn).
-              </p>
-            </div>
-            <div class="skill-card">
-              <div class="skill-icon"><i class="fas fa-robot"></i></div>
-              <h3>🤖 Machine Learning</h3>
-              <p>
-                Modélisation prédictive avec algorithmes comme régression
-                linéaire, régression logistique.
-              </p>
-            </div>
-            <div class="skill-card">
-              <div class="skill-icon"><i class="fas fa-code"></i></div>
-              <h3>💻 Programmation</h3>
-              <p>
-                Python, R, SQL et développement d'applications interactives avec
-                Streamlit.
-              </p>
+            <div class="carousel-indicators" id="skillsIndicators">
+              <!-- Dots will be generated by JavaScript -->
             </div>
           </div>
           <div style="text-align: center; margin-top: 2rem">
@@ -2182,51 +2215,70 @@
             opportunité professionnelle ? N'hésitez pas à me contacter via les
             canaux ci-dessous.
           </p>
-          <div class="contact-grid">
-            <div class="contact-card">
-              <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-              <h3>📧 Email</h3>
-              <p>
-                <a href="mailto:ndriablatie123@gmail.com" class="project-link"
-                  >ndriablatie123@gmail.com</a
-                >
-              </p>
+          <div class="carousel-container" id="contactCarousel">
+            <button class="carousel-nav prev" id="contactPrev">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="carousel-nav next" id="contactNext">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="carousel-wrapper" id="contactWrapper">
+              <div class="carousel-item contact-card">
+                <div class="carousel-item-content">
+                  <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                  <h3 class="carousel-item-title">📧 Email</h3>
+                  <p>
+                    <a href="mailto:ndriablatie123@gmail.com" class="project-link"
+                      >ndriablatie123@gmail.com</a
+                    >
+                  </p>
+                </div>
+              </div>
+              <div class="carousel-item contact-card">
+                <div class="carousel-item-content">
+                  <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
+                  <h3 class="carousel-item-title">💼 LinkedIn</h3>
+                  <p>
+                    <a
+                      href="https://www.linkedin.com/in/onesime-ndri"
+                      target="_blank"
+                      class="project-link"
+                      >Onesime N'Dri</a
+                    >
+                  </p>
+                </div>
+              </div>
+              <div class="carousel-item contact-card">
+                <div class="carousel-item-content">
+                  <div class="contact-icon"><i class="fab fa-github"></i></div>
+                  <h3 class="carousel-item-title">💻 GitHub</h3>
+                  <p>
+                    <a
+                      href="https://github.com/Onesime165"
+                      target="_blank"
+                      class="project-link"
+                      >Onesime165</a
+                    >
+                  </p>
+                </div>
+              </div>
+              <div class="carousel-item contact-card">
+                <div class="carousel-item-content">
+                  <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                  <h3 class="carousel-item-title">📞 Téléphone</h3>
+                  <p>
+                    <a
+                      href="https://wa.me/2250768059887"
+                      target="_blank"
+                      class="project-link"
+                      >+225 07 68 05 98 87 / +225 01 01 75 11 81</a
+                    >
+                  </p>
+                </div>
+              </div>
             </div>
-            <div class="contact-card">
-              <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
-              <h3>💼 LinkedIn</h3>
-              <p>
-                <a
-                  href="https://www.linkedin.com/in/onesime-ndri"
-                  target="_blank"
-                  class="project-link"
-                  >Onesime N'Dri</a
-                >
-              </p>
-            </div>
-            <div class="contact-card">
-              <div class="contact-icon"><i class="fab fa-github"></i></div>
-              <h3>💻 GitHub</h3>
-              <p>
-                <a
-                  href="https://github.com/Onesime165"
-                  target="_blank"
-                  class="project-link"
-                  >Onesime165</a
-                >
-              </p>
-            </div>
-            <div class="contact-card">
-              <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
-              <h3>📞 Téléphone</h3>
-              <p>
-                <a
-                  href="https://wa.me/2250768059887"
-                  target="_blank"
-                  class="project-link"
-                  >+225 07 68 05 98 87 / +225 01 01 75 11 81</a
-                >
-              </p>
+            <div class="carousel-indicators" id="contactIndicators">
+              <!-- Dots will be generated by JavaScript -->
             </div>
           </div>
           <div style="text-align: center; margin-top: 2rem">
@@ -2297,59 +2349,102 @@
 
           <div class="cv-section">
             <h3>🛠️ COMPÉTENCES TECHNIQUES</h3>
-            <div class="skills-section">
-              <div class="skill-category">
-                <h5>🌱 Analyse de Données</h5>
-                <p>
-                  Statistiques descriptives et inférentielles, Modélisation
-                  économétrique, Conception tableau de bord, Web scraping,
-                  Scoring, Machine Learning
-                </p>
+            <div class="carousel-container" id="cvSkillsCarousel">
+              <button class="carousel-nav prev" id="cvSkillsPrev">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="carousel-nav next" id="cvSkillsNext">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+              <div class="carousel-wrapper" id="cvSkillsWrapper">
+                <div class="carousel-item skill-category">
+                  <div class="carousel-item-content">
+                    <h5 class="carousel-item-title">🌱 Analyse de Données</h5>
+                    <p>
+                      Statistiques descriptives et inférentielles, Modélisation
+                      économétrique, Conception tableau de bord, Web scraping,
+                      Scoring, Machine Learning
+                    </p>
+                  </div>
+                </div>
+                <div class="carousel-item skill-category">
+                  <div class="carousel-item-content">
+                    <h5 class="carousel-item-title">💻 Outils et Technologies</h5>
+                    <p>
+                      Power BI, Excel-PowerQuery, Python, R, Postgres-DBeaver, Pack
+                      Office, Applications statistiques Streamlit et Shiny
+                    </p>
+                  </div>
+                </div>
               </div>
-              <div class="skill-category">
-                <h5>💻 Outils et Technologies</h5>
-                <p>
-                  Power BI, Excel-PowerQuery, Python, R, Postgres-DBeaver, Pack
-                  Office, Applications statistiques Streamlit et Shiny
-                </p>
+              <div class="carousel-indicators" id="cvSkillsIndicators">
+                <!-- Dots will be generated by JavaScript -->
               </div>
             </div>
           </div>
 
           <div class="cv-section">
             <h3>🌐 LANGUES</h3>
-            <div class="languages">
-              <div class="lang-item">
-                <span>🇫🇷 Français</span>
-                <span>Langue maternelle</span>
+            <div class="carousel-container" id="cvLanguagesCarousel">
+              <button class="carousel-nav prev" id="cvLanguagesPrev">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="carousel-nav next" id="cvLanguagesNext">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+              <div class="carousel-wrapper" id="cvLanguagesWrapper">
+                <div class="carousel-item lang-item">
+                  <div class="carousel-item-content">
+                    <span>🇫🇷 Français</span>
+                    <span>Langue maternelle</span>
+                  </div>
+                </div>
+                <div class="carousel-item lang-item">
+                  <div class="carousel-item-content">
+                    <span>🇺🇸 Anglais</span>
+                    <span>Intermédiaire</span>
+                  </div>
+                </div>
               </div>
-              <div class="lang-item">
-                <span>🇺🇸 Anglais</span>
-                <span>Intermédiaire</span>
+              <div class="carousel-indicators" id="cvLanguagesIndicators">
+                <!-- Dots will be generated by JavaScript -->
               </div>
             </div>
           </div>
 
           <div class="cv-section">
             <h3>💪 ATOUTS</h3>
-            <div
-              style="
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                gap: 1rem;
-              "
-            >
-              <div class="skill-category">
-                <h5>🔍 Sens de l'analyse</h5>
+            <div class="carousel-container" id="cvAtoutsCarousel">
+              <button class="carousel-nav prev" id="cvAtoutsPrev">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="carousel-nav next" id="cvAtoutsNext">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+              <div class="carousel-wrapper" id="cvAtoutsWrapper">
+                <div class="carousel-item skill-category">
+                  <div class="carousel-item-content">
+                    <h5 class="carousel-item-title">🔍 Sens de l'analyse</h5>
+                  </div>
+                </div>
+                <div class="carousel-item skill-category">
+                  <div class="carousel-item-content">
+                    <h5 class="carousel-item-title">🌿 Adaptabilité</h5>
+                  </div>
+                </div>
+                <div class="carousel-item skill-category">
+                  <div class="carousel-item-content">
+                    <h5 class="carousel-item-title">🤝 Travail en équipe</h5>
+                  </div>
+                </div>
+                <div class="carousel-item skill-category">
+                  <div class="carousel-item-content">
+                    <h5 class="carousel-item-title">⚡ Rigueur</h5>
+                  </div>
+                </div>
               </div>
-              <div class="skill-category">
-                <h5>🌿 Adaptabilité</h5>
-              </div>
-              <div class="skill-category">
-                <h5>🤝 Travail en équipe</h5>
-              </div>
-              <div class="skill-category">
-                <h5>⚡ Rigueur</h5>
+              <div class="carousel-indicators" id="cvAtoutsIndicators">
+                <!-- Dots will be generated by JavaScript -->
               </div>
             </div>
           </div>
@@ -2359,7 +2454,7 @@
             <div class="education">
               <div class="edu-header">
                 <h4>Master 2 en Statistique-Économétrie-Data Science</h4>
-                <span class="period">2024 - 2025</span>
+                <span class="period">2020 - 2022</span>
               </div>
               <p class="school">
                 Institut Supérieur de la Statistique, d'Économétrie et de la
@@ -2371,7 +2466,7 @@
             <div class="education">
               <div class="edu-header">
                 <h4>Master 1 en Économie</h4>
-                <span class="period">2021 - 2023</span>
+                <span class="period">2019 - 2020</span>
               </div>
               <p class="school">
                 Université Félix Houphouët-Boigny de Cocody (UFHB)
@@ -2382,7 +2477,7 @@
             <div class="education">
               <div class="edu-header">
                 <h4>Licence en Économie</h4>
-                <span class="period">2017 - 2020</span>
+                <span class="period">2016 - 2019</span>
               </div>
               <p class="school">
                 Université Félix Houphouët-Boigny de Cocody (UFHB)
@@ -2393,7 +2488,7 @@
             <div class="education">
               <div class="edu-header">
                 <h4>Baccalauréat Scientifique D</h4>
-                <span class="period">2015 - 2016</span>
+                <span class="period">2016</span>
               </div>
               <p class="school">Lycée Classique d'Abidjan</p>
             </div>
@@ -2411,7 +2506,7 @@
 
             <div class="project">
               <h4>🌿 Projet Série Temporelle</h4>
-              <p>ANALYSE ET PREVISION DES VENTES POUR CORPORACION FAVORITA</p>
+              <p>ANALYSE AND PREVISION DES VENTES POUR CORPORACION FAVORITA</p>
             </div>
 
             <div class="project">
@@ -2446,46 +2541,78 @@
 
           <div class="cv-section">
             <h3>🏆 CERTIFICATIONS</h3>
-            <div class="certifications-list">
-              <div class="cert-item">
-                <h5>SQL Introduction</h5>
-                <span>Sololearn</span>
+            <div class="carousel-container" id="cvCertificationsCarousel">
+              <button class="carousel-nav prev" id="cvCertificationsPrev">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="carousel-nav next" id="cvCertificationsNext">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+              <div class="carousel-wrapper" id="cvCertificationsWrapper">
+                <div class="carousel-item cert-item">
+                  <div class="carousel-item-content">
+                    <h5 class="carousel-item-title">SQL Introduction</h5>
+                    <span>Sololearn</span>
+                  </div>
+                </div>
+                <div class="carousel-item cert-item">
+                  <div class="carousel-item-content">
+                    <h5 class="carousel-item-title">SQL Intermédiaire</h5>
+                    <span>Sololearn</span>
+                  </div>
+                </div>
+                <div class="carousel-item cert-item">
+                  <div class="carousel-item-content">
+                    <h5 class="carousel-item-title">Introduction Python</h5>
+                    <span>Sololearn</span>
+                  </div>
+                </div>
+                <div class="carousel-item cert-item">
+                  <div class="carousel-item-content">
+                    <h5 class="carousel-item-title">Data Visualisation</h5>
+                    <span>Sololearn</span>
+                  </div>
+                </div>
               </div>
-              <div class="cert-item">
-                <h5>SQL Intermédiaire</h5>
-                <span>Sololearn</span>
-              </div>
-              <div class="cert-item">
-                <h5>Introduction Python</h5>
-                <span>Sololearn</span>
-              </div>
-              <div class="cert-item">
-                <h5>Data Visualisation</h5>
-                <span>Sololearn</span>
+              <div class="carousel-indicators" id="cvCertificationsIndicators">
+                <!-- Dots will be generated by JavaScript -->
               </div>
             </div>
           </div>
 
           <div class="cv-section">
             <h3>💡 CENTRES D'INTÉRÊT</h3>
-            <div
-              style="
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                gap: 1rem;
-              "
-            >
-              <div class="skill-category">
-                <h5>📊 L'univers de la data</h5>
+            <div class="carousel-container" id="cvInterestsCarousel">
+              <button class="carousel-nav prev" id="cvInterestsPrev">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="carousel-nav next" id="cvInterestsNext">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+              <div class="carousel-wrapper" id="cvInterestsWrapper">
+                <div class="carousel-item skill-category">
+                  <div class="carousel-item-content">
+                    <h5 class="carousel-item-title">📊 L'univers de la data</h5>
+                  </div>
+                </div>
+                <div class="carousel-item skill-category">
+                  <div class="carousel-item-content">
+                    <h5 class="carousel-item-title">🚀 Technologies émergentes</h5>
+                  </div>
+                </div>
+                <div class="carousel-item skill-category">
+                  <div class="carousel-item-content">
+                    <h5 class="carousel-item-title">🏀 Basket-ball</h5>
+                  </div>
+                </div>
+                <div class="carousel-item skill-category">
+                  <div class="carousel-item-content">
+                    <h5 class="carousel-item-title">🏊 Natation</h5>
+                  </div>
+                </div>
               </div>
-              <div class="skill-category">
-                <h5>🚀 Technologies émergentes</h5>
-              </div>
-              <div class="skill-category">
-                <h5>🏀 Basket-ball</h5>
-              </div>
-              <div class="skill-category">
-                <h5>🏊 Natation</h5>
+              <div class="carousel-indicators" id="cvInterestsIndicators">
+                <!-- Dots will be generated by JavaScript -->
               </div>
             </div>
           </div>
@@ -2503,7 +2630,7 @@
     <!-- Footer -->
     <footer>
       <p>
-        &copy; 2025 Onesime N'Dri | Portfolio Data Analyst - Powered by Nature & Data 🌿
+        &copy; 2025 Onesime N'Dri | Portfolio Data Analyst - Powered by Netflix Style 🌿
       </p>
       <div
         style="
@@ -2535,8 +2662,8 @@
 
     <!-- JavaScript -->
     <script>
-      // Enhanced Particle System - Nature Inspired
-      class NatureParticleSystem {
+      // Enhanced Particle System - Netflix Inspired
+      class NetflixParticleSystem {
         constructor() {
           this.canvas = document.getElementById("particle-bg");
           this.ctx = this.canvas.getContext("2d");
@@ -2554,7 +2681,7 @@
           this.particles = [];
 
           for (let i = 0; i < this.particleCount; i++) {
-            this.particles.push(new NatureParticle(this.canvas));
+            this.particles.push(new NetflixParticle(this.canvas));
           }
         }
 
@@ -2614,7 +2741,7 @@
         }
       }
 
-      class NatureParticle {
+      class NetflixParticle {
         constructor(canvas) {
           this.canvas = canvas;
           this.reset();
@@ -2847,11 +2974,11 @@
           "mobileThemeToggleBtn"
         );
 
-        // Initialize nature particle system
-        new NatureParticleSystem();
+        // Initialize Netflix particle system
+        new NetflixParticleSystem();
 
         // Initialize carousels
-        let visualisationCarousel, certificationsCarousel;
+        let projectsCarousel, visualisationCarousel, certificationsCarousel, skillsCarousel, contactCarousel, cvSkillsCarousel, cvLanguagesCarousel, cvAtoutsCarousel, cvCertificationsCarousel, cvInterestsCarousel;
 
         // Theme toggle functionality
         function toggleTheme() {
@@ -2895,11 +3022,27 @@
             
             // Initialize carousels when their pages are shown
             setTimeout(() => {
+              if (pageId === 'projects' && !projectsCarousel) {
+                projectsCarousel = new Carousel('projectsCarousel');
+              }
               if (pageId === 'visualisation' && !visualisationCarousel) {
                 visualisationCarousel = new Carousel('visualisationCarousel');
               }
               if (pageId === 'certifications' && !certificationsCarousel) {
                 certificationsCarousel = new Carousel('certificationsCarousel');
+              }
+              if (pageId === 'about' && !skillsCarousel) {
+                skillsCarousel = new Carousel('skillsCarousel');
+              }
+              if (pageId === 'contact' && !contactCarousel) {
+                contactCarousel = new Carousel('contactCarousel');
+              }
+              if (pageId === 'cv') {
+                if (!cvSkillsCarousel) cvSkillsCarousel = new Carousel('cvSkillsCarousel');
+                if (!cvLanguagesCarousel) cvLanguagesCarousel = new Carousel('cvLanguagesCarousel');
+                if (!cvAtoutsCarousel) cvAtoutsCarousel = new Carousel('cvAtoutsCarousel');
+                if (!cvCertificationsCarousel) cvCertificationsCarousel = new Carousel('cvCertificationsCarousel');
+                if (!cvInterestsCarousel) cvInterestsCarousel = new Carousel('cvInterestsCarousel');
               }
             }, 100);
           }
@@ -2999,5 +3142,3 @@
     </script>
   </body>
 </html>
-
-
